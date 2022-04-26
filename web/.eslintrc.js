@@ -5,13 +5,8 @@ module.exports = {
 		es2021: true,
 		node: true,
 	},
-	extends: [
-		'@nuxtjs/eslint-config',
-		'eslint:recommended',
-		'plugin:vue/essential',
-		'prettier',
-	],
-	plugins: ['vue'],
+	extends: ['@nuxtjs/eslint-config', 'plugin:nuxt/recommended', 'prettier'],
+	plugins: [],
 	rules: {
 		'vue/multi-word-component-names': 0,
 		'no-console': 0,

@@ -58,7 +58,7 @@ export default defineNuxtConfig({
 	modules: ['@nuxtjs/sanity'],
 
 	// build modules
-	buildModules: ['@pinia/nuxt'],
+	buildModules: ['@nuxtjs/eslint-module', '@pinia/nuxt'],
 
 	// vite
 	vite: {
