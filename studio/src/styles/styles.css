@@ -1,0 +1,20 @@
+:root {
+	/* --brand-primary: #4c00ff;
+	--state-info-color: #9d9bff; */
+	--main-navigation-color: #ffffff;
+	--main-navigation-color--inverted: #000000;
+}
+
+/* header */
+
+:global(#sanity > div > div > div) {
+	border-bottom: 1px solid rgba(119, 119, 119, 0.4);
+}
+
+/* Netlify Widget */
+
+:global(.NetlifyWidget_container_McXif button:hover span) {
+	background-color: #2276fc;
+	border-color: #2276fc;
+	cursor: pointer;
+}

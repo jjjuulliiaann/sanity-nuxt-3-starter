@@ -1,0 +1,47 @@
+@import "part:@sanity/base/theme/variables-style";
+
+.container {
+	composes: container from "part:@sanity/dashboard/widget-styles";
+}
+
+.header {
+	composes: header from "part:@sanity/dashboard/widget-styles";
+}
+
+.title {
+	composes: title from "part:@sanity/dashboard/widget-styles";
+}
+
+.content {
+	composes: content from "part:@sanity/dashboard/widget-styles";
+	border-top: 1px solid var(--hairline-color);
+	padding: var(--small-padding) 0;
+}
+
+.link {
+	composes: item from "part:@sanity/base/theme/layout/selectable-style";
+	display: block;
+	color: inherit;
+	text-decoration: none;
+	outline: none;
+	padding: var(--small-padding) var(--medium-padding);
+	height: 100%;
+}
+
+.list {
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: 2rem;
+	/*  margin: 0.5rem 1rem 2rem 1rem; */
+}
+
+.icon {
+	position: relative;
+	top: 2px;
+	margin-right: 0.2rem;
+}
+
+.text {
+	position: relative;
+	padding: 0 var(--medium-padding);
+}
