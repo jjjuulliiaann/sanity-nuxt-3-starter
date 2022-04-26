@@ -1,0 +1,22 @@
+{
+	"name": "web",
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview"
+	},
+	"dependencies": {
+		"@pinia/nuxt": "^0.1.8",
+		"pinia": "^2.0.13"
+	},
+	"devDependencies": {
+		"eslint": "^8.14.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-vue": "^8.7.1",
+		"nuxt": "3.0.0-rc.1",
+		"prettier": "^2.6.2",
+		"vite-plugin-eslint": "^1.6.0"
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"private": true,
+	"name": "sanity-nuxt-3-starter",
+	"version": "1.0.0",
+	"workspaces": [
+		"studio",
+		"web"
+	],
+	"config": {
+		"nuxt": {
+			"host": "0.0.0.0"
+		}
+	},
+	"devDependencies": {
+		"npm-run-all": "^4.1.5"
+	},
+	"scripts": {
+		"start": "npm-run-all -p web:dev studio:dev",
+		"web:dev": "cd web && npm run dev",
+		"studio:dev": "cd studio && npm run dev",
+		"build": "npm run build -ws",
+		"lint": "npm run lint -ws"
+	}
+}

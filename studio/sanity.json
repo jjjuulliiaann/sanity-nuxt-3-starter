@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "project": {
+    "name": "Sanity Nuxt 3 Starter"
+  },
+  "api": {
+    "projectId": "nwd3y69e",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    }
+  ]
+}

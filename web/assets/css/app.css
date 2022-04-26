@@ -1,0 +1,21 @@
+@import '@/assets/css/variables.css';
+
+::selection {
+	background: rgba(0, 0, 0, 0.99);
+	color: rgb(255, 255, 255);
+}
+::-moz-selection {
+	background: rgba(0, 0, 0, 0.99);
+	color: rgb(255, 255, 255);
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	-webkit-tap-highlight-color: transparent;
+	background: rgb(var(--clr-black));
+	color: rgb(var(--clr-accent));
+	font-family: sans-serif;
+}
