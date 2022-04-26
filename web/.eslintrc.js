@@ -5,9 +5,19 @@ module.exports = {
 		es2021: true,
 		node: true,
 	},
-	extends: ['eslint:recommended', 'plugin:vue/essential', 'prettier'],
+	extends: [
+		'@nuxtjs/eslint-config',
+		'eslint:recommended',
+		'plugin:vue/essential',
+		'prettier',
+	],
 	plugins: ['vue'],
 	rules: {
 		'vue/multi-word-component-names': 0,
+		'no-console': 0,
+	},
+	globals: {
+		groq: 'readonly',
+		useSanityQuery: 'readonly',
 	},
 }

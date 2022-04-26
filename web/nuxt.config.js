@@ -55,10 +55,21 @@ export default defineNuxtConfig({
 	css: ['~/assets/css/reset.css', '~/assets/css/app.css'],
 
 	// modules
+	modules: ['@nuxtjs/sanity'],
+
+	// build modules
 	buildModules: ['@pinia/nuxt'],
 
 	// vite
 	vite: {
 		plugins: [eslintPlugin()],
+	},
+
+	// sanity
+	sanity: {
+		projectId: process.env.SANITY_PROJECT_ID,
+		dataset: process.env.SANITY_DATASET,
+		apiVersion: '2022-04-26',
+		useCdn: true,
 	},
 })

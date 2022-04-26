@@ -6,6 +6,11 @@
 		>
 			{{ mainStore.counter }}
 		</p>
+
+		<ElementsTheTest />
+
+		<h1>{{ data.title }}</h1>
+
 		<div class="buttons">
 			<button @click="increase">Add 1</button>
 			<button @click="randomize">Randomize</button>
@@ -30,6 +35,12 @@ const randomize = () => {
 	mainStore.randomizeCounter()
 	console.log(mainStore.counter)
 }
+
+const query = groq`*[_type == 'templateHome'][0]{
+  ...
+}`
+const { data } = useSanityQuery(query)
+console.log(data.value)
 </script>
 
 <style scoped>
@@ -42,7 +53,8 @@ main {
 	padding: 1rem;
 }
 
-.counter {
+.counter,
+h1 {
 	position: relative;
 	padding: 1rem;
 	font-size: 200%;
