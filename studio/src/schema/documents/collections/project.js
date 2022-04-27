@@ -8,6 +8,12 @@ export default {
 	type: "document",
 	icon: BiBookAlt,
 	__experimental_actions: ["update", "create", "delete", "publish"],
+	groups: [
+		{
+			title: "SEO",
+			name: "seo",
+		},
+	],
 	fields: [
 		{
 			title: "Title",
@@ -51,6 +57,7 @@ export default {
 			title: "SEO",
 			name: "seo",
 			type: "seo",
+			group: "seo",
 		},
 	],
 

@@ -48,13 +48,13 @@ export default {
 		},
 		/* cookies */
 		{
-			title: "Text",
+			title: "Cookie Text",
 			name: "cookieText",
 			type: "contentParagraph",
 			group: "cookies",
 		},
 		{
-			title: "Button",
+			title: "Cookie Button",
 			name: "cookieButton",
 			type: "string",
 			group: "cookies",
