@@ -232,6 +232,10 @@ em {
 	font-style: italic;
 }
 
+.text--white {
+	color: rgb(var(--clr-white));
+}
+
 /* blocks */
 
 .blockcontent p {
