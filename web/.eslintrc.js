@@ -14,5 +14,14 @@ module.exports = {
 	globals: {
 		groq: 'readonly',
 		useSanityQuery: 'readonly',
+		useRoute: 'readonly',
+		ref: 'readonly',
+		computed: 'readonly',
+		onMounted: 'readonly',
+		defineNuxtRouteMiddleware: 'readonly',
+		definePageMeta: 'readonly',
+		defineProps: 'readonly',
+		abortNavigation: 'readonly',
+		clearError: 'readonly',
 	},
 }

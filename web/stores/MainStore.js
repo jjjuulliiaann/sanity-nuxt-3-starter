@@ -9,6 +9,9 @@ export const useMainStore = defineStore('MainStore', {
 				height: 0,
 				isMobile: false,
 			},
+			messages: {
+				notFound: 'Page not found.',
+			},
 		}
 	},
 

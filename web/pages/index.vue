@@ -1,16 +1,29 @@
 <template>
 	<main>
 		<Counter />
-		<h1 class="text-lg text--bold">{{ data.title }}</h1>
+		<h1 class="text-lg text--bold">{{ contentStore.home.title }}</h1>
 		<p class="text-base">Some text in font size base</p>
+		<button @click="test">Click!</button>
+		<p class="text-base">{{ testValue }}</p>
 	</main>
 </template>
 
 <script setup>
-const query = groq`*[_type == 'templateHome'][0]{
-  ...
-}`
-const { data } = useSanityQuery(query)
+import { useContentStore } from '~/stores/ContentStore'
+
+// get data
+const contentStore = useContentStore()
+contentStore.fetchHome()
+
+onMounted(() => {
+	console.log(contentStore.home)
+})
+
+// test
+const testValue = ref('')
+const test = () => {
+	testValue.value = contentStore.getHomeTitle
+}
 </script>
 
 <style scoped>

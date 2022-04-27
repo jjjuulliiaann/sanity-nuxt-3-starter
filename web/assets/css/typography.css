@@ -31,8 +31,6 @@
 			(100vw - (var(--viewport-min) * 1px)) / (var(--viewport-max) - var(--viewport-min))
 	);
 
-	/* sizes */
-
 	/* sm */
 	--sm-size-min: 16;
 	--sm-size-max: 18;
@@ -101,8 +99,6 @@
 		--viewport-max: 2000;
 		--unit-min: 20;
 		--unit-max: 25;
-		
-		/* sizes */
 
 		/* sm */
 		--sm-size-min: 15;
