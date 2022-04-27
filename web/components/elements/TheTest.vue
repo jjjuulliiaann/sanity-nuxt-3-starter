@@ -1,14 +1,19 @@
 <template>
-	<div>
-		<h1>⛰</h1>
-	</div>
+	<div class="text-xl">⛰</div>
 </template>
 
 <script setup></script>
 
 <style scoped>
-h1 {
-	color: white;
-	font-size: 200%;
+div {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	width: 10rem;
+	height: 10rem;
+	border-radius: 1rem;
+	background: rgb(var(--clr-accent));
 }
 </style>

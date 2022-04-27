@@ -1,4 +1,5 @@
 @import '@/assets/css/variables.css';
+@import '@/assets/css/typography.css';
 
 ::selection {
 	background: rgba(0, 0, 0, 0.99);
@@ -15,7 +16,36 @@ html {
 
 body {
 	-webkit-tap-highlight-color: transparent;
-	background: rgb(var(--clr-black));
-	color: rgb(var(--clr-accent));
-	font-family: sans-serif;
+	background: rgb(var(--clr-white));
+}
+
+/* layout */
+
+.container {
+	position: relative;
+}
+
+/* transitions */
+
+.page-enter-active {
+	transition: opacity 0.5s ease-out;
+}
+
+.page-leave-active {
+	transition: opacity 0s ease;
+}
+
+.page-enter,
+.page-leave-to {
+	opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.5s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
 }

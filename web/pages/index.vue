@@ -9,7 +9,10 @@
 
 		<ElementsTheTest />
 
-		<h1>{{ data.title }}</h1>
+		<h1 class="text-lg text--bold">{{ data.title }}</h1>
+
+		<p class="text-sm">Some text in font size sm</p>
+		<p class="text-base">Some text in font size base</p>
 
 		<div class="buttons">
 			<button @click="increase">Add 1</button>
@@ -53,11 +56,14 @@ main {
 	padding: 1rem;
 }
 
-.counter,
-h1 {
+.counter {
 	position: relative;
 	padding: 1rem;
 	font-size: 200%;
+}
+
+h1 {
+	padding: 2rem 0;
 }
 
 .counter--empty {
@@ -71,6 +77,7 @@ h1 {
 
 button {
 	padding: 0.5rem;
+	margin-top: 1rem;
 	border-radius: 0.2rem;
 	background: rgb(var(--clr-accent));
 	color: rgb(var(--clr-white));

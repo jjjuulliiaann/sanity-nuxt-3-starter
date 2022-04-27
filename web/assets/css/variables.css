@@ -19,6 +19,11 @@
 	--clr-white: 255 255 255;
 	--clr-accent: 0, 220, 130;
 	--preview-banner-height: 43px;
-	--header-height-01: 4rem;
-	--header-height-02: 6rem;
+	--header-height: 4rem;
+}
+
+@media screen and (min-width: 700px) {
+	:root {
+		--header-height: 6rem;
+	}
 }
