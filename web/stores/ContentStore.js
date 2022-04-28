@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { slugsQuery, homeQuery } from '@/queries/contentQueries'
+import { slugsQuery, siteQuery, homeQuery } from '@/queries/contentQueries'
 
 export const useContentStore = defineStore('ContentStore', {
 	state: () => {
@@ -10,6 +10,7 @@ export const useContentStore = defineStore('ContentStore', {
 				isLoaded: false,
 			},
 			siteOptions: {},
+			siteNavigation: {},
 			home: {},
 		}
 	},
@@ -22,6 +23,13 @@ export const useContentStore = defineStore('ContentStore', {
 		async fetchSlugs() {
 			const { data } = await useSanityQuery(slugsQuery)
 			this.slugs = data.value
+			return this.slugs
+		},
+
+		async fetchSiteContent() {
+			const { data } = await useSanityQuery(siteQuery)
+			this.siteOptions = data.value.siteOptions
+			this.siteNavigation = data.value.siteNavigation
 			return this.slugs
 		},
 

@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { templateTextQuery } from '@/queries/contentQueries'
+import { pageTextQuery } from '@/queries/contentQueries'
 
 // validate
 definePageMeta({
@@ -18,7 +18,7 @@ definePageMeta({
 
 // get data
 const route = useRoute()
-const { data } = useSanityQuery(templateTextQuery, { slug: route.params.slug })
+const { data } = useSanityQuery(pageTextQuery, { slug: route.params.slug })
 </script>
 
 <style scoped>

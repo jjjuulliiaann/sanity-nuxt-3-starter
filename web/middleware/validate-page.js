@@ -2,7 +2,7 @@ import { useContentStore } from '@/stores/ContentStore'
 import { useMainStore } from '@/stores/MainStore'
 
 /* validation function for templateText pages */
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async (to) => {
 	const contentStore = useContentStore()
 	const mainStore = useMainStore()
 

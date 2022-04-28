@@ -48,7 +48,7 @@ const randomize = () => {
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
-	width: 12rem;
+	width: 14rem;
 	height: 6rem;
 	border-radius: 0.5rem;
 	background: rgb(var(--clr-accent));
@@ -59,7 +59,7 @@ const randomize = () => {
 }
 
 .buttons {
-	width: 12rem;
+	width: 14rem;
 	display: flex;
 	justify-content: space-between;
 	gap: 0.5rem;

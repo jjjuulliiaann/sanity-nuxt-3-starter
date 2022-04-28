@@ -1,29 +1,13 @@
-@custom-media --width-mobile-01 (min-width: 320px);
-@custom-media --width-mobile-02 (min-width: 375px);
-@custom-media --width-mobile-03 (min-width: 450px);
-
-@custom-media --width-tablet-01 (min-width: 700px);
-@custom-media --width-tablet-02 (min-width: 850px);
-
-@custom-media --width-desktop-01 (min-width: 1000px);
-@custom-media --width-desktop-02 (min-width: 1300px);
-@custom-media --width-desktop-03 (min-width: 1500px);
-@custom-media --width-desktop-04 (min-width: 2000px);
-
-@custom-media --height-01 (max-height: 550px);
-@custom-media --height-02 (max-height: 750px);
-@custom-media --height-03 (max-height: 900px);
-
 :root {
 	--clr-black: 0 0 0;
 	--clr-white: 255 255 255;
 	--clr-accent: 0, 220, 130;
 	--preview-banner-height: 43px;
-	--header-height: 4rem;
+	--header-height: 2rem;
 }
 
-@media screen and (min-width: 700px) {
+@media (--w-tablet-1) {
 	:root {
-		--header-height: 6rem;
+		--header-height: 3rem;
 	}
 }
