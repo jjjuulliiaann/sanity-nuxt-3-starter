@@ -32,13 +32,15 @@ const contentStore = useContentStore()
 	list-style: none;
 	margin: 0 -1rem;
 
-	@media (--w-mobile-3) {
+	@media (--w-tablet-1) {
 		display: flex;
 	}
 }
 
 .navigation__item {
-	padding: 0 1rem;
+	@media (--w-tablet-1) {
+		padding: 0 0.5rem;
+	}
 }
 
 @media (hover: hover) and (pointer: fine) {

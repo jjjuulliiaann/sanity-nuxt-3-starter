@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<div class="header__bar">
-			<NuxtLink :to="{ name: 'index' }"
+			<NuxtLink :to="{ name: 'index' }" class="text--bold"
 				>{{ contentStore.siteOptions?.name }}
 				{{ contentStore.siteOptions?.headerTitle }}</NuxtLink
 			>
@@ -21,10 +21,14 @@ const contentStore = useContentStore()
 header {
 	position: sticky;
 	top: 0;
-	height: var(--header-height);
+
 	background: rgb(var(--clr-white));
-	border-bottom: 1px solid rgb(var(--clr-black) / 0.1);
+	border-bottom: 1px solid rgb(var(--clr-black) / 0.15);
 	z-index: 999;
+
+	@media (--w-tablet-1) {
+		min-height: var(--header-height);
+	}
 }
 
 .header__bar {

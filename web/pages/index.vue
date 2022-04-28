@@ -1,7 +1,7 @@
 <template>
 	<main>
 		<Counter />
-		<h1 class="text-lg text--bold">{{ contentStore.home?.title }}</h1>
+		<h1 class="text-lg text--bold">{{ contentStore.pageHome?.title }}</h1>
 		<p class="text-base">Some text in font size base</p>
 		<button @click="test">Click!</button>
 	</main>

@@ -62,10 +62,10 @@
 	--base-tracking: -0.015rem;
 
 	/* lg */
-	--lg-size-min: 30;
-	--lg-size-max: 34;
-	--lg-leading-min: 30;
-	--lg-leading-max: 34;
+	--lg-size-min: 24;
+	--lg-size-max: 28;
+	--lg-leading-min: 24;
+	--lg-leading-max: 28;
 	--lg-size: calc(
 			(var(--lg-size-min) * 1px) + (var(--lg-size-max) - var(--lg-size-min)) *
 				(100vw - (var(--viewport-min) * 1px)) / (var(--viewport-max) - var(--viewport-min))
@@ -115,10 +115,10 @@
 		--base-tracking: -0.02rem;
 
 		/* lg */
-		--lg-size-min: 40;
-		--lg-size-max: 60;
-		--lg-leading-min: 40;
-		--lg-leading-max: 60;
+		--lg-size-min: 30;
+		--lg-size-max: 48;
+		--lg-leading-min: 30;
+		--lg-leading-max: 48;
 		--lg-tracking: -0.02rem;
 
 		/* xl */

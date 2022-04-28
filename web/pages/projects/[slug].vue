@@ -1,10 +1,18 @@
 <template>
-	<main class="textpage">Projekt: {{ slug }}</main>
+	<main class="textpage">
+		<h1 class="text-lg text--bold">{{ data.title }}</h1>
+	</main>
 </template>
 
 <script setup>
+import { singleProjectQuery } from '@/queries/contentQueries'
+
 const route = useRoute()
-const slug = route.params.slug
+
+// get data
+const { data } = await useSanityQuery(singleProjectQuery, {
+	slug: route.params.slug,
+})
 </script>
 
 <style scoped>

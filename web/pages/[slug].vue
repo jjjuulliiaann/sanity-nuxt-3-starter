@@ -1,6 +1,6 @@
 <template>
 	<main class="textpage">
-		<h1>{{ data.title }}</h1>
+		<h1 class="text-lg text--bold">{{ data.title }}</h1>
 
 		<!-- <section class="blockcontent text-01">
 			<ElementsTextBlock :blocks="data.content" />
@@ -18,7 +18,9 @@ definePageMeta({
 
 // get data
 const route = useRoute()
-const { data } = useSanityQuery(pageTextQuery, { slug: route.params.slug })
+const { data } = await useSanityQuery(pageTextQuery, {
+	slug: route.params.slug,
+})
 </script>
 
 <style scoped>

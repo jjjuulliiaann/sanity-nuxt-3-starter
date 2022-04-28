@@ -1,4 +1,9 @@
-import { contentBlockQuery, seoQuery, linkQuery } from '@/queries/helperQueries'
+import {
+	contentBlockQuery,
+	seoQuery,
+	linkQuery,
+	imageLoopArrayQuery,
+} from '@/queries/helperQueries'
 
 export const slugsQuery = groq`{
 	"pages": *[_type == "templateText"].slug.current,
@@ -38,5 +43,24 @@ export const pageTextQuery = groq`
 		${contentBlockQuery}
 	},
 	${seoQuery}
+}
+`
+
+export const projectsQuery = groq`
+*[(_type == "pageProjects")] | order(_updatedAt desc)[0]{
+	...,
+	projects[]->{title, slug}
+}
+`
+
+export const singleProjectQuery = groq`
+*[_type == 'project' && slug.current == $slug] | order(_updatedAt desc) [0]{
+	...,
+	content[] {
+		${contentBlockQuery}
+	},
+	images[]{
+		${imageLoopArrayQuery}
+	},
 }
 `
