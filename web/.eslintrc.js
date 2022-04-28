@@ -6,7 +6,6 @@ module.exports = {
 		node: true,
 	},
 	extends: [
-		'@nuxtjs/eslint-config',
 		'plugin:vue/essential',
 		'@nuxtjs/eslint-config-typescript',
 		'prettier',

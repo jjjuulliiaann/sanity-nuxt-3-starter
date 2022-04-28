@@ -42,7 +42,7 @@ const contentStore = useContentStore()
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.navigation__item >>> .link:hover {
+	.navigation__item:deep(.link:hover) {
 		color: rgb(var(--clr-accent));
 	}
 }
