@@ -2,8 +2,8 @@ import { BiFile } from "react-icons/bi/";
 import { slugify, validateSlug } from "../../../utils/helperFunctions.js";
 
 export default {
-	title: "Page",
-	name: "templateProjects",
+	title: "Pages",
+	name: "pageText",
 	type: "document",
 	icon: BiFile,
 	__experimental_actions: ["update", "create", "delete", "publish"],
@@ -13,9 +13,6 @@ export default {
 			name: "seo",
 		},
 	],
-	initialValue: {
-		slug: "projects",
-	},
 	fields: [
 		{
 			title: "Title",
@@ -27,23 +24,16 @@ export default {
 			title: "Slug",
 			name: "slug",
 			type: "slug",
+			options: {
+				source: "title",
+				slugify: slugify,
+			},
 			validation: validateSlug,
-			readOnly: true,
 		},
 		{
-			title: "Featured Projects",
-			name: "projects",
-			type: "array",
-			of: [
-				{
-					type: "reference",
-					to: [{ type: "project" }],
-				},
-			],
-			validation: (Rule) => Rule.unique(),
-			options: {
-				editModal: "popover",
-			},
+			title: "Content",
+			name: "content",
+			type: "contentParagraph",
 		},
 		{
 			title: "SEO",

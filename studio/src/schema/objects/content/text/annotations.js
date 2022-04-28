@@ -45,9 +45,9 @@ export const annotations = [
 				type: "reference",
 				hidden: ({ parent }) => parent?.linkType !== "internal",
 				to: [
-					{ type: "templateHome" },
-					{ type: "templateText" },
-					{ type: "templateProjects" },
+					{ type: "pageHome" },
+					{ type: "pageProjects" },
+					{ type: "pageText" },
 					{ type: "project" },
 				],
 			},

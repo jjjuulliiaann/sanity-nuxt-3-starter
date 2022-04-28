@@ -2,7 +2,7 @@ import { BiHome } from "react-icons/bi/";
 
 export default {
 	title: "Home",
-	name: "templateHome",
+	name: "pageHome",
 	type: "document",
 	icon: BiHome,
 	__experimental_actions: ["update", "create", "delete", "publish"],

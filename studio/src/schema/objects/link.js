@@ -60,9 +60,9 @@ export default {
 					}
 				}),
 			to: [
-				{ type: "templateHome" },
-				{ type: "templateText" },
-				{ type: "templateProjects" },
+				{ type: "pageHome" },
+				{ type: "pageProjects" },
+				{ type: "pageText" },
 				{ type: "project" },
 			],
 		},
@@ -87,9 +87,9 @@ export default {
 			linkTemplate,
 		}) {
 			const previewSymbol = {
-				templateHome: BiHome,
-				templateText: BiFile,
-				templateProjects: BiBookAlt,
+				pageHome: BiHome,
+				pageProjects: BiBookAlt,
+				pageText: BiFile,
 				project: BiBookAlt,
 			};
 			return {

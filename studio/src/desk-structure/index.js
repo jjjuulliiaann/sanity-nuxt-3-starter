@@ -31,8 +31,8 @@ export default () =>
 		.title("Content")
 		.items([
 			singletonPage({
-				id: "templateHome",
-				schemaType: "templateHome",
+				id: "pageHome",
+				schemaType: "pageHome",
 				preview: true,
 			}),
 
@@ -56,8 +56,8 @@ export default () =>
 							S.divider(),
 
 							singletonPage({
-								id: "templateProjects",
-								schemaType: "templateProjects",
+								id: "pageProjects",
+								schemaType: "pageProjects",
 								preview: true,
 							}),
 						])
@@ -66,7 +66,7 @@ export default () =>
 			S.divider(),
 
 			collectionList({
-				id: "templateText",
+				id: "pageText",
 				defaultOrdering: [
 					{
 						field: "title",

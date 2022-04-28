@@ -3,11 +3,11 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 // documents
 import project from "./documents/collections/project";
-import templateHome from "./documents/pages/templateHome";
-import templateProjects from "./documents/pages/templateProjects";
-import templateText from "./documents/pages/templateText";
-import siteOptions from "./documents/singletons/siteOptions";
-import siteNavigation from "./documents/singletons/siteNavigation";
+import pageText from "./documents/collections/pageText";
+import pageHome from "./documents/pages/pageHome";
+import pageProjects from "./documents/pages/pageProjects";
+import siteOptions from "./documents/site/siteOptions";
+import siteNavigation from "./documents/site/siteNavigation";
 // objects
 import contentText from "./objects/content/contentText";
 import contentParagraph from "./objects/content/contentParagraph";
@@ -24,9 +24,9 @@ export default createSchema({
 	types: schemaTypes.concat([
 		// documents
 		project,
-		templateHome,
-		templateProjects,
-		templateText,
+		pageText,
+		pageHome,
+		pageProjects,
 		siteOptions,
 		siteNavigation,
 		// objects
