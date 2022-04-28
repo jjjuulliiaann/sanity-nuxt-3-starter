@@ -1,9 +1,9 @@
 <template>
 	<main>
 		<Counter />
-		<h1 class="text-lg text--bold">{{ contentStore.pageHome?.title }}</h1>
-		<p class="text-base">Some text in font size base</p>
-		<button @click="test">Click!</button>
+		<section class="text-base">
+			<ElementsTextBlock :blocks="contentStore.pageHome?.content" />
+		</section>
 	</main>
 </template>
 
@@ -17,7 +17,6 @@ contentStore.fetchHome()
 
 <style scoped>
 main {
-	min-height: 100vh;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;

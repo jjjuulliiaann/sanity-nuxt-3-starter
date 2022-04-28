@@ -16,7 +16,9 @@
 						route="projects-slug"
 						:slug="project.slug.current"
 					>
-						<h2 class="text--bold">{{ project.title }}</h2>
+						<h2 class="text--bold text--white">
+							{{ project.title }}
+						</h2>
 					</ElementsTextLink>
 				</li>
 			</ul>
@@ -52,7 +54,7 @@ main {
 }
 
 .projects__item {
-	border: 1px solid rgb(var(--clr-black) / 0.15);
+	background: rgb(var(--clr-accent));
 	border-radius: 0.2rem;
 	box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0);
 	transition: box-shadow 0.5s ease;
@@ -67,7 +69,7 @@ main {
 
 @media (hover: hover) and (pointer: fine) {
 	.projects__item:hover {
-		box-shadow: 0px 5px 14px 5px rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 5px 14px 5px rgba(0, 0, 0, 0.2);
 	}
 }
 </style>

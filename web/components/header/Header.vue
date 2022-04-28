@@ -21,10 +21,9 @@ const contentStore = useContentStore()
 header {
 	position: sticky;
 	top: 0;
-
-	background: rgb(var(--clr-white));
-	border-bottom: 1px solid rgb(var(--clr-black) / 0.15);
-	z-index: 999;
+	background: rgb(var(--clr-white) / 0.5);
+	backdrop-filter: blur(10px);
+	z-index: 99;
 
 	@media (--w-tablet-1) {
 		min-height: var(--header-height);

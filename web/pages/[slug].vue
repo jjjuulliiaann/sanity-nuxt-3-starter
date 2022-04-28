@@ -26,7 +26,6 @@ const { data } = await useSanityQuery(pageTextQuery, {
 <style scoped>
 .textpage {
 	position: relative;
-	min-height: 90vh;
 	padding: 1rem;
 }
 

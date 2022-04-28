@@ -12,7 +12,8 @@
 		"@pinia/nuxt": "^0.1.8",
 		"@sanity/image-url": "^1.0.1",
 		"groq": "^2.29.3",
-		"pinia": "^2.0.13"
+		"pinia": "^2.0.13",
+		"sanity-blocks-vue-component": "^1.0.1"
 	},
 	"devDependencies": {
 		"@nuxtjs/eslint-config-typescript": "^9.0.0",

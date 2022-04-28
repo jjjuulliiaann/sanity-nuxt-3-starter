@@ -25,6 +25,12 @@ body {
 	position: relative;
 }
 
+main {
+	@media (--w-tablet-1) {
+		min-height: calc(100vh - var(--header-height));
+	}
+}
+
 /* transitions */
 
 .page-enter-active {

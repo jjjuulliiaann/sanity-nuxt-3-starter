@@ -18,7 +18,6 @@ const { data } = await useSanityQuery(singleProjectQuery, {
 <style scoped>
 .textpage {
 	position: relative;
-	min-height: 90vh;
 	padding: 1rem;
 }
 
