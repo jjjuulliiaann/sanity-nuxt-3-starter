@@ -26,6 +26,8 @@
 		"nuxt": "3.0.0-rc.1",
 		"postcss": "^8.4.12",
 		"postcss-cli": "^9.1.0",
+		"postcss-custom-media": "^8.0.0",
+		"postcss-nesting": "^10.1.4",
 		"prettier": "^2.6.2",
 		"vite-plugin-eslint": "^1.6.0"
 	}
