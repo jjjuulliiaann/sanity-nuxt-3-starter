@@ -108,10 +108,10 @@
 		--sm-tracking: -0.02rem;
 
 		/* base */
-		--base-size-min: 18;
-		--base-size-max: 20;
-		--base-leading-min: 22;
-		--base-leading-max: 22;
+		--base-size-min: 16;
+		--base-size-max: 18;
+		--base-leading-min: 18;
+		--base-leading-max: 20;
 		--base-tracking: -0.02rem;
 
 		/* lg */
@@ -189,9 +189,9 @@ body {
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	font-family: var(--font-regular);
-	font-size: var(--sm-size);
-	line-height: var(--sm-leading);
-	letter-spacing: var(--sm-tracking);
+	font-size: var(--base-size);
+	line-height: var(--base-leading);
+	letter-spacing: var(--base-tracking);
 	color: rgb(var(--clr-black));
 	font-weight: 400;
 }

@@ -15,7 +15,7 @@ module.exports = {
 	},
 	rules: {
 		'vue/script-setup-uses-vars': 'error',
-		'comma-dangle': [2, 'always-multiline'],
+		'comma-dangle': 0,
 		'no-tabs': 0,
 		'vue/multi-word-component-names': 0,
 		'no-console': 0,

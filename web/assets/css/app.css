@@ -1,6 +1,3 @@
-
-@import '@/assets/css/typography.css';
-
 ::selection {
 	background: rgba(0, 0, 0, 0.99);
 	color: rgb(255, 255, 255);
@@ -26,6 +23,7 @@ body {
 }
 
 main {
+
 	@media (--w-tablet-1) {
 		min-height: calc(100vh - var(--header-height));
 	}
@@ -33,15 +31,11 @@ main {
 
 /* transitions */
 
-.page-enter-active {
-	transition: opacity 0.5s ease-out;
+.page-enter-active, .page-leave-active {
+	transition: opacity 0.5s ease;
 }
 
-.page-leave-active {
-	transition: opacity 0s ease;
-}
-
-.page-enter,
+.page-enter-from,
 .page-leave-to {
 	opacity: 0;
 }

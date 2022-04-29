@@ -12,6 +12,7 @@
 		"@pinia/nuxt": "^0.1.8",
 		"@sanity/image-url": "^1.0.1",
 		"groq": "^2.29.3",
+		"lazysizes": "^5.3.2",
 		"pinia": "^2.0.13",
 		"sanity-blocks-vue-component": "^1.0.1"
 	},

@@ -16,9 +16,13 @@
 						route="projects-slug"
 						:slug="project.slug.current"
 					>
-						<h2 class="text--bold text--white">
+						<h2 class="text-base text--bold text--white">
 							{{ project.title }}
 						</h2>
+						<ElementsMediaBaseImage
+							:image="project.firstImage"
+							class="projects__item__image"
+						/>
 					</ElementsTextLink>
 				</li>
 			</ul>
@@ -49,27 +53,47 @@ main {
 	gap: 1rem;
 
 	@media (--w-tablet-1) {
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }
 
 .projects__item {
-	background: rgb(var(--clr-accent));
+	position: relative;
 	border-radius: 0.2rem;
 	box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0);
+	background: rgb(var(--clr-black));
 	transition: box-shadow 0.5s ease;
+	overflow: hidden;
 }
 
 .projects__item:deep(.link) {
 	position: relative;
 	display: block;
-	padding: 1rem;
 	min-height: 20vh;
+	line-height: 0;
+}
+
+h2 {
+	position: absolute;
+	padding: 1rem;
+	z-index: 2;
+}
+
+.projects__item__image {
+	position: relative;
+	width: 100%;
+	height: auto;
+	opacity: 0.8;
+	transition: opacity 0.5s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
 	.projects__item:hover {
-		box-shadow: 0px 5px 14px 5px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 5px 14px 5px rgba(0, 0, 0, 0.25);
+	}
+
+	.projects__item:hover .projects__item__image {
+		opacity: 1;
 	}
 }
 </style>

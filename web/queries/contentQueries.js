@@ -49,7 +49,7 @@ export const pageTextQuery = groq`
 export const projectsQuery = groq`
 *[(_type == "pageProjects")] | order(_updatedAt desc)[0]{
 	...,
-	projects[]->{title, slug}
+	projects[]->{title, slug, "firstImage": images[0]{..., asset->}}
 }
 `
 
