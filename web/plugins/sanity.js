@@ -1,7 +1,8 @@
 import { useContentStore } from '~/stores/ContentStore'
 
-export default defineNuxtPlugin(() => {
-	console.log('sanity plugin in operation')
+export default defineNuxtPlugin(async () => {
+	console.log('fetch global data on start')
+
 	const contentStore = useContentStore()
-	return contentStore.fetchSiteContent()
+	await contentStore.fetchSiteContent()
 })

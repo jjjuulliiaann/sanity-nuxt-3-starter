@@ -69,7 +69,6 @@ main {
 .projects__item:deep(.link) {
 	position: relative;
 	display: block;
-	min-height: 20vh;
 	line-height: 0;
 }
 
