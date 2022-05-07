@@ -50,7 +50,7 @@ export default {
 		{
 			title: "Cookie Text",
 			name: "cookieText",
-			type: "contentParagraph",
+			type: "contentText",
 			group: "cookies",
 		},
 		{

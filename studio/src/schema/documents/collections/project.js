@@ -34,7 +34,7 @@ export default {
 		{
 			title: "Content",
 			name: "content",
-			type: "contentParagraph",
+			type: "contentTextMedia",
 		},
 		{
 			title: "Images",

@@ -9,11 +9,12 @@ import pageProjects from "./documents/pages/pageProjects";
 import siteOptions from "./documents/site/siteOptions";
 import siteNavigation from "./documents/site/siteNavigation";
 // objects
+import contentMinimal from "./objects/content/contentMinimal";
 import contentText from "./objects/content/contentText";
-import contentParagraph from "./objects/content/contentParagraph";
-import contentFull from "./objects/content/contentFull";
+import contentTextMedia from "./objects/content/contentTextMedia";
 import blockImage from "./objects/content/blocks/blockImage";
 import blockLoop from "./objects/content/blocks/blockLoop";
+import blockVideo from "./objects/content/blocks/blockVideo";
 import link from "./objects/link";
 import picture from "./objects/picture";
 import seo from "./objects/seo";
@@ -30,11 +31,12 @@ export default createSchema({
 		siteOptions,
 		siteNavigation,
 		// objects
+		contentMinimal,
 		contentText,
-		contentParagraph,
-		contentFull,
+		contentTextMedia,
 		blockImage,
 		blockLoop,
+		blockVideo,
 		link,
 		picture,
 		seo,

@@ -1,10 +1,10 @@
-import { BiTv } from "react-icons/bi/";
+import { BiMovie } from "react-icons/bi/";
 import { PreviewBlockLoop } from "./previews";
 
 export default {
-	title: "Video Loop",
+	title: "Loop",
 	name: "blockLoop",
-	icon: BiTv,
+	icon: BiMovie,
 	type: "object",
 	fields: [
 		{
@@ -18,6 +18,7 @@ export default {
 	preview: {
 		select: {
 			playbackId: "video.muxVideo.asset.playbackId",
+			duration: "video.muxVideo.asset.data.duration",
 		},
 		component: PreviewBlockLoop,
 	},

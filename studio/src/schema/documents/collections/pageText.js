@@ -33,7 +33,7 @@ export default {
 		{
 			title: "Content",
 			name: "content",
-			type: "contentParagraph",
+			type: "contentText",
 		},
 		{
 			title: "SEO",

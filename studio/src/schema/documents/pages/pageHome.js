@@ -15,7 +15,7 @@ export default {
 		{
 			title: "Content",
 			name: "content",
-			type: "contentFull",
+			type: "contentText",
 		},
 	],
 	preview: {

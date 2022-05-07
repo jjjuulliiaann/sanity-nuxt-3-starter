@@ -1,4 +1,4 @@
-import { renderHeadline } from "./renders.js";
+import { renderHeadline, renderSmall } from "./renders.js";
 
 // Define Hierarchie of text
 export const styles = [
@@ -8,6 +8,13 @@ export const styles = [
 		value: "headline",
 		blockEditor: {
 			render: renderHeadline,
+		},
+	},
+	{
+		title: "Small",
+		value: "small",
+		blockEditor: {
+			render: renderSmall,
 		},
 	},
 ];

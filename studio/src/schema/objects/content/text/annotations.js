@@ -9,6 +9,9 @@ export const annotations = [
 		blockEditor: {
 			icon: BiLink,
 		},
+		initialValue: {
+			linkType: "external",
+		},
 		fields: [
 			{
 				title: "Type",

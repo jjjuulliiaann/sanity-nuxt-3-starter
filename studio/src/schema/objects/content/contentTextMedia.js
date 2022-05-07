@@ -3,8 +3,8 @@ import { decorators } from "./text/decorators";
 import { annotations } from "./text/annotations";
 
 export default {
-	title: "Content Full",
-	name: "contentFull",
+	title: "Content",
+	name: "contentTextMedia",
 	type: "array",
 	of: [
 		{
@@ -21,5 +21,6 @@ export default {
 		},
 		{ type: "blockImage" },
 		{ type: "blockLoop" },
+		{ type: "blockVideo" },
 	],
 };
