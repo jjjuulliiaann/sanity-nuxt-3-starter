@@ -2,7 +2,7 @@
 	<main>
 		<Counter />
 		<section class="text-base">
-			<ElementsTextBlock :blocks="contentStore.pageHome?.content" />
+			<ElementsTextContent :blocks="contentStore.pageHome?.content" />
 		</section>
 	</main>
 </template>
