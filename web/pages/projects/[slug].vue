@@ -8,7 +8,9 @@
 			/>
 		</section>
 
-		<section class="project__text"></section>
+		<section class="project__text blockcontent">
+			<ElementsTextContent :blocks="data.content" />
+		</section>
 	</main>
 </template>
 
@@ -54,10 +56,9 @@ h1 {
 /* text */
 
 .project__text {
+	position: relative;
 	min-height: 50vh;
-}
-
-.blockcontent {
-	padding: 2rem 0;
+	padding: 1rem;
+	max-width: 60rem;
 }
 </style>

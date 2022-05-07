@@ -28,8 +28,4 @@ const { data } = await useSanityQuery(pageTextQuery, {
 	position: relative;
 	padding: 1rem;
 }
-
-.blockcontent {
-	padding: 2rem 0;
-}
 </style>

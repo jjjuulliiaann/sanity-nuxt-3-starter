@@ -101,10 +101,10 @@
 		--unit-max: 20;
 
 		/* sm */
-		--sm-size-min: 15;
-		--sm-size-max: 17;
-		--sm-leading-min: 17;
-		--sm-leading-max: 19;
+		--sm-size-min: 14;
+		--sm-size-max: 16;
+		--sm-leading-min: 16;
+		--sm-leading-max: 18;
 		--sm-tracking: -0.02rem;
 
 		/* base */
@@ -245,7 +245,7 @@ em {
 .blockcontent ul,
 .blockcontent ol {
 	padding-left: 2rem;
-	margin-bottom: 1rem;
+	margin: 1rem 0;
 }
 
 .blockcontent ul {
@@ -258,7 +258,11 @@ em {
 
 .blockcontent h2 {
 	font-weight: 700;
-	margin: 4rem 0 1rem;
+	margin: 2rem 0 1rem;
+}
+
+.blockcontent h2:first-child {
+	margin-top: 0;
 }
 
 /* blockcontent pictures */
