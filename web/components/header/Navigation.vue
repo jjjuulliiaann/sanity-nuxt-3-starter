@@ -30,9 +30,11 @@ const contentStore = useContentStore()
 <style scoped>
 .navigation {
 	list-style: none;
+	padding: 1rem;
 	margin: 0 -1rem;
 
 	@media (--w-tablet-1) {
+		padding: 0;
 		display: flex;
 	}
 }

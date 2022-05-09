@@ -7,7 +7,6 @@ export const useMainStore = defineStore('MainStore', {
 			window: {
 				width: 0,
 				height: 0,
-				isMobile: false,
 			},
 			messages: {
 				notFound: 'Page not found.',

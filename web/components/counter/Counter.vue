@@ -59,7 +59,7 @@ const randomize = () => {
 }
 
 .buttons {
-	width: 14rem;
+	/* width: 14rem; */
 	display: flex;
 	justify-content: space-between;
 	gap: 0.5rem;

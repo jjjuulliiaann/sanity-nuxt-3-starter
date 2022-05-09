@@ -5,14 +5,11 @@ module.exports = {
 		es2021: true,
 		node: true,
 	},
-	extends: [
-		'plugin:vue/essential',
-		'@nuxtjs/eslint-config-typescript',
-		'prettier',
-	],
+	extends: ['plugin:vue/vue3-essential', 'prettier'],
 	parserOptions: {
 		ecmaVersion: 'latest',
 	},
+	plugins: ['vue'],
 	rules: {
 		'vue/script-setup-uses-vars': 'error',
 		'comma-dangle': 0,

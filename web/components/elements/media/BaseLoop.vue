@@ -1,6 +1,5 @@
 <template>
 	<figure>
-		{{ isVisible }}
 		<video
 			ref="video"
 			class="video-loop"
