@@ -245,6 +245,7 @@ const toggleFullscreen = () => {
 	background: none;
 }
 
+.VideoPlayer:fullscreen,
 .VideoPlayer:fullscreen .VideoPlayer_Video {
 	position: absolute;
 	width: 100%;
