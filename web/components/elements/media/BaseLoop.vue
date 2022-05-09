@@ -1,11 +1,11 @@
 <template>
 	<figure>
+		{{ isVisible }}
 		<video
 			ref="video"
 			class="video-loop"
 			:class="{ 'video--playing': isPlaying }"
 			muted
-			autoplay
 			playsinline
 			loop
 			preload="auto"
@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import Hls from 'hls.js'
+import { useElementVisibility } from '@vueuse/core'
 
 const props = defineProps({
 	video: {
@@ -29,9 +29,11 @@ const props = defineProps({
 	},
 })
 
-// states
+// variables
+const video = ref(null)
 const isPlaying = ref(false)
 const isLoaded = ref(false)
+const isVisible = useElementVisibility(video)
 
 // dimensions
 const videoWidth = computed(
@@ -43,26 +45,9 @@ const videoHeight = computed(
 
 // setup
 const emit = defineEmits(['loaded'])
-const video = ref(null)
-const setupVideo = () => {
-	if (!props.video?.muxVideo?.asset?.data) {
-		return false
-	}
-	const stream = `https://stream.mux.com/${props.video.muxVideo.asset.playbackId}.m3u8`
+useMuxStream(props.video?.muxVideo?.asset?.playbackId, video)
 
-	if (Hls.isSupported()) {
-		const hls = new Hls()
-		hls.loadSource(stream)
-		hls.attachMedia(video.value)
-	} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-		video.value.src = stream
-	}
-}
-
-onMounted(() => {
-	setupVideo()
-})
-
+// handle play state
 const updatePaused = (event) => {
 	isPlaying.value = !event.target.paused
 	if (!isLoaded.value) {
@@ -70,4 +55,15 @@ const updatePaused = (event) => {
 		emit('loaded')
 	}
 }
+
+// play only when visible
+watch(isVisible, (isVisible) => {
+	if (video) {
+		if (!isPlaying.value) {
+			video.value.play()
+		} else {
+			video.value.pause()
+		}
+	}
+})
 </script>
