@@ -272,7 +272,8 @@ em {
 }
 
 .blockcontent figure,
-.blockcontent img {
+.blockcontent img,
+.blockcontent video {
 	width: 100%;
 	height: auto;
 }
