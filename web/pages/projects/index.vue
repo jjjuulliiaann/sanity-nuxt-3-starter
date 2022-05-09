@@ -1,6 +1,6 @@
 <template>
 	<main class="projects">
-		<h1 class="text-lg text--bold">
+		<h1 class="text-lg text_bold">
 			{{ contentStore.pageProjects.title }}
 		</h1>
 
@@ -16,7 +16,7 @@
 						route="projects-slug"
 						:slug="project.slug.current"
 					>
-						<h2 class="text-base text--bold text--white">
+						<h2 class="text-base text_bold text_white">
 							{{ project.title }}
 						</h2>
 						<ElementsMediaBaseImage

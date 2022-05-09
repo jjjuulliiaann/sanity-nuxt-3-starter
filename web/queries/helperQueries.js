@@ -26,6 +26,10 @@ export const contentBlockQuery = `
 	_type == "blockLoop" => {
 		video {muxVideo{asset->}}
 	},
+	_type == "blockVideo" => {
+		video {muxVideo{asset->}},
+		posterImage {..., asset->}
+	},
 	markDefs[]{
 		...,
 		_type == "download" => {"url": asset->url},

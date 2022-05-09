@@ -217,18 +217,18 @@ a {
 
 /* highlighting */
 
-.text--bold,
+.text_bold,
 .blockcontent strong {
 	font-weight: 700;
 }
 
-.text--italic,
+.text_italic,
 em {
 	font-family: var(--font-italic);
 	font-style: italic;
 }
 
-.text--white {
+.text_white {
 	color: rgb(var(--clr-white));
 }
 

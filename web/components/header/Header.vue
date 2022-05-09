@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<div class="header__bar">
-			<NuxtLink :to="{ name: 'index' }" class="text--bold"
+			<NuxtLink :to="{ name: 'index' }" class="text_bold"
 				>{{ contentStore.siteOptions?.name }}
 				{{ contentStore.siteOptions?.headerTitle }}</NuxtLink
 			>

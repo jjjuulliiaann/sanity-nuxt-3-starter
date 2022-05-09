@@ -4,7 +4,7 @@
 			class="counter__number"
 			:class="{ 'counter__number--empty': mainStore.counterIsZero }"
 		>
-			<span class="text-xl text--bold">{{ mainStore.counter }}</span>
+			<span class="text-xl text_bold">{{ mainStore.counter }}</span>
 		</div>
 
 		<div class="buttons">

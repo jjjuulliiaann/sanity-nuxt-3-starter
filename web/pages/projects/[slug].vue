@@ -1,7 +1,7 @@
 <template>
 	<main class="project">
 		<section class="project__titleimage">
-			<h1 class="text-lg text--bold text--white">{{ data.title }}</h1>
+			<h1 class="text-lg text_bold text_white">{{ data.title }}</h1>
 			<ElementsMediaBaseImage
 				:image="data.images[0]"
 				class="titleimage"

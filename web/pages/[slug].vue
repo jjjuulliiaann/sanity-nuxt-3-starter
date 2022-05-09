@@ -1,6 +1,6 @@
 <template>
 	<main class="textpage">
-		<h1 class="text-lg text--bold">{{ data.title }}</h1>
+		<h1 class="text-lg text_bold">{{ data.title }}</h1>
 
 		<!-- <section class="blockcontent text-01">
 			<ElementsTextBlock :blocks="data.content" />
