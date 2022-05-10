@@ -23,6 +23,9 @@ const route = useRoute()
 const { data } = await useSanityQuery(singleProjectQuery, {
 	slug: route.params.slug,
 })
+
+// meta
+useDefaultHead(data.value.title, data.value.seo)
 </script>
 
 <style scoped>

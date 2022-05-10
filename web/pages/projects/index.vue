@@ -36,6 +36,9 @@ import { useContentStore } from '~/stores/ContentStore'
 // get data
 const contentStore = useContentStore()
 contentStore.fetchProjects()
+
+// meta
+useDefaultHead(contentStore.pageProjects.title, contentStore.pageProjects.seo)
 </script>
 
 <style scoped>

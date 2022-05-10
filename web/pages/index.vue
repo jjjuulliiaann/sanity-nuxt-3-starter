@@ -13,6 +13,11 @@ import { useContentStore } from '~/stores/ContentStore'
 // get data
 const contentStore = useContentStore()
 contentStore.fetchHome()
+
+// meta
+useHead({
+	title: 'Test',
+})
 </script>
 
 <style scoped>

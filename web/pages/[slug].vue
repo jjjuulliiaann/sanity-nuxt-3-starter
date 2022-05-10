@@ -21,6 +21,9 @@ const route = useRoute()
 const { data } = await useSanityQuery(pageTextQuery, {
 	slug: route.params.slug,
 })
+
+// meta
+useDefaultHead(data.value.title, data.value.seo)
 </script>
 
 <style scoped>

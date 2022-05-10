@@ -12,9 +12,8 @@ export default defineNuxtConfig({
 				content: 'width=device-width, initial-scale=1',
 			},
 			{
-				hid: 'description',
-				name: 'description',
-				content: 'Sanity Nuxt 3 Starter',
+				name: 'og:type',
+				content: 'website',
 			},
 		],
 		link: [
@@ -49,6 +48,10 @@ export default defineNuxtConfig({
 				href: '/favicons/favicon.ico',
 			},
 		],
+	},
+
+	publicRuntimeConfig: {
+		BASE_URL: process.env.BASE_URL,
 	},
 
 	// css

@@ -32,6 +32,14 @@ export default {
 		},
 		/* seo */
 		{
+			title: "Language Code",
+			description:
+				"ISO 639-1 Language Codes, i.e. „de“ or „en“. You can add a country code like this: „en-us“",
+			name: "language",
+			type: "string",
+			group: "seo",
+		},
+		{
 			title: "SEO",
 			name: "seo",
 			type: "seo",

@@ -62,5 +62,6 @@ export const singleProjectQuery = groq`
 	images[]{
 		${imageLoopArrayQuery}
 	},
+	${seoQuery}
 }
 `

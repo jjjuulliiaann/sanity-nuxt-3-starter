@@ -31,10 +31,6 @@ const props = defineProps({
 		default: () => false,
 	},
 })
-
-onMounted(() => {
-	console.log('is full: ' + props.isFullscreen.value)
-})
 </script>
 
 <style scoped>
