@@ -40,6 +40,8 @@ const contentStore = useContentStore()
 }
 
 .navigation__item {
+	padding: 0.1rem 0;
+
 	@media (--w-tablet-1) {
 		padding: 0 0.5rem;
 	}

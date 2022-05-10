@@ -32,10 +32,10 @@
 	);
 
 	/* sm */
-	--sm-size-min: 16;
-	--sm-size-max: 18;
-	--sm-leading-min: 20;
-	--sm-leading-max: 22;
+	--sm-size-min: 12;
+	--sm-size-max: 14;
+	--sm-leading-min: 14;
+	--sm-leading-max: 16;
 	--sm-size: calc(
 			(var(--sm-size-min) * 1px) + (var(--sm-size-max) - var(--sm-size-min)) *
 				(100vw - (var(--viewport-min) * 1px)) / (var(--viewport-max) - var(--viewport-min))

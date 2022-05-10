@@ -28,7 +28,7 @@
 		</button>
 
 		<ul v-show="!isInitial" class="VideoPlayer_Controls">
-			<li>
+			<li class="VideoPlayer_Play">
 				<button
 					class="VideoPlayer_Controls_Button VideoPlayer_Controls_Button_playpause"
 					@click="togglePlay"
@@ -65,7 +65,7 @@
 					{{ remainingTimeString }}</span
 				>
 			</li>
-			<li>
+			<li v-if="isSupported" class="VideoPlayer_Fullscreen">
 				<button
 					class="VideoPlayer_Controls_Button"
 					@click="toggleFullscreen"
@@ -81,8 +81,6 @@
 </template>
 
 <script setup>
-import { useFullscreen } from '@vueuse/core'
-
 // props
 const props = defineProps({
 	video: {
@@ -216,7 +214,10 @@ const updateProgressHover = (event) => {
 /*
 fullscreen
 */
-const { isFullscreen, toggle } = useFullscreen(videoPlayerEl)
+const { isSupported, isFullscreen, toggle } = useFullscreen(
+	videoPlayerEl,
+	videoEl
+)
 
 const toggleFullscreen = () => {
 	toggle()
@@ -292,18 +293,23 @@ const toggleFullscreen = () => {
 .VideoPlayer_Controls {
 	position: absolute;
 	display: flex;
+	height: 3rem;
 	right: 1rem;
 	left: 1rem;
 	bottom: 1rem;
-	padding: 0 0.5rem;
+	padding: 0 1rem;
 	margin: 0;
 	z-index: 2;
 	background: rgb(var(--clr-black) / 0.5);
 	border-radius: 10rem;
 	list-style: none;
-	height: 2rem;
 	transition: opacity 0.2s 1s ease;
 	backdrop-filter: blur(10px);
+
+	@media (--w-tablet-1) {
+		height: 2rem;
+		padding: 0 0.5rem;
+	}
 }
 
 .VideoPlayer_playing .VideoPlayer_Controls {
@@ -350,7 +356,10 @@ const toggleFullscreen = () => {
 
 .VideoPlayer_Controls_Button:deep(.PlayIcon),
 .VideoPlayer_Controls_Button:deep(.PauseIcon) {
-	width: 0.7rem;
+	width: 1rem;
+	@media (--w-tablet-1) {
+		width: 0.7rem;
+	}
 }
 
 /* progress */
