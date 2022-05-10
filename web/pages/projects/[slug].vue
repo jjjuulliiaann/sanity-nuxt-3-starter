@@ -1,5 +1,5 @@
 <template>
-	<main class="Project">
+	<main v-if="data" class="Project">
 		<section class="Project_Title">
 			<h1 class="text-lg text_bold text_white">{{ data.title }}</h1>
 			<ElementsMediaBaseImage
@@ -16,13 +16,23 @@
 
 <script setup>
 import { singleProjectQuery } from '@/queries/contentQueries'
-
-const route = useRoute()
+import { createError } from 'h3'
 
 // get data
+const route = useRoute()
 const { data } = await useSanityQuery(singleProjectQuery, {
 	slug: route.params.slug,
 })
+
+// error handling
+if (!data.value) {
+	throwError(
+		createError({
+			statusCode: 404,
+			statusMessage: 'Not Found',
+		})
+	)
+}
 
 // meta
 useDefaultHead(data.value.title, data.value.seo)

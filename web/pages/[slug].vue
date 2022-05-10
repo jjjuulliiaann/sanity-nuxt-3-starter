@@ -1,5 +1,5 @@
 <template>
-	<main class="TextPage">
+	<main v-if="data" class="TextPage">
 		<h1 class="text-lg text_bold">{{ data.title }}</h1>
 
 		<section class="TextPage_Text blockcontent">
@@ -10,17 +10,23 @@
 
 <script setup>
 import { pageTextQuery } from '@/queries/contentQueries'
-
-// validate
-definePageMeta({
-	middleware: ['validate-page'],
-})
+import { createError } from 'h3'
 
 // get data
 const route = useRoute()
 const { data } = await useSanityQuery(pageTextQuery, {
 	slug: route.params.slug,
 })
+
+// error handling
+if (!data.value) {
+	throwError(
+		createError({
+			statusCode: 404,
+			statusMessage: 'Not Found',
+		})
+	)
+}
 
 // meta
 useDefaultHead(data.value.title, data.value.seo)
