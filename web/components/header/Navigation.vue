@@ -1,10 +1,10 @@
 <template>
 	<nav>
-		<ul v-if="contentStore.siteNavigation" class="navigation">
+		<ul v-if="contentStore.siteNavigation" class="NavigationList">
 			<li
 				v-for="link in contentStore.siteNavigation?.navMain"
 				:key="link.id"
-				class="navigation__item"
+				class="NavigationItem"
 			>
 				<ElementsTextLink
 					:link-type="link.linkType"
@@ -12,6 +12,7 @@
 					:blank="link.blank"
 					:route="link.route"
 					:slug="link.slug"
+					@click="mainStore.closeMenu"
 				>
 					{{ link.title }}
 				</ElementsTextLink>
@@ -22,24 +23,35 @@
 
 <script setup>
 import { useContentStore } from '~/stores/ContentStore'
+import { useMainStore } from '~/stores/MainStore'
 
-// get content
+// stores
 const contentStore = useContentStore()
+const mainStore = useMainStore()
 </script>
 
 <style scoped>
-.navigation {
-	list-style: none;
-	padding: 1rem;
-	margin: 0 -1rem;
+nav {
+	position: relative;
+	width: 100%;
+	padding: 0 1rem 1rem;
 
 	@media (--w-tablet-1) {
-		padding: 0;
+		width: auto;
+		padding: 1rem;
+	}
+}
+.NavigationList {
+	position: relative;
+	list-style: none;
+
+	@media (--w-tablet-1) {
 		display: flex;
+		margin: 0 -0.5rem;
 	}
 }
 
-.navigation__item {
+.NavigationItem {
 	padding: 0.1rem 0;
 
 	@media (--w-tablet-1) {
@@ -48,7 +60,7 @@ const contentStore = useContentStore()
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.navigation__item:deep(.link:hover) {
+	.NavigationItem:deep(.link:hover) {
 		color: rgb(var(--clr-accent));
 	}
 }

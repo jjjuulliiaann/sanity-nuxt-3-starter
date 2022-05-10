@@ -7,7 +7,9 @@ export const useMainStore = defineStore('MainStore', {
 			window: {
 				width: 0,
 				height: 0,
+				desktopWidth: 700,
 			},
+			menuIsOpen: false,
 			messages: {
 				notFound: 'Page not found.',
 			},
@@ -27,6 +29,15 @@ export const useMainStore = defineStore('MainStore', {
 		},
 		resetCounter() {
 			this.counter = 0
+		},
+		closeMenu() {
+			this.menuIsOpen = false
+		},
+		openMenu() {
+			this.menuIsOpen = true
+		},
+		toggleMenu() {
+			this.menuIsOpen = !this.menuIsOpen
 		},
 	},
 

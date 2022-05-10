@@ -1,13 +1,13 @@
 <template>
-	<section class="counter">
+	<section class="Counter">
 		<div
-			class="counter__number"
-			:class="{ 'counter__number--empty': mainStore.counterIsZero }"
+			class="CounterNumber"
+			:class="{ CounterNumber_empty: mainStore.counterIsZero }"
 		>
 			<span class="text-xl text_bold">{{ mainStore.counter }}</span>
 		</div>
 
-		<div class="buttons">
+		<div class="CounterButtons">
 			<button @click="increase">Add 1</button>
 			<button @click="randomize">Randomize</button>
 			<button @click="mainStore.resetCounter">Reset</button>
@@ -34,7 +34,7 @@ const randomize = () => {
 </script>
 
 <style scoped>
-.counter {
+.Counter {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -42,7 +42,7 @@ const randomize = () => {
 	padding: 1rem;
 }
 
-.counter__number {
+.CounterNumber {
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -54,12 +54,11 @@ const randomize = () => {
 	background: rgb(var(--clr-accent));
 }
 
-.counter__number--empty span {
+.CounterNumber_empty span {
 	color: rgb(var(--clr-white));
 }
 
-.buttons {
-	/* width: 14rem; */
+.CounterButtons {
 	display: flex;
 	justify-content: space-between;
 	gap: 0.5rem;

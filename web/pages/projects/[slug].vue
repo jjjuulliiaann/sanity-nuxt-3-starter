@@ -26,6 +26,10 @@ const { data } = await useSanityQuery(singleProjectQuery, {
 </script>
 
 <style scoped>
+main {
+	margin-top: 0;
+}
+
 .project {
 	position: relative;
 }

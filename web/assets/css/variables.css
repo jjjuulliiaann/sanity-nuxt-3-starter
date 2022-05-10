@@ -3,7 +3,7 @@
 	--clr-white: 255 255 255;
 	--clr-accent: 239 40 40;
 	--preview-banner-height: 43px;
-	--header-height: 2rem;
+	--header-height: 3rem;
 }
 
 @media (--w-tablet-1) {

@@ -1,43 +1,70 @@
 <template>
-	<header>
-		<div class="header__bar">
+	<header v-on-click-outside="mainStore.closeMenu">
+		<div class="HeaderBar">
 			<NuxtLink :to="{ name: 'index' }" class="text_bold"
 				>{{ contentStore.siteOptions?.name }}
 				{{ contentStore.siteOptions?.headerTitle }}</NuxtLink
 			>
-			<HeaderNavigation />
+			<button @click="toggleMenu" class="HeaderNavButton">Menü</button>
 		</div>
+		<HeaderNavigation v-show="mainStore.menuIsOpen || isDesktop" />
 	</header>
 </template>
 
 <script setup>
 import { useContentStore } from '~/stores/ContentStore'
+import { useMainStore } from '~/stores/MainStore'
+import { vOnClickOutside } from '@vueuse/components'
+import { useMediaQuery } from '@vueuse/core'
 
 // get content
 const contentStore = useContentStore()
+
+/*
+mobile menu
+*/
+const mainStore = useMainStore()
+
+const toggleMenu = () => {
+	mainStore.toggleMenu()
+}
+const isDesktop = useMediaQuery(
+	`(min-width: ${mainStore.window.desktopWidth}px)`
+)
 </script>
 
 <style scoped>
 header {
-	position: sticky;
+	position: fixed;
+	width: 100%;
 	top: 0;
+	min-height: var(--header-height);
 	background: rgb(var(--clr-white) / 0.5);
 	backdrop-filter: blur(10px);
 	z-index: 99;
 
 	@media (--w-tablet-1) {
-		min-height: var(--header-height);
+		position: sticky;
+		display: flex;
 	}
 }
 
-.header__bar {
+.HeaderBar {
 	position: relative;
+	display: flex;
+	justify-content: space-between;
 	width: 100%;
 	padding: 1rem;
 
 	@media (--w-tablet-1) {
 		display: flex;
 		justify-content: space-between;
+	}
+}
+
+.HeaderNavButton {
+	@media (--w-tablet-1) {
+		display: none;
 	}
 }
 </style>

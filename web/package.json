@@ -21,6 +21,7 @@
 		"@nuxtjs/eslint-module": "^3.1.0",
 		"@typescript-eslint/eslint-plugin": "^5.21.0",
 		"@typescript-eslint/parser": "^5.21.0",
+		"@vueuse/components": "^8.4.2",
 		"@vueuse/core": "^8.4.2",
 		"@vueuse/nuxt": "^8.4.2",
 		"eslint": "^8.14.0",
