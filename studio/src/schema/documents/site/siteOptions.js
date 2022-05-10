@@ -8,10 +8,6 @@ export default {
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	groups: [
 		{
-			title: "Cookies",
-			name: "cookies",
-		},
-		{
 			title: "SEO",
 			name: "seo",
 		},
@@ -33,31 +29,6 @@ export default {
 			title: "Copyright",
 			name: "copyrightText",
 			type: "string",
-		},
-		{
-			title: "Footer Links",
-			name: "footerLinks",
-			type: "array",
-			layout: "grid",
-			editModal: "popover",
-			of: [
-				{
-					type: "link",
-				},
-			],
-		},
-		/* cookies */
-		{
-			title: "Cookie Text",
-			name: "cookieText",
-			type: "contentText",
-			group: "cookies",
-		},
-		{
-			title: "Cookie Button",
-			name: "cookieButton",
-			type: "string",
-			group: "cookies",
 		},
 		/* seo */
 		{

@@ -12,7 +12,6 @@
 		"@sanity/default-layout",
 		"@sanity/default-login",
 		"@sanity/desk-tool",
-		"@sanity/dashboard",
 		"@sanity/production-preview",
 		"dashboard-widget-netlify",
 		"mux-input",
@@ -31,10 +30,6 @@
 		{
 			"name": "part:@sanity/desk-tool/structure",
 			"path": "./src/desk-structure"
-		},
-		{
-			"implements": "part:@sanity/dashboard/config",
-			"path": "./src/dashboard-config"
 		},
 		{
 			"implements": "part:@sanity/base/theme/variables/override-style",
