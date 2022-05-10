@@ -1,5 +1,5 @@
 <template>
-	<main class="textpage">
+	<main class="TextPage">
 		<h1 class="text-lg text_bold">{{ data.title }}</h1>
 
 		<!-- <section class="blockcontent text-01">
@@ -24,7 +24,7 @@ const { data } = await useSanityQuery(pageTextQuery, {
 </script>
 
 <style scoped>
-.textpage {
+.TextPage {
 	position: relative;
 	padding: 1rem;
 }

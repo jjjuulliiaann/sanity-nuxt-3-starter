@@ -1,15 +1,15 @@
 <template>
-	<main class="projects">
+	<main class="Projects">
 		<h1 class="text-lg text_bold">
 			{{ contentStore.pageProjects.title }}
 		</h1>
 
-		<section class="projects__grid">
+		<section class="Projects_Grid">
 			<ul>
 				<li
 					v-for="project in contentStore.pageProjects.projects"
 					:key="project.id"
-					class="projects__item"
+					class="Projects_Item"
 				>
 					<ElementsTextLink
 						link-type="internal"
@@ -21,7 +21,7 @@
 						</h2>
 						<ElementsMediaBaseImage
 							:image="project.firstImage"
-							class="projects__item__image"
+							class="Projects_ItemImage"
 						/>
 					</ElementsTextLink>
 				</li>
@@ -43,11 +43,11 @@ main {
 	padding: 1rem;
 }
 
-.projects__grid {
+.Projects_Grid {
 	padding: 1rem 0;
 }
 
-.projects__grid ul {
+.Projects_Grid ul {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 1rem;
@@ -57,7 +57,7 @@ main {
 	}
 }
 
-.projects__item {
+.Projects_Item {
 	position: relative;
 	border-radius: 0.2rem;
 	box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0);
@@ -66,7 +66,7 @@ main {
 	overflow: hidden;
 }
 
-.projects__item:deep(.link) {
+.Projects_Item:deep(.link) {
 	position: relative;
 	display: block;
 	line-height: 0;
@@ -78,7 +78,7 @@ h2 {
 	z-index: 2;
 }
 
-.projects__item__image {
+.Projects_ItemImage {
 	position: relative;
 	width: 100%;
 	height: auto;
@@ -87,11 +87,11 @@ h2 {
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.projects__item:hover {
+	.Projects_Item:hover {
 		box-shadow: 0px 5px 14px 5px rgba(0, 0, 0, 0.25);
 	}
 
-	.projects__item:hover .projects__item__image {
+	.Projects_Item:hover .Projects_ItemImage {
 		opacity: 1;
 	}
 }

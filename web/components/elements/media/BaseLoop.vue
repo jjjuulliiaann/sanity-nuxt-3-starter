@@ -2,8 +2,8 @@
 	<figure>
 		<video
 			ref="video"
-			class="video-loop"
-			:class="{ 'video--playing': isPlaying }"
+			class="VideoLoop"
+			:class="{ VideoLoop_playing: isPlaying }"
 			muted
 			playsinline
 			loop

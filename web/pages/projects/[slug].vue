@@ -1,14 +1,14 @@
 <template>
-	<main class="project">
-		<section class="project__titleimage">
+	<main class="Project">
+		<section class="Project_Title">
 			<h1 class="text-lg text_bold text_white">{{ data.title }}</h1>
 			<ElementsMediaBaseImage
 				:image="data.images[0]"
-				class="titleimage"
+				class="Project_Titleimage"
 			/>
 		</section>
 
-		<section class="project__text blockcontent">
+		<section class="Project_Text blockcontent">
 			<ElementsTextContent :blocks="data.content" />
 		</section>
 	</main>
@@ -30,11 +30,11 @@ main {
 	margin-top: 0;
 }
 
-.project {
+.Project {
 	position: relative;
 }
 
-.project__titleimage {
+.Project_Title {
 	position: relative;
 	width: 100%;
 	top: 0;
@@ -44,7 +44,7 @@ main {
 	}
 }
 
-.titleimage {
+.Project_Titleimage {
 	position: relative;
 	width: 100%;
 	height: auto;
@@ -59,7 +59,7 @@ h1 {
 
 /* text */
 
-.project__text {
+.Project_Text {
 	position: relative;
 	min-height: 50vh;
 	padding: 1rem;

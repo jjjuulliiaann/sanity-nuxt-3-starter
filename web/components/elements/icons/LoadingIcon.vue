@@ -1,6 +1,6 @@
 <template>
 	<svg
-		class="loading-icon"
+		class="LoadingIcon"
 		width="16"
 		height="16"
 		viewBox="0 0 16 16"
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style scoped>
-.loading-icon {
+.LoadingIcon {
 	position: relative;
 	width: 10px;
 	animation: spinning 1s linear infinite;

@@ -30,7 +30,7 @@
 		<ul v-show="!isInitial" class="VideoPlayer_Controls">
 			<li class="VideoPlayer_Play">
 				<button
-					class="VideoPlayer_Controls_Button VideoPlayer_Controls_Button_playpause"
+					class="VideoPlayer_ControlsButton VideoPlayer_ControlsButton_playpause"
 					@click="togglePlay"
 				>
 					<span v-show="!isPlaying && !isLoaded"
@@ -67,7 +67,7 @@
 			</li>
 			<li v-if="isSupported" class="VideoPlayer_Fullscreen">
 				<button
-					class="VideoPlayer_Controls_Button"
+					class="VideoPlayer_ControlsButton"
 					@click="toggleFullscreen"
 				>
 					<span
@@ -335,7 +335,7 @@ const toggleFullscreen = () => {
 
 /* buttons */
 
-.VideoPlayer_Controls_Button {
+.VideoPlayer_ControlsButton {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -343,19 +343,19 @@ const toggleFullscreen = () => {
 	padding: 0 0.5rem;
 }
 
-.VideoPlayer_Controls_Button > span {
+.VideoPlayer_ControlsButton > span {
 	display: inline-block;
 	overflow: hidden;
 	line-height: 0;
 	min-height: 0.2rem;
 }
 
-.VideoPlayer_Controls_Button_playpause {
+.VideoPlayer_ControlsButton_playpause {
 	padding-right: 1rem;
 }
 
-.VideoPlayer_Controls_Button:deep(.PlayIcon),
-.VideoPlayer_Controls_Button:deep(.PauseIcon) {
+.VideoPlayer_ControlsButton:deep(.PlayIcon),
+.VideoPlayer_ControlsButton:deep(.PauseIcon) {
 	width: 1rem;
 	@media (--w-tablet-1) {
 		width: 0.7rem;
