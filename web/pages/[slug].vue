@@ -2,9 +2,9 @@
 	<main class="TextPage">
 		<h1 class="text-lg text_bold">{{ data.title }}</h1>
 
-		<!-- <section class="blockcontent text-01">
-			<ElementsTextBlock :blocks="data.content" />
-		</section> -->
+		<section class="TextPage_Text blockcontent">
+			<ElementsTextContent :blocks="data.content" />
+		</section>
 	</main>
 </template>
 
@@ -27,5 +27,11 @@ const { data } = await useSanityQuery(pageTextQuery, {
 .TextPage {
 	position: relative;
 	padding: 1rem;
+}
+
+.TextPage_Text {
+	position: relative;
+	padding: 2rem 0;
+	max-width: 60rem;
 }
 </style>
