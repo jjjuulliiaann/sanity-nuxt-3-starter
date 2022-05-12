@@ -12,7 +12,6 @@
 		"@sanity/default-layout",
 		"@sanity/default-login",
 		"@sanity/desk-tool",
-		"@sanity/production-preview",
 		"dashboard-widget-netlify",
 		"mux-input",
 		"useful-links"
