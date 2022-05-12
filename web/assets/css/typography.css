@@ -268,7 +268,7 @@ em {
 /* blockcontent pictures */
 
 .blockcontent figure {
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 }
 
 .blockcontent figure,
@@ -276,4 +276,9 @@ em {
 .blockcontent video {
 	width: 100%;
 	height: auto;
+	vertical-align: middle;
+}
+
+.blockcontent figcaption {
+	margin: 0.5rem 0 2rem 0;
 }

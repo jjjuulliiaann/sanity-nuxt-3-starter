@@ -8,10 +8,18 @@ export default {
 	},
 	fields: [
 		{
+			title: "Alternative Text",
 			name: "alt",
 			type: "string",
-			title: "Alternative Text",
 			description: "Important for SEO and Accessibility.",
+			options: {
+				isHighlighted: true,
+			},
+		},
+		{
+			title: "Caption",
+			name: "caption",
+			type: "string",
 			options: {
 				isHighlighted: true,
 			},

@@ -17,7 +17,7 @@ export default {
 	preview: {
 		select: {
 			image: "image.asset",
-			title: "image.asset.originalFilename",
+			caption: "image.caption",
 		},
 		component: PreviewBlockImage,
 	},

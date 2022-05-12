@@ -10,7 +10,7 @@ function urlFor(source) {
 
 export const PreviewBlockImage = ({ value }) => {
 	if (!value) return null;
-	const { _type, image } = value;
+	const { image, caption } = value;
 
 	const url = image ? urlFor(image).width(600).url() : undefined;
 
@@ -25,6 +25,7 @@ export const PreviewBlockImage = ({ value }) => {
 				}}
 				src={url}
 			/>
+			<p style={{ margin: "0.5em 0 0", fontSize: "0.8rem" }}>{caption}</p>
 		</div>
 	) : (
 		<div style={{ padding: "0.5rem" }}>Empty Image</div>

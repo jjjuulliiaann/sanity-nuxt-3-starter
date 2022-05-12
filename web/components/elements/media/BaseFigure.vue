@@ -13,7 +13,9 @@
 			:data-parent-fit="props.dataParentFit"
 			@lazyloaded="$emit('lazyloaded')"
 		/>
-		<figcaption v-if="props.caption">{{ props.caption }}</figcaption>
+		<figcaption v-if="props.image?.caption" class="text-sm">
+			{{ props.image.caption }}
+		</figcaption>
 	</figure>
 </template>
 
@@ -58,10 +60,6 @@ const props = defineProps({
 	useObjectPosition: {
 		type: Boolean,
 		default: () => false,
-	},
-	caption: {
-		type: String,
-		default: () => '',
 	},
 })
 </script>
