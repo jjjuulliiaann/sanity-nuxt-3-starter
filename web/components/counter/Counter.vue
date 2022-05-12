@@ -1,22 +1,42 @@
 <template>
 	<section class="Counter">
-		<div
+		<Motion
+			v-show="isVisible"
 			class="CounterNumber"
+			:initial="{ opacity: 0, scale: 0 }"
+			:animate="{ opacity: 1, scale: 1 }"
+			:transition="{
+				delay: 0.5,
+				easing: spring({ stiffness: 300, damping: 20 }),
+				opacity: { duration: 0.1 },
+			}"
 			:class="{ CounterNumber_empty: mainStore.counterIsZero }"
 		>
 			<span class="text-xl text_bold">{{ mainStore.counter }}</span>
-		</div>
+		</Motion>
 
-		<div class="CounterButtons">
+		<Motion
+			v-show="isVisible"
+			:initial="{ opacity: 0, scale: 0 }"
+			:animate="{ opacity: 1, scale: 1 }"
+			:transition="{
+				delay: 1,
+				easing: spring({ stiffness: 300, damping: 20 }),
+				opacity: { duration: 0.1 },
+			}"
+			class="CounterButtons"
+		>
 			<button @click="increase">Add 1</button>
 			<button @click="randomize">Randomize</button>
 			<button @click="mainStore.resetCounter">Reset</button>
-		</div>
+		</Motion>
 	</section>
 </template>
 
 <script setup>
 import { useMainStore } from '~/stores/MainStore'
+import { spring } from 'motion'
+import { Motion } from 'motion/vue'
 
 const mainStore = useMainStore()
 
@@ -31,6 +51,12 @@ const randomize = () => {
 	mainStore.randomizeCounter()
 	console.log(mainStore.counter)
 }
+
+/* motion */
+const isVisible = ref(false)
+onMounted(() => {
+	isVisible.value = true
+})
 </script>
 
 <style scoped>
