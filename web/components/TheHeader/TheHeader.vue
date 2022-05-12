@@ -7,7 +7,7 @@
 			>
 			<button @click="toggleMenu" class="HeaderNavButton">Menü</button>
 		</div>
-		<HeaderNavigation v-show="mainStore.menuIsOpen || isDesktop" />
+		<TheNavigation v-show="mainStore.menuIsOpen || isDesktop" />
 	</header>
 </template>
 

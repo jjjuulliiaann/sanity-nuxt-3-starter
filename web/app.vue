@@ -1,10 +1,10 @@
 <template>
 	<div class="container">
-		<Header />
+		<TheHeader />
 		<NuxtLayout>
 			<NuxtPage />
 		</NuxtLayout>
-		<Footer />
+		<TheFooter />
 	</div>
 </template>
 
