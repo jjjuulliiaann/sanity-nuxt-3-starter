@@ -28,7 +28,7 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-nuxt": "^3.2.0",
 		"eslint-plugin-vue": "^8.7.1",
-		"nuxt": "3.0.0-rc.2",
+		"nuxt": "3.0.0-rc.3",
 		"postcss": "^8.4.12",
 		"postcss-cli": "^9.1.0",
 		"postcss-custom-media": "^8.0.0",
