@@ -26,7 +26,7 @@ main {
 	margin-top: var(--header-height);
 
 	@media (--w-tablet-1) {
-		min-height: calc(100vh - var(--header-height));
+		min-height: 75vh;
 		margin-top: 0;
 	}
 }

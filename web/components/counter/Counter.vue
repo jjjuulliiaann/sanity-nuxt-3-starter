@@ -65,7 +65,7 @@ onMounted(() => {
 	flex-flow: column nowrap;
 	justify-content: center;
 	align-items: center;
-	padding: 1rem;
+	padding: 8rem 1rem;
 }
 
 .CounterNumber {

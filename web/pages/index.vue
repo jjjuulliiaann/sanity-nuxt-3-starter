@@ -28,8 +28,4 @@ main {
 	align-items: center;
 	padding: 1rem;
 }
-
-h1 {
-	padding: 1rem 0;
-}
 </style>
