@@ -119,11 +119,14 @@ const videoHeight = computed(
 poster image
 */
 const { $urlFor } = useNuxtApp()
-const posterSrc = computed(() =>
-	$urlFor(props.posterImage)
+const posterSrc = computed(() => {
+	if (!props.posterImage) {
+		return ''
+	}
+	return $urlFor(props.posterImage)
 		.width(videoWidth.value ?? 1000)
 		.url()
-)
+})
 watch(posterSrc, (newPosterSrc) => {
 	console.log('new poster source! ' + newPosterSrc.value)
 })

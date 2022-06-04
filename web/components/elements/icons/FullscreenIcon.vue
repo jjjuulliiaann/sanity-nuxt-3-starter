@@ -36,6 +36,7 @@ const props = defineProps({
 <style scoped>
 .FullscreenIcon {
 	width: 12px;
+	height: auto;
 }
 
 path {

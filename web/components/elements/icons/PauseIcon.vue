@@ -1,28 +1,21 @@
 <template>
 	<svg
 		class="PauseIcon"
-		width="16px"
-		height="18px"
-		viewBox="0 0 16 18"
-		version="1.1"
+		width="11"
+		height="14"
+		viewBox="0 0 11 14"
+		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
-		xmlns:xlink="http://www.w3.org/1999/xlink"
 	>
-		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-			<rect x="0" y="0" width="5" height="18" rx="2"></rect>
-			<rect x="11" y="0" width="5" height="18" rx="2"></rect>
-		</g>
+		<rect width="4" height="14" fill="white" />
+		<rect x="7" width="4" height="14" fill="white" />
 	</svg>
 </template>
 
 <style scoped>
 .PauseIcon {
-	height: 1.4rem;
-	width: auto;
-
-	@media (--media-min-tablet) {
-		height: 1.8rem;
-	}
+	width: 11px;
+	height: auto;
 }
 
 rect {

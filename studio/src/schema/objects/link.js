@@ -18,6 +18,7 @@ export default {
 					{ title: "Internal", value: "internal" },
 				],
 				layout: "radio",
+				direction: "horizontal",
 			},
 		},
 		{

@@ -90,7 +90,7 @@ const imageSrcSet = computed(() => {
 })
 
 const cropWidth = computed(() => {
-	const originalWidth = props.image.asset.metadata.dimensions.width
+	const originalWidth = props.image.asset?.metadata?.dimensions?.width
 	const cropLeft = props.image.crop?.left ?? 0
 	const cropRight = props.image.crop?.right ?? 0
 
@@ -98,7 +98,7 @@ const cropWidth = computed(() => {
 })
 
 const cropHeight = computed(() => {
-	const originalHeight = props.image.asset.metadata.dimensions.height
+	const originalHeight = props.image.asset?.metadata?.dimensions?.height
 	const cropTop = props.image.crop?.top ?? 0
 	const cropBottom = props.image.crop?.bottom ?? 0
 	return (

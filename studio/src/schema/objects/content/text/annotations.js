@@ -23,6 +23,7 @@ export const annotations = [
 						{ title: "Internal", value: "internal" },
 					],
 					layout: "radio",
+					direction: "horizontal",
 				},
 			},
 			{
