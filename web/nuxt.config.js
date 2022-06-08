@@ -63,7 +63,7 @@ export default defineNuxtConfig({
 	],
 
 	// modules
-	modules: ['@nuxtjs/sanity'],
+	modules: ['@nuxtjs/sanity', '@vueuse/motion/nuxt'],
 
 	// build modules
 	buildModules: ['@nuxtjs/eslint-module', '@pinia/nuxt', '@vueuse/nuxt'],
@@ -71,6 +71,28 @@ export default defineNuxtConfig({
 	// vite
 	vite: {
 		plugins: [eslintPlugin()],
+	},
+
+	// vueuse motion
+	motion: {
+		directives: {
+			'pop-up': {
+				initial: {
+					opacity: 0,
+					scale: 0.5,
+				},
+				visible: {
+					opacity: 1,
+					scale: 1,
+					transition: {
+						type: 'spring',
+						stiffness: 250,
+						damping: 15,
+						mass: 0.5,
+					},
+				},
+			},
+		},
 	},
 
 	// sanity
