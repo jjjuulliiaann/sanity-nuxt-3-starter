@@ -1,12 +1,18 @@
 import { useContentStore } from '~/stores/ContentStore'
 
-export default function (title, seo) {
+export default function (title, seo, titleImage) {
 	const titleString = unref(title)
 	if (!titleString) return
 
 	const contentStore = useContentStore()
 	const route = useRoute()
 	const config = useRuntimeConfig()
+
+	const shareImage = seo?.ogImage?.asset
+		? seo?.ogImage?.asset
+		: titleImage?.asset
+		? titleImage.asset
+		: contentStore.siteOptions?.seo?.ogImage?.asset
 
 	useHead({
 		title: titleString,
@@ -39,29 +45,19 @@ export default function (title, seo) {
 			},
 			{
 				property: 'og:image',
-				content: seo?.ogImage?.asset
-					? seo?.ogImage?.asset.url
-					: contentStore.siteOptions?.seo?.ogImage?.asset?.url,
+				content: shareImage?.url,
 			},
 			{
 				property: 'og:image:width',
-				content:
-					seo?.ogImage?.asset?.metadata?.dimensions?.width ??
-					contentStore.siteOptions?.seo?.ogImage?.asset?.metadata
-						?.dimensions?.width,
+				content: shareImage?.metadata?.dimensions?.width,
 			},
 			{
 				property: 'og:image:height',
-				content:
-					seo?.ogImage?.asset?.metadata?.dimensions?.height ??
-					contentStore.siteOptions?.seo?.ogImage?.asset?.metadata
-						?.dimensions?.height,
+				content: shareImage?.metadata?.dimensions?.height,
 			},
 			{
 				property: 'og:image:type',
-				content:
-					seo?.ogImage?.asset?.metadata?.mimeType ??
-					contentStore.siteOptions?.seo?.ogImage?.asset?.mimeType,
+				content: shareImage?.mimeType,
 			},
 			{
 				name: 'twitter:title',
@@ -75,9 +71,7 @@ export default function (title, seo) {
 			},
 			{
 				name: 'twitter:image',
-				content: seo?.ogImage?.asset
-					? seo?.ogImage?.asset.url
-					: contentStore.siteOptions?.seo?.ogImage?.asset?.url,
+				content: shareImage?.url,
 			},
 		],
 	})

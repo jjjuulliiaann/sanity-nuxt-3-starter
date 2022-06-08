@@ -17,7 +17,10 @@ const route = useRoute()
 const config = useRuntimeConfig()
 
 useHead({
-	titleTemplate: (title) => `${contentStore.siteOptions?.name} - ${title}`,
+	titleTemplate: (title) =>
+		title
+			? `${contentStore.siteOptions?.name} - ${title}`
+			: contentStore.siteOptions?.name,
 	htmlAttrs: {
 		lang: contentStore.siteOptions?.language ?? 'de',
 	},

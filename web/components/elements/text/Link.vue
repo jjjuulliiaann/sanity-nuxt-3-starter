@@ -1,8 +1,8 @@
 <template>
 	<NuxtLink
 		:to="props.linkType === 'external' ? props.href : internalRoute"
-		:target="props.blank ? '_blank' : ''"
-		:rel="props.blank ? 'noopener' : ''"
+		:target="props.blank && props.linkType === 'external' ? '_blank' : ''"
+		:rel="props.blank && props.linkType === 'external' ? 'noopener' : ''"
 		class="link"
 	>
 		<slot></slot>

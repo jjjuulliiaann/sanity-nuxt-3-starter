@@ -8,7 +8,7 @@
 		"preview": "nuxt preview"
 	},
 	"dependencies": {
-		"@nuxtjs/sanity": "^1.2.0",
+		"@nuxtjs/sanity": "^1.2.2",
 		"@pinia/nuxt": "^0.1.8",
 		"@sanity/image-url": "^1.0.1",
 		"groq": "^2.29.3",
