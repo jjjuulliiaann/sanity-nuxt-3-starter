@@ -9,6 +9,11 @@ export default {
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	groups: [
 		{
+			title: "Content",
+			name: "content",
+			default: true,
+		},
+		{
 			title: "SEO",
 			name: "seo",
 		},
@@ -19,6 +24,7 @@ export default {
 			name: "title",
 			type: "string",
 			validation: (Rule) => Rule.required(),
+			group: "content",
 		},
 		{
 			title: "Featured Projects",
@@ -34,6 +40,7 @@ export default {
 			options: {
 				editModal: "popover",
 			},
+			group: "content",
 		},
 		{
 			title: "SEO",

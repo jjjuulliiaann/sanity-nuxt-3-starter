@@ -6,6 +6,7 @@ export default {
 	type: "object",
 	initialValue: {
 		linkType: "external",
+		blank: false,
 	},
 	fields: [
 		{

@@ -9,6 +9,11 @@ export default {
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	groups: [
 		{
+			title: "Content",
+			name: "content",
+			default: true,
+		},
+		{
 			title: "SEO",
 			name: "seo",
 		},
@@ -19,6 +24,7 @@ export default {
 			name: "title",
 			type: "string",
 			validation: (Rule) => Rule.required(),
+			group: "content",
 		},
 		{
 			title: "Slug",
@@ -29,11 +35,13 @@ export default {
 				slugify: slugify,
 			},
 			validation: validateSlug,
+			group: "content",
 		},
 		{
 			title: "Content",
 			name: "content",
 			type: "contentText",
+			group: "content",
 		},
 		{
 			title: "SEO",

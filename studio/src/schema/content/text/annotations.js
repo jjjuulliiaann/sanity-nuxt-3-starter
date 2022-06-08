@@ -11,6 +11,7 @@ export const annotations = [
 		},
 		initialValue: {
 			linkType: "external",
+			blank: false,
 		},
 		fields: [
 			{

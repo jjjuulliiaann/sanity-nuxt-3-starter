@@ -8,6 +8,11 @@ export default {
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	groups: [
 		{
+			title: "Page",
+			name: "page",
+			default: true,
+		},
+		{
 			title: "SEO",
 			name: "seo",
 		},
@@ -18,17 +23,19 @@ export default {
 			name: "name",
 			type: "string",
 			validation: (Rule) => Rule.required(),
+			group: "page",
 		},
 		{
 			title: "Header Title",
 			name: "headerTitle",
 			type: "string",
+			group: "page",
 		},
-		/* footer */
 		{
 			title: "Copyright",
 			name: "copyrightText",
 			type: "string",
+			group: "page",
 		},
 		/* seo */
 		{
