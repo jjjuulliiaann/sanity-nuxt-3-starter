@@ -16,7 +16,6 @@
 
 <script setup>
 import { singleProjectQuery } from '@/queries/contentQueries'
-import { createError } from 'h3'
 
 // get data
 const route = useRoute()
@@ -25,14 +24,7 @@ const { data } = await useSanityQuery(singleProjectQuery, {
 })
 
 // error handling
-if (!data.value) {
-	throwError(
-		createError({
-			statusCode: 404,
-			statusMessage: 'Not Found',
-		})
-	)
-}
+const pageError = usePageError(data)
 
 // meta
 useDefaultHead(data.value.title, data.value.seo)
