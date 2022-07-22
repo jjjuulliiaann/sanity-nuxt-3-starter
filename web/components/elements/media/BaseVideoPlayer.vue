@@ -121,14 +121,13 @@ poster image
 const { $urlFor } = useNuxtApp()
 const posterSrc = computed(() => {
 	if (!props.posterImage) {
-		return ''
+		return props.video?.muxVideo?.asset?.playbackId
+			? `https://image.mux.com/${props.video?.muxVideo?.asset?.playbackId}/thumbnail.jpg`
+			: ''
 	}
 	return $urlFor(props.posterImage)
 		.width(videoWidth.value ?? 1000)
 		.url()
-})
-watch(posterSrc, (newPosterSrc) => {
-	console.log('new poster source! ' + newPosterSrc.value)
 })
 
 /*

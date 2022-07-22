@@ -8,11 +8,15 @@ export default function (title, seo, titleImage) {
 	const route = useRoute()
 	const config = useRuntimeConfig()
 
+	// create og image url
 	const shareImage = seo?.ogImage?.asset
 		? seo?.ogImage?.asset
 		: titleImage?.asset
 		? titleImage.asset
 		: contentStore.siteOptions?.seo?.ogImage?.asset
+
+	const { $urlFor } = useNuxtApp()
+	const shareImageUrl = computed(() => $urlFor(shareImage).width(1200).url())
 
 	useHead({
 		title: titleString,
@@ -45,15 +49,17 @@ export default function (title, seo, titleImage) {
 			},
 			{
 				property: 'og:image',
-				content: shareImage?.url,
+				content: shareImageUrl.value,
 			},
 			{
 				property: 'og:image:width',
-				content: shareImage?.metadata?.dimensions?.width,
+				content: '1200',
 			},
 			{
 				property: 'og:image:height',
-				content: shareImage?.metadata?.dimensions?.height,
+				content: Math.floor(
+					1200 / shareImage?.metadata?.dimensions?.aspectRatio
+				),
 			},
 			{
 				property: 'og:image:type',
@@ -71,7 +77,7 @@ export default function (title, seo, titleImage) {
 			},
 			{
 				name: 'twitter:image',
-				content: shareImage?.url,
+				content: shareImageUrl.value,
 			},
 		],
 	})

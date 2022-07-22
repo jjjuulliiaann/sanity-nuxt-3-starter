@@ -11,7 +11,7 @@ export const slugsQuery = groq`{
 }`
 
 export const siteQuery = groq`{
-	"siteOptions": *[_id == "siteOptions"][0] {
+	"siteOptions": *[_id == "siteOptions"] [0] {
 		...,
 		footerLinks[] {
 			${linkQuery}
@@ -21,7 +21,7 @@ export const siteQuery = groq`{
 		},
 		${seoQuery}
 	},
-	"siteNavigation": *[_id == "siteNavigation"][0] {
+	"siteNavigation": *[_id == "siteNavigation"] [0] {
 		navMain[]{
 			${linkQuery}
 		}
@@ -29,7 +29,7 @@ export const siteQuery = groq`{
 }`
 
 export const homeQuery = groq`*[(
-	_type == "pageHome")] | order(_updatedAt desc)[0]{
+	_type == "pageHome")] | order(_updatedAt desc) [0]{
 		...,
 		content[] {
 			${contentBlockQuery}
@@ -47,9 +47,10 @@ export const pageTextQuery = groq`
 `
 
 export const projectsQuery = groq`
-*[(_type == "pageProjects")] | order(_updatedAt desc)[0]{
+*[(_type == "pageProjects")] | order(_updatedAt desc) [0]{
 	...,
-	projects[]->{title, slug, "firstImage": images[0]{..., asset->}}
+	projects[]->{title, slug, "firstImage": images[0]{..., asset->}},
+	${seoQuery}
 }
 `
 
