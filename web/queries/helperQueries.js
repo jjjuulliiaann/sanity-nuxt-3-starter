@@ -1,19 +1,21 @@
 export const linkQuery = `
-	_type == "link" && linkType == "internal" => {
-		_type,
-		linkType,
-		"title": internalLink->title,
+	_type == "internalLink" => {
+		"linkType": "internalLink",
+		"title": coalesce( title,
+			linkTarget->title
+		),
 		"route": select(
-			internalLink->_type == "pageHome" => "index",
-			internalLink->_type == "pageProjects" => "projects",
-			internalLink->_type == "project" => "projects-slug",
-			internalLink->_type == "pageText" => "slug",
+			linkTarget->_type == "pageHome" => "index",
+			linkTarget->_type == "pageProjects" => "projects",
+			linkTarget->_type == "project" => "projects-slug",
+			linkTarget->_type == "pageText" => "slug",
 			"index"
 		),
-		"slug": internalLink->slug.current
+		"slug": linkTarget->slug.current
 	},
-	_type == "link" && linkType == "external" => {
+	_type == "externalLink" => {
 		...,
+		"linkType": "externalLink",
 		"title": coalesce(title, href)
 	}
 `

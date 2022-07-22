@@ -23,7 +23,8 @@ const serializers = {
 		blockVideo: BaseVideoPlayer,
 	},
 	marks: {
-		link: Link,
+		externalLink: Link,
+		internalLink: Link,
 		underline: 'u',
 		'strike-through': 's',
 	},

@@ -1,37 +1,22 @@
-import { BiLink, BiPaperclip } from "react-icons/bi/";
+import { BiLinkAlt, BiPaperclip, BiLinkExternal } from "react-icons/bi/";
+import { linkTargets } from "../../../utils/internalLinkTargets";
 
-// Annotate text with additional information
 export const annotations = [
 	{
-		title: "Link",
-		name: "link",
+		title: "External Link",
+		name: "externalLink",
 		type: "object",
 		blockEditor: {
-			icon: BiLink,
+			icon: BiLinkExternal,
 		},
 		initialValue: {
-			linkType: "external",
 			blank: false,
 		},
 		fields: [
 			{
-				title: "Type",
-				name: "linkType",
-				type: "string",
-				options: {
-					list: [
-						{ title: "Extern", value: "external" },
-						{ title: "Internal", value: "internal" },
-					],
-					layout: "radio",
-					direction: "horizontal",
-				},
-			},
-			{
 				title: "URL",
 				name: "href",
 				type: "url",
-				hidden: ({ parent }) => parent?.linkType !== "external",
 				validation: (Rule) =>
 					Rule.uri({
 						allowRelative: true,
@@ -42,19 +27,22 @@ export const annotations = [
 				title: "Open in new tab?",
 				name: "blank",
 				type: "boolean",
-				hidden: ({ parent }) => parent?.linkType !== "external",
 			},
+		],
+	},
+	{
+		title: "Internal Link",
+		name: "internalLink",
+		type: "object",
+		blockEditor: {
+			icon: BiLinkAlt,
+		},
+		fields: [
 			{
 				title: "Internal Link",
-				name: "internalLink",
+				name: "linkTarget",
 				type: "reference",
-				hidden: ({ parent }) => parent?.linkType !== "internal",
-				to: [
-					{ type: "pageHome" },
-					{ type: "pageProjects" },
-					{ type: "pageText" },
-					{ type: "project" },
-				],
+				to: linkTargets,
 			},
 		],
 	},

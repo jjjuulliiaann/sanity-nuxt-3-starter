@@ -12,7 +12,7 @@
 					class="Projects_Item"
 				>
 					<ElementsTextLink
-						link-type="internal"
+						link-type="internalLink"
 						route="projects-slug"
 						:slug="project.slug.current"
 					>

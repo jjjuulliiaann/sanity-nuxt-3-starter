@@ -3,8 +3,8 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 // documents
 import project from "./documents/collections/project";
-import pageText from "./documents/pages/pageText";
 import pageHome from "./documents/pages/pageHome";
+import pageText from "./documents/pages/pageText";
 import pageProjects from "./documents/pages/pageProjects";
 import siteOptions from "./documents/site/siteOptions";
 import siteNavigation from "./documents/site/siteNavigation";
@@ -16,7 +16,8 @@ import blockImage from "./content/blocks/blockImage";
 import blockLoop from "./content/blocks/blockLoop";
 import blockVideo from "./content/blocks/blockVideo";
 // objects
-import link from "./objects/link";
+import externalLink from "./objects/externalLink";
+import internalLink from "./objects/internalLink";
 import picture from "./objects/picture";
 import seo from "./objects/seo";
 import video from "./objects/video";
@@ -26,8 +27,8 @@ export default createSchema({
 	types: schemaTypes.concat([
 		// documents
 		project,
-		pageText,
 		pageHome,
+		pageText,
 		pageProjects,
 		siteOptions,
 		siteNavigation,
@@ -39,7 +40,8 @@ export default createSchema({
 		blockLoop,
 		blockVideo,
 		// objects
-		link,
+		externalLink,
+		internalLink,
 		picture,
 		seo,
 		video,
