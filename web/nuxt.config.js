@@ -1,5 +1,4 @@
 import { defineNuxtConfig } from 'nuxt'
-import eslintPlugin from 'vite-plugin-eslint'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -66,12 +65,7 @@ export default defineNuxtConfig({
 	modules: ['@nuxtjs/sanity', '@vueuse/motion/nuxt'],
 
 	// build modules
-	buildModules: ['@nuxtjs/eslint-module', '@pinia/nuxt', '@vueuse/nuxt'],
-
-	// vite
-	vite: {
-		plugins: [eslintPlugin()],
-	},
+	buildModules: ['@pinia/nuxt', '@vueuse/nuxt'],
 
 	// vueuse motion
 	motion: {
