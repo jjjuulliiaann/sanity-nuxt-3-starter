@@ -18,6 +18,6 @@
 }
 
 path {
-	fill: rgb(var(--clr-white));
+	fill: var(--rgb-white);
 }
 </style>

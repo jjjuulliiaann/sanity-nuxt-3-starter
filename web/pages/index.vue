@@ -16,7 +16,7 @@ contentStore.fetchHome()
 
 // meta
 useHead({
-	title: 'Test',
+	title: '',
 })
 </script>
 

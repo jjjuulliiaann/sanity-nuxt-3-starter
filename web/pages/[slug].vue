@@ -21,7 +21,7 @@ const { data } = await useSanityQuery(pageTextQuery, {
 const pageError = usePageError(data)
 
 // meta
-useDefaultHead(data.value.title, data.value.seo)
+useDefaultHead({ title: data.value.title, seo: data.value.seo })
 </script>
 
 <style scoped>

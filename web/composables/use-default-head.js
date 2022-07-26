@@ -1,6 +1,6 @@
 import { useContentStore } from '~/stores/ContentStore'
 
-export default function (title, seo, titleImage) {
+export default function ({ title, seo, titleImage }) {
 	const titleString = unref(title)
 	if (!titleString) return
 
@@ -16,7 +16,9 @@ export default function (title, seo, titleImage) {
 		: contentStore.siteOptions?.seo?.ogImage?.asset
 
 	const { $urlFor } = useNuxtApp()
-	const shareImageUrl = computed(() => $urlFor(shareImage).width(1200).url())
+	const shareImageUrl = computed(() =>
+		shareImage ? $urlFor(shareImage).width(1200).url() : ''
+	)
 
 	useHead({
 		title: titleString,
@@ -33,23 +35,27 @@ export default function (title, seo, titleImage) {
 				name: 'description',
 				content:
 					seo?.metaDescription ??
-					contentStore.siteOptions?.seo?.metaDescription,
+					contentStore.siteOptions?.seo?.metaDescription ??
+					'',
 			},
 			{
 				property: 'og:description',
 				content:
 					seo?.metaDescription ??
-					contentStore.siteOptions?.seo?.metaDescription,
+					contentStore.siteOptions?.seo?.metaDescriptio ??
+					'',
 			},
 			{
 				name: 'keywords',
 				content: seo?.metaKeywords
 					? seo?.metaKeywords.join(',')
-					: contentStore.siteOptions?.seo?.metaKeywords?.join(','),
+					: contentStore.siteOptions?.seo?.metaKeywords
+					? contentStore.siteOptions?.seo?.metaKeywords?.join(',')
+					: '',
 			},
 			{
 				property: 'og:image',
-				content: shareImageUrl.value,
+				content: shareImageUrl?.value,
 			},
 			{
 				property: 'og:image:width',
@@ -58,12 +64,13 @@ export default function (title, seo, titleImage) {
 			{
 				property: 'og:image:height',
 				content: Math.floor(
-					1200 / shareImage?.metadata?.dimensions?.aspectRatio
+					1200 /
+						(shareImage?.metadata?.dimensions?.aspectRatio ?? 1.5)
 				),
 			},
 			{
 				property: 'og:image:type',
-				content: shareImage?.mimeType,
+				content: shareImage?.mimeType ?? '',
 			},
 			{
 				name: 'twitter:title',

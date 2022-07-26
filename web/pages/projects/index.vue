@@ -1,13 +1,13 @@
 <template>
 	<main class="Projects">
 		<h1 class="text-lg text_bold">
-			{{ contentStore.pageProjects.title }}
+			{{ data.title }}
 		</h1>
 
 		<section class="Projects_Grid">
 			<ul>
 				<li
-					v-for="project in contentStore.pageProjects.projects"
+					v-for="project in data.projects"
 					:key="project.id"
 					class="Projects_Item"
 				>
@@ -31,14 +31,17 @@
 </template>
 
 <script setup>
-import { useContentStore } from '~/stores/ContentStore'
+import { projectsQuery } from '@/queries/contentQueries'
 
 // get data
-const contentStore = useContentStore()
-contentStore.fetchProjects()
+const { data } = await useSanityQuery(projectsQuery)
+console.log(data.value)
 
 // meta
-useDefaultHead(contentStore.pageProjects.title, contentStore.pageProjects.seo)
+useDefaultHead({
+	title: data.value.title,
+	seo: data.value.seo,
+})
 </script>
 
 <style scoped>
@@ -64,7 +67,7 @@ main {
 	position: relative;
 	border-radius: 0.2rem;
 	box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0);
-	background: rgb(var(--clr-black));
+	background: var(--rgb-black);
 	transition: box-shadow 0.5s ease;
 	overflow: hidden;
 }

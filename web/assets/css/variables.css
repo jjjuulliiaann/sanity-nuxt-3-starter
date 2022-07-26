@@ -1,7 +1,10 @@
 :root {
 	--clr-black: 0 0 0;
+	--rgb-black: rgb(var(--clr-black));
 	--clr-white: 255 255 255;
+	--rgb-white: rgb(var(--clr-white));
 	--clr-accent: 239 40 40;
+	--rgb-accent: rgb(var(--clr-accent));
 	--preview-banner-height: 43px;
 	--header-height: 3rem;
 }

@@ -13,7 +13,7 @@ html {
 
 body {
 	-webkit-tap-highlight-color: transparent;
-	background: rgb(var(--clr-white));
+	background: var(--rgb-white);
 }
 
 /* layout */
@@ -34,7 +34,7 @@ main {
 /* transitions */
 
 .page-enter-active, .page-leave-active {
-	transition: opacity 0.5s ease;
+	transition: opacity 0.5s;
 }
 
 .page-enter-from,
@@ -44,7 +44,7 @@ main {
 
 .fade-enter-active,
 .fade-leave-active {
-	transition: opacity 0.5s ease;
+	transition: opacity 0.5s;
 }
 
 .fade-enter-from,

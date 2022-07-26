@@ -254,7 +254,7 @@ const toggleFullscreen = () => {
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
-	background: rgb(var(--clr-black));
+	background: var(--rgb-black);
 }
 
 /* cover */
@@ -394,19 +394,19 @@ progress[value] {
 	-moz-appearance: none;
 	appearance: none;
 	border: none;
-	background: rgb(var(--clr-black));
+	background: var(--rgb-black);
 }
 
 progress[value]::-webkit-progress-bar {
-	background: rgb(var(--clr-black));
+	background: var(--rgb-black);
 }
 
 progress[value]::-webkit-progress-value {
-	background: rgb(var(--clr-white));
+	background: var(--rgb-white);
 }
 
 progress[value]::-moz-progress-bar {
-	background: rgb(var(--clr-white));
+	background: var(--rgb-white);
 }
 
 .VideoPlayer_Progress_Indicator {
@@ -418,7 +418,7 @@ progress[value]::-moz-progress-bar {
 	top: 50%;
 	transform: translate(-0.3rem, -50%);
 	opacity: 0;
-	background: rgb(var(--clr-white));
+	background: var(--rgb-white);
 }
 
 @media (hover: hover) and (pointer: fine) {

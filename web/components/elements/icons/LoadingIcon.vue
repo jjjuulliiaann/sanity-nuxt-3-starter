@@ -38,7 +38,7 @@ export default {
 }
 
 path {
-	fill: rgb(var(--clr-white));
+	fill: var(--rgb-white);
 }
 
 @keyframes spinning {

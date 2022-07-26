@@ -53,11 +53,11 @@ const randomize = () => {
 	width: 14rem;
 	height: 6rem;
 	border-radius: 0.5rem;
-	background: rgb(var(--clr-accent));
+	background: var(--rgb-accent);
 }
 
 .CounterNumber_empty span {
-	color: rgb(var(--clr-white));
+	color: var(--rgb-white);
 }
 
 .CounterButtons {
@@ -70,7 +70,7 @@ button {
 	padding: 0.5rem;
 	margin-top: 1rem;
 	border-radius: 0.2rem;
-	background: rgb(var(--clr-accent));
-	color: rgb(var(--clr-white));
+	background: var(--rgb-accent);
+	color: var(--rgb-white);
 }
 </style>

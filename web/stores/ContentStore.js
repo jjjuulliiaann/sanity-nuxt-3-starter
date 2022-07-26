@@ -17,7 +17,6 @@ export const useContentStore = defineStore('ContentStore', {
 			siteOptions: {},
 			siteNavigation: {},
 			pageHome: {},
-			pageProjects: {},
 		}
 	},
 
@@ -42,11 +41,6 @@ export const useContentStore = defineStore('ContentStore', {
 		async fetchHome() {
 			const { data } = await useSanityQuery(homeQuery)
 			this.pageHome = data.value
-		},
-
-		async fetchProjects() {
-			const { data } = await useSanityQuery(projectsQuery)
-			this.pageProjects = data.value
 		},
 	},
 })
