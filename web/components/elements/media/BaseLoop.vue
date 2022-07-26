@@ -28,13 +28,17 @@ const props = defineProps({
 	},
 })
 
-// variables
+/* 
+variables 
+*/
 const video = ref(null)
 const isPlaying = ref(false)
 const isLoaded = ref(false)
 const isVisible = useElementVisibility(video)
 
-// dimensions
+/* 
+dimensions 
+*/
 const videoWidth = computed(
 	() => props.video?.muxVideo?.asset?.data?.tracks[0]?.max_width
 )
@@ -42,27 +46,39 @@ const videoHeight = computed(
 	() => props.video?.muxVideo?.asset?.data?.tracks[0]?.max_height
 )
 
-// setup
+/* 
+setup 
+*/
 const emit = defineEmits(['loaded'])
 useMuxStream(props.video?.muxVideo?.asset?.playbackId, video)
 
-// handle play state
+/* 
+handle play state 
+*/
 const updatePaused = (event) => {
-	isPlaying.value = !event.target.paused
+	isPlaying.value =
+		event.target.currentTime > 0 &&
+		!event.target.paused &&
+		!event.target.ended &&
+		event.target.readyState > event.target.HAVE_CURRENT_DATA
 	if (!isLoaded.value) {
 		isLoaded.value = true
 		emit('loaded')
 	}
 }
 
-// play only when visible
+/* 
+play only when visible
+*/
 watch(isVisible, (isVisible) => {
-	if (video) {
+	if (video && isVisible) {
 		if (!isPlaying.value) {
 			video.value.play()
-		} else {
-			video.value.pause()
 		}
+	} else {
+		setTimeout(() => {
+			video.value.pause()
+		}, 100)
 	}
 })
 </script>
