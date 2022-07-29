@@ -20,6 +20,7 @@
 		"web:dev": "cd web && npm run dev",
 		"studio:dev": "cd studio && npm run dev",
 		"build": "npm run build -ws",
+		"web:build": "cd web && npm run build",
 		"lint": "npm run lint -ws"
 	}
 }
