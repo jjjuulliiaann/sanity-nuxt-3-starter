@@ -6,6 +6,7 @@
 			:class="{ VideoLoop_playing: isPlaying }"
 			muted
 			playsinline
+			disablePictureInPicture
 			loop
 			preload="auto"
 			:width="videoWidth"

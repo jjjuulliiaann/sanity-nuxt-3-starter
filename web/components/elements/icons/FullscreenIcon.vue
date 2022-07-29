@@ -1,25 +1,32 @@
 <template>
 	<svg
 		class="FullscreenIcon"
-		width="16"
-		height="16"
-		viewBox="0 0 16 16"
+		:class="{ FullscreenIcon_full: props.isFullscreen }"
+		width="10"
+		height="10"
+		viewBox="0 0 10 10"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
 	>
+		<path class="FullscreenIcon_Open" d="M4 0H0V4H1.5V1.5H4V0Z" />
+		<path class="FullscreenIcon_Open" d="M6 0V1.5H8.5V4H10V0H6Z" />
+		<path class="FullscreenIcon_Open" d="M10 6H8.5V8.5H6V10H10V6Z" />
+		<path class="FullscreenIcon_Open" d="M1.5 6H0V10H4V8.5H1.5V6Z" />
 		<path
-			v-show="!isFullscreen"
-			class="FullscreenIcon_max"
-			fill-rule="evenodd"
-			clip-rule="evenodd"
-			d="M6 0H0V6H3V3H6V0ZM10 0V3H13V6H16V0H10ZM6 13H3V10H0V16H6V13ZM10 16H16V10H13V13H10V16Z"
+			class="FullscreenIcon_Close"
+			d="M0 3.99998L4 3.99998L4 -1.51714e-05L2.5 -1.52588e-05V2.5H8.74224e-08L0 3.99998Z"
 		/>
 		<path
-			v-show="isFullscreen"
-			class="FullscreenIcon_min"
-			fill-rule="evenodd"
-			clip-rule="evenodd"
-			d="M4 0H7V7H0V4H4V0ZM0 9V12H4V16H7V9H0ZM9 9V16H12V12H16V9H9ZM16 7V4H12V0H9V7H16Z"
+			class="FullscreenIcon_Close"
+			d="M10 3.99998V2.5H7.5V-1.52588e-05L6 -1.51714e-05L6 3.99998L10 3.99998Z"
+		/>
+		<path
+			class="FullscreenIcon_Close"
+			d="M6 9.99996H7.5V7.5H10V5.99996L6 5.99996L6 9.99996Z"
+		/>
+		<path
+			class="FullscreenIcon_Close"
+			d="M2.5 9.99996H4L4 5.99996L8.74224e-08 5.99996L0 7.5H2.5V9.99996Z"
 		/>
 	</svg>
 </template>
@@ -35,11 +42,27 @@ const props = defineProps({
 
 <style scoped>
 .FullscreenIcon {
-	width: 12px;
+	width: 10px;
 	height: auto;
+
+	@media (--w-tablet-1) {
+		width: 15px;
+	}
 }
 
 path {
-	fill: var(--rgb-white);
+	fill: rgb(var(--clr-white));
+}
+
+.FullscreenIcon_Close {
+	display: none;
+}
+
+.FullscreenIcon_full .FullscreenIcon_Close {
+	display: block;
+}
+
+.FullscreenIcon_full .FullscreenIcon_Open {
+	display: none;
 }
 </style>

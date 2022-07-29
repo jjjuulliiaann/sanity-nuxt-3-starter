@@ -13,6 +13,7 @@
 			:poster="posterSrc"
 			:width="videoWidth"
 			:height="videoHeight"
+			:style="aspectRatioStyle"
 			playsinline
 			preload="metadata"
 			crossorigin="anonymous"
@@ -42,12 +43,12 @@
 					<span v-show="isPlaying"><ElementsIconsPauseIcon /></span>
 				</button>
 			</li>
-			<li class="VideoPlayer_Progress">
-				<div
-					class="VideoPlayer_Progress_Container"
-					@click="setProgress"
-					@mousemove="updateProgressHover"
-				>
+			<li
+				class="VideoPlayer_Progress"
+				@click="setProgress"
+				@mousemove="updateProgressHover"
+			>
+				<div class="VideoPlayer_Progress_Container">
 					<progress
 						ref="progressEl"
 						:value="currentTime"
@@ -60,9 +61,12 @@
 					></span>
 				</div>
 			</li>
-			<li class="VideoPlayer_Time">
+			<li v-if="props.showTime" class="VideoPlayer_Time">
 				<span class="text-sm text_white text_bold">
-					{{ remainingTimeString }}</span
+					{{ currentTimeString }}&nbsp;/&nbsp;
+				</span>
+				<span class="text-sm text_white text_bold">
+					{{ totalTimeString }}</span
 				>
 			</li>
 			<li v-if="isSupported" class="VideoPlayer_Fullscreen">
@@ -92,6 +96,11 @@ const props = defineProps({
 		type: Object,
 		default: () => undefined,
 	},
+
+	showTime: {
+		type: Boolean,
+		default: () => false,
+	},
 })
 
 // elements
@@ -114,6 +123,9 @@ const videoWidth = computed(
 const videoHeight = computed(
 	() => props.video?.muxVideo?.asset?.data?.tracks[0]?.max_height
 )
+const aspectRatioStyle = computed(() => {
+	return { 'aspect-ratio': `${videoWidth.value} / ${videoHeight.value}` }
+})
 
 /*
 poster image
@@ -161,20 +173,24 @@ const handleCanPlay = () => {
 video progress
 */
 
-const remainingTimeString = computed(() => {
-	const remainingTime =
-		totalTime.value - currentTime.value > 0
-			? totalTime.value - currentTime.value
-			: 0
-	let minutes = Math.floor(remainingTime / 60)
+const currentTimeString = computed(() => {
+	let minutes = Math.floor(currentTime.value / 60)
 	minutes = minutes >= 10 ? minutes : `0${minutes}`
-	let seconds = Math.floor(remainingTime % 60)
+	let seconds = Math.floor(currentTime.value % 60)
 	seconds = seconds >= 10 ? seconds : `0${seconds}`
-	return `-${minutes}:${seconds}`
+	return `${minutes}:${seconds}`
+})
+
+const totalTimeString = computed(() => {
+	let minutes = Math.floor(totalTime.value / 60)
+	minutes = minutes >= 10 ? minutes : `0${minutes}`
+	let seconds = Math.floor(totalTime.value % 60)
+	seconds = seconds >= 10 ? seconds : `0${seconds}`
+	return `${minutes}:${seconds}`
 })
 
 const progressHoverStyle = computed(
-	() => `left: ${progressHoverPosition.value}%`
+	() => `width: ${progressHoverPosition.value}%`
 )
 
 const setupProgress = () => {
@@ -231,11 +247,13 @@ const toggleFullscreen = () => {
 	position: relative;
 	width: 100%;
 	height: auto;
-	margin: 1rem 0;
 	line-height: 0;
+	overflow: hidden;
 }
 
-/* video */
+/*
+video
+*/
 
 .VideoPlayer_Video {
 	position: relative;
@@ -254,10 +272,12 @@ const toggleFullscreen = () => {
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
-	background: var(--rgb-black);
+	background: rgb(var(--clr-black));
 }
 
-/* cover */
+/*
+cover
+*/
 
 .VideoPlayer_Cover {
 	position: absolute;
@@ -280,8 +300,8 @@ const toggleFullscreen = () => {
 }
 
 .VideoPlayer_Cover:deep(.PlayIcon) {
-	height: 4rem;
-	transition: transform 0.2s ease-out;
+	width: 5rem;
+	transition: transform 0.4s;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -290,36 +310,66 @@ const toggleFullscreen = () => {
 	}
 }
 
-/* controls */
+/*
+loop cover
+*/
+
+.VideoPlayer_PreviewLoop {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 2;
+	opacity: 0;
+}
+
+.VideoPlayer_initial .VideoPlayer_PreviewLoop {
+	opacity: 1;
+}
+
+/*
+controls
+*/
 
 .VideoPlayer_Controls {
 	position: absolute;
 	display: flex;
-	height: 3rem;
-	right: 1rem;
-	left: 1rem;
-	bottom: 1rem;
-	padding: 0 1rem;
+	height: 30px;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	padding: 0;
 	margin: 0;
 	z-index: 2;
-	background: rgb(var(--clr-black) / 0.5);
-	border-radius: 10rem;
 	list-style: none;
 	transition: opacity 0.2s 1s ease;
-	backdrop-filter: blur(10px);
+	background: linear-gradient(
+		to bottom,
+		hsla(0, 0%, 0%, 0) 0%,
+		hsla(0, 0%, 0%, 0.003) 8.1%,
+		hsla(0, 0%, 0%, 0.01) 15.5%,
+		hsla(0, 0%, 0%, 0.021) 22.5%,
+		hsla(0, 0%, 0%, 0.035) 29%,
+		hsla(0, 0%, 0%, 0.052) 35.3%,
+		hsla(0, 0%, 0%, 0.07) 41.2%,
+		hsla(0, 0%, 0%, 0.09) 47.1%,
+		hsla(0, 0%, 0%, 0.11) 52.9%,
+		hsla(0, 0%, 0%, 0.13) 58.8%,
+		hsla(0, 0%, 0%, 0.148) 64.7%,
+		hsla(0, 0%, 0%, 0.165) 71%,
+		hsla(0, 0%, 0%, 0.179) 77.5%,
+		hsla(0, 0%, 0%, 0.19) 84.5%,
+		hsla(0, 0%, 0%, 0.197) 91.9%,
+		hsla(0, 0%, 0%, 0.2) 100%
+	);
 
 	@media (--w-tablet-1) {
-		height: 2rem;
-		padding: 0 0.5rem;
+		height: 50px;
 	}
 }
 
 .VideoPlayer_playing .VideoPlayer_Controls {
 	opacity: 0;
-}
-
-.VideoPlayer:fullscreen .VideoPlayer_Controls {
-	background: rgb(60 60 60 / 0.7);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -341,26 +391,26 @@ const toggleFullscreen = () => {
 	position: relative;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	height: 100%;
-	padding: 0 0.5rem;
+	width: auto;
+	padding: 0 10px;
+
+	@media (--w-tablet-1) {
+		width: auto;
+		padding: 0 20px;
+	}
 }
 
 .VideoPlayer_ControlsButton > span {
 	display: inline-block;
 	overflow: hidden;
 	line-height: 0;
-	min-height: 0.2rem;
 }
 
-.VideoPlayer_ControlsButton_playpause {
-	padding-right: 1rem;
-}
-
-.VideoPlayer_ControlsButton:deep(.PlayIcon),
-.VideoPlayer_ControlsButton:deep(.PauseIcon) {
-	width: 1rem;
-	@media (--w-tablet-1) {
-		width: 0.7rem;
+@media (hover: hover) and (pointer: fine) {
+	.VideoPlayer_ControlsButton:hover {
+		opacity: 0.5;
 	}
 }
 
@@ -368,6 +418,12 @@ const toggleFullscreen = () => {
 
 .VideoPlayer_Progress {
 	flex: 1 0 auto;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	cursor: pointer;
 }
 
 .VideoPlayer_Progress_Container {
@@ -375,16 +431,26 @@ const toggleFullscreen = () => {
 	display: flex;
 	flex-flow: column wrap;
 	justify-content: center;
-	height: 100%;
-	flex: 1 0 auto;
-	cursor: pointer;
+	width: 100%;
+	height: 1px;
+	border-radius: 10rem;
+	overflow: hidden;
+	backdrop-filter: blur(10px);
+	background: rgb(var(--clr-white) / 0.2);
+	transition: height 0.2s;
+}
+
+@media (hover: none) and (pointer: coarse) {
+	.VideoPlayer_Progress_Container {
+		height: 4px;
+	}
 }
 
 progress {
 	position: relative;
 	-webkit-appearance: none;
 	appearance: none;
-	height: 1px;
+	height: 8px;
 	width: auto;
 }
 
@@ -394,36 +460,52 @@ progress[value] {
 	-moz-appearance: none;
 	appearance: none;
 	border: none;
-	background: var(--rgb-black);
+	background: rgb(var(--clr-white) / 0.2);
 }
 
 progress[value]::-webkit-progress-bar {
-	background: var(--rgb-black);
+	background: rgb(var(--clr-white) / 0.2);
+}
+
+.VideoPlayer:fullscreen progress[value],
+.VideoPlayer:fullscreen progress[value]::-webkit-progress-bar {
+	background: rgb(var(--clr-white) / 0.2);
 }
 
 progress[value]::-webkit-progress-value {
-	background: var(--rgb-white);
+	background: rgb(var(--clr-white));
 }
 
 progress[value]::-moz-progress-bar {
-	background: var(--rgb-white);
+	background: rgb(var(--clr-white));
 }
 
 .VideoPlayer_Progress_Indicator {
 	position: absolute;
-	height: 0.6rem;
-	width: 0.6rem;
-	border-radius: 10rem;
+	height: 100%;
 	left: 0;
-	top: 50%;
-	transform: translate(-0.3rem, -50%);
+	top: 0;
 	opacity: 0;
-	background: var(--rgb-white);
+	background: rgb(var(--clr-white) / 0.3);
+}
+
+.VideoPlayer_Progress_Indicator::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 1px;
+	background: rgb(var(--clr-black) / 0.2);
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.VideoPlayer_Progress_Container:hover .VideoPlayer_Progress_Indicator {
+	.VideoPlayer_Progress:hover .VideoPlayer_Progress_Indicator {
 		opacity: 1;
+	}
+
+	.VideoPlayer_Progress:hover .VideoPlayer_Progress_Container {
+		height: 8px;
 	}
 }
 
@@ -431,8 +513,17 @@ progress[value]::-moz-progress-bar {
 
 .VideoPlayer_Time {
 	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-	padding: 0rem 0.5rem 0 1rem;
+	min-width: 8rem;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 0 0 0 0.5rem;
+
+	@media (--w-tablet-1) {
+		min-width: 9rem;
+	}
+}
+
+.VideoPlayer_Time > span {
+	text-align: right;
 }
 </style>

@@ -2,12 +2,12 @@
 	<svg
 		class="PlayIcon"
 		width="10"
-		height="14"
-		viewBox="0 0 10 14"
+		height="10"
+		viewBox="0 0 10 10"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
 	>
-		<path d="M0 14V0L10 7L0 14Z" fill="white" />
+		<path d="M1 0L9 5L1 10V0Z" />
 	</svg>
 </template>
 
@@ -15,9 +15,13 @@
 .PlayIcon {
 	width: 10px;
 	height: auto;
+
+	@media (--w-tablet-1) {
+		width: 15px;
+	}
 }
 
 path {
-	fill: var(--rgb-white);
+	fill: rgb(var(--clr-white));
 }
 </style>
