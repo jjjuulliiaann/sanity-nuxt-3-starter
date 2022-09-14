@@ -49,9 +49,9 @@ const randomize = () => {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 1rem;
+	padding: 2rem;
 	width: 14rem;
-	height: 6rem;
+	height: 7rem;
 	border-radius: 0.5rem;
 	background: var(--rgb-accent);
 }
@@ -63,13 +63,13 @@ const randomize = () => {
 .TheCounter_Buttons {
 	display: flex;
 	justify-content: space-between;
-	gap: 0.5rem;
+	gap: 1rem;
 }
 
 button {
-	padding: 0.5rem;
+	padding: 1rem;
 	margin-top: 1rem;
-	border-radius: 0.2rem;
+	border-radius: 0.5rem;
 	background: var(--rgb-accent);
 	color: var(--rgb-white);
 }
