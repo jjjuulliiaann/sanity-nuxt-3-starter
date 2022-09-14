@@ -8,7 +8,7 @@
 			playsinline
 			disablePictureInPicture
 			loop
-			preload="auto"
+			preload="metadata"
 			:width="videoWidth"
 			:height="videoHeight"
 			crossorigin="anonymous"
@@ -40,12 +40,18 @@ const isVisible = useElementVisibility(video)
 /* 
 dimensions 
 */
-const videoWidth = computed(
-	() => props.video?.muxVideo?.asset?.data?.tracks[0]?.max_width
-)
-const videoHeight = computed(
-	() => props.video?.muxVideo?.asset?.data?.tracks[0]?.max_height
-)
+const videoWidth = computed(() => {
+	const videoTrack = props.video?.muxVideo?.asset?.data?.tracks?.find(
+		(el) => el.type === 'video'
+	)
+	return videoTrack ? videoTrack.max_width : undefined
+})
+const videoHeight = computed(() => {
+	const videoTrack = props.video?.muxVideo?.asset?.data?.tracks?.find(
+		(el) => el.type === 'video'
+	)
+	return videoTrack ? videoTrack.max_height : undefined
+})
 
 /* 
 setup 

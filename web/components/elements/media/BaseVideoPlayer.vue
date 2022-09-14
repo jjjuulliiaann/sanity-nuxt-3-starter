@@ -85,7 +85,6 @@
 </template>
 
 <script setup>
-// props
 const props = defineProps({
 	video: {
 		type: Object,
@@ -103,12 +102,16 @@ const props = defineProps({
 	},
 })
 
-// elements
+/* 
+elements 
+*/
 const videoPlayerEl = ref(null)
 const videoEl = ref(null)
 const progressEl = ref(null)
 
-// variables
+/* 
+variables 
+*/
 const isInitial = ref(true)
 const isLoaded = ref(true)
 const isPlaying = ref(false)
@@ -116,16 +119,26 @@ const currentTime = ref(0)
 const totalTime = ref(0)
 const progressHoverPosition = ref(0)
 
-// dimensions
-const videoWidth = computed(
-	() => props.video?.muxVideo?.asset?.data?.tracks[0]?.max_width
-)
-const videoHeight = computed(
-	() => props.video?.muxVideo?.asset?.data?.tracks[0]?.max_height
-)
-const aspectRatioStyle = computed(() => {
-	return { 'aspect-ratio': `${videoWidth.value} / ${videoHeight.value}` }
+/* 
+dimensions 
+*/
+const videoWidth = computed(() => {
+	const videoTrack = props.video?.muxVideo?.asset?.data?.tracks?.find(
+		(el) => el.type === 'video'
+	)
+	return videoTrack ? videoTrack.max_width : undefined
 })
+const videoHeight = computed(() => {
+	const videoTrack = props.video?.muxVideo?.asset?.data?.tracks?.find(
+		(el) => el.type === 'video'
+	)
+	return videoTrack ? videoTrack.max_height : undefined
+})
+const aspectRatioStyle = computed(() =>
+	videoWidth && videoHeight
+		? { 'aspect-ratio': `${videoWidth.value} / ${videoHeight.value}` }
+		: {}
+)
 
 /*
 poster image
