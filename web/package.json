@@ -9,7 +9,7 @@
 	},
 	"dependencies": {
 		"@nuxtjs/sanity": "^1.2.3",
-		"@pinia/nuxt": "^0.3.0",
+		"@pinia/nuxt": "^0.4.2",
 		"@sanity/image-url": "^1.0.1",
 		"@vueuse/motion": "^2.0.0-beta.18",
 		"groq": "^2.29.3",
@@ -26,7 +26,7 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-vue": "^9.2.0",
-		"nuxt": "3.0.0-rc.6",
+		"nuxt": "3.0.0-rc.9",
 		"postcss": "^8.4.12",
 		"postcss-cli": "^9.1.0",
 		"postcss-custom-media": "^8.0.0",
