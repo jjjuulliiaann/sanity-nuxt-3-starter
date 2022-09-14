@@ -1,5 +1,5 @@
 <template>
-	<footer>
+	<footer class="TheFooter">
 		<p class="text-sm">
 			{{ contentStore.siteOptions?.copyrightText }}, {{ currentYear }}
 		</p>
@@ -15,7 +15,7 @@ const currentYear = new Date().getFullYear()
 </script>
 
 <style scoped>
-footer {
+.TheFooter {
 	position: relative;
 	padding: 5rem 1rem 1rem;
 }

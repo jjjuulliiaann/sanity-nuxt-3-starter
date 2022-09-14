@@ -1,6 +1,6 @@
 <template>
 	<main>
-		<Counter />
+		<TheCounter />
 		<section class="text-base">
 			<ElementsTextContent :blocks="contentStore.pageHome?.content" />
 		</section>

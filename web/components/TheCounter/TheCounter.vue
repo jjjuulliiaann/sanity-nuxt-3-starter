@@ -1,15 +1,15 @@
 <template>
-	<section class="Counter">
+	<section class="TheCounter">
 		<div
-			class="CounterNumber"
-			:class="{ CounterNumber_empty: mainStore.counterIsZero }"
+			class="TheCounter_Number"
+			:class="{ TheCounter_Number_empty: mainStore.counterIsZero }"
 			v-motion
 			v-motion-pop-up
 		>
 			<span class="text-xl text_bold">{{ mainStore.counter }}</span>
 		</div>
 
-		<div class="CounterButtons" v-motion v-motion-pop-up>
+		<div class="TheCounter_Buttons" v-motion v-motion-pop-up>
 			<button @click="increase">Add 1</button>
 			<button @click="randomize">Randomize</button>
 			<button @click="mainStore.resetCounter">Reset</button>
@@ -36,7 +36,7 @@ const randomize = () => {
 </script>
 
 <style scoped>
-.Counter {
+.TheCounter {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -44,7 +44,7 @@ const randomize = () => {
 	padding: 8rem 1rem;
 }
 
-.CounterNumber {
+.TheCounter_Number {
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -56,11 +56,11 @@ const randomize = () => {
 	background: var(--rgb-accent);
 }
 
-.CounterNumber_empty span {
+.TheCounter_Number_empty span {
 	color: var(--rgb-white);
 }
 
-.CounterButtons {
+.TheCounter_Buttons {
 	display: flex;
 	justify-content: space-between;
 	gap: 0.5rem;

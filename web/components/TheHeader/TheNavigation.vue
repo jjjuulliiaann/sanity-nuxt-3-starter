@@ -1,10 +1,10 @@
 <template>
-	<nav>
-		<ul v-if="contentStore.siteNavigation" class="NavigationList">
+	<nav class="TheNavigation">
+		<ul v-if="contentStore.siteNavigation" class="TheNavigation_List">
 			<li
 				v-for="link in contentStore.siteNavigation?.navMain"
 				:key="link.id"
-				class="NavigationItem"
+				class="TheNavigation_Item"
 			>
 				<ElementsTextLink
 					:link-type="link.linkType"
@@ -31,7 +31,7 @@ const mainStore = useMainStore()
 </script>
 
 <style scoped>
-nav {
+.TheNavigation {
 	position: relative;
 	width: 100%;
 	padding: 0 1rem 1rem;
@@ -41,7 +41,8 @@ nav {
 		padding: 1rem;
 	}
 }
-.NavigationList {
+
+.TheNavigation_List {
 	position: relative;
 	list-style: none;
 
@@ -51,7 +52,7 @@ nav {
 	}
 }
 
-.NavigationItem {
+.TheNavigation_Item {
 	padding: 0.1rem 0;
 
 	@media (--w-tablet-1) {
@@ -60,7 +61,7 @@ nav {
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.NavigationItem:deep(.link:hover) {
+	.TheNavigation_Item:deep(.link:hover) {
 		color: rgb(var(--clr-accent));
 	}
 }

@@ -1,11 +1,13 @@
 <template>
-	<header v-on-click-outside="mainStore.closeMenu">
-		<div class="HeaderBar">
+	<header class="TheHeader" v-on-click-outside="mainStore.closeMenu">
+		<div class="TheHeader_Bar">
 			<NuxtLink :to="{ name: 'index' }" class="text_bold"
 				>{{ contentStore.siteOptions?.name }}
 				{{ contentStore.siteOptions?.headerTitle }}</NuxtLink
 			>
-			<button @click="toggleMenu" class="HeaderNavButton">Menü</button>
+			<button @click="toggleMenu" class="TheHeader_NavButton">
+				Menü
+			</button>
 		</div>
 		<TheNavigation v-show="mainStore.menuIsOpen || isDesktop" />
 	</header>
@@ -34,7 +36,7 @@ const isDesktop = useMediaQuery(
 </script>
 
 <style scoped>
-header {
+.TheHeader {
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -49,7 +51,7 @@ header {
 	}
 }
 
-.HeaderBar {
+.TheHeader_Bar {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
@@ -62,7 +64,7 @@ header {
 	}
 }
 
-.HeaderNavButton {
+.TheHeader_NavButton {
 	@media (--w-tablet-1) {
 		display: none;
 	}

@@ -1,10 +1,10 @@
 <template>
-	<aside class="preview-banner">
-		<button class="preview-banner__button" @click="refreshData">
+	<aside class="ThePreviewBanner">
+		<button class="ThePreviewBanner_Button" @click="refreshData">
 			Refresh preview page
 		</button>
 		<a
-			class="preview-banner__button"
+			class="ThePreviewBanner_Button"
 			:href="`${route.path}?preview=true`"
 			target="_blank"
 			rel="noopener"
@@ -24,7 +24,7 @@ const refreshData = () => {
 </script>
 
 <style scoped>
-.preview-banner {
+.ThePreviewBanner {
 	--_rgb-grey: rgb(86 89 92);
 	--_rgb-lightgrey: rgba(86 89 92 / 0.4);
 	--_rgb-blue: rgb(34 118 252);
@@ -34,7 +34,7 @@ const refreshData = () => {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: var(--preview-banner-height);
+	height: var(--ThePreviewBanner-height);
 	padding: 0 12px;
 	background: var(--rgb-white);
 	color: var(--rgb-black);
@@ -42,7 +42,7 @@ const refreshData = () => {
 	z-index: 1000;
 }
 
-.preview-banner .preview-banner__button {
+.ThePreviewBanner .ThePreviewBanner_Button {
 	padding: 1px 7px;
 	margin-right: 10px;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -59,7 +59,7 @@ const refreshData = () => {
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.preview-banner .preview-banner__button:hover {
+	.ThePreviewBanner .ThePreviewBanner_Button:hover {
 		background: var(--_rgb-blue);
 		color: var(--rgb-white);
 		border-color: var(--_rgb-blue);
