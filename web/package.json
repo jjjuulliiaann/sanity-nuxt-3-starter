@@ -19,19 +19,20 @@
 		"vue": "^3.2.37"
 	},
 	"devDependencies": {
+		"@babel/eslint-parser": "^7.18.9",
+		"@nuxtjs/eslint-config": "^11.0.0",
 		"@vueuse/components": "^8.9.4",
 		"@vueuse/core": "^8.9.4",
 		"@vueuse/nuxt": "^8.9.4",
-		"eslint": "^8.20.0",
+		"eslint": "^8.23.1",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-vue": "^9.2.0",
 		"nuxt": "3.0.0-rc.9",
 		"postcss": "^8.4.12",
 		"postcss-cli": "^9.1.0",
 		"postcss-custom-media": "^8.0.0",
 		"postcss-nesting": "^10.1.10",
 		"prettier": "^2.7.1",
-		"vite-plugin-eslint": "^1.6.0"
+		"vite-plugin-eslint": "^1.8.1"
 	}
 }

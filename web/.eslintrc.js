@@ -5,7 +5,7 @@ module.exports = {
 		es2021: true,
 		node: true,
 	},
-	extends: ['@antfu'],
+	extends: ['@nuxtjs'],
 	parserOptions: {
 		ecmaVersion: 'latest',
 	},
