@@ -1,15 +1,17 @@
-# Sanity Nuxt 3 Starter 🍿
+# 🍿 Sanity Nuxt 3 Starter
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+Highly opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 documentation`](https://v3.nuxtjs.org) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
 
 ## Features
 
--   [x] Monorepo with NPM Workspaces
--   [x] Sanity Backend
--   [x] Nuxt 3 Frontend
--   [x] Vite Module Bundler
--   [ ] Pinia Store
--   [ ] …
+-   Monorepo with NPM Workspaces
+-   Sanity Backend
+-   Nuxt 3 Frontend
+-   Vite Module Bundler
+-   Pinia Store
+-   Linting with ESLint
+-   Lazyloading with LazySizes
+-   Configured for Netlify Hosting
 
 ## Setup
 
