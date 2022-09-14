@@ -7,6 +7,8 @@
 </template>
 
 <script setup>
+import lazySizes from 'lazysizes'
+import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import { useContentStore } from '~/stores/ContentStore'
 
 // meta
