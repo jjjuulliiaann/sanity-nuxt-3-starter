@@ -1,7 +1,7 @@
 <template>
 	<figure>
 		<video
-			ref="video"
+			ref="videoEl"
 			class="VideoLoop"
 			:class="{ VideoLoop_playing: isPlaying }"
 			muted
@@ -20,25 +20,26 @@
 </template>
 
 <script setup>
-import { useElementVisibility } from '@vueuse/core'
-
 const props = defineProps({
 	video: {
 		type: Object,
 		default: () => undefined,
 	},
+	isActive: {
+		type: Boolean,
+		default: () => true,
+	},
 })
 
-/* 
-variables 
+/*
+variables
 */
-const video = ref(null)
+const videoEl = ref(null)
 const isPlaying = ref(false)
 const isLoaded = ref(false)
-const isVisible = useElementVisibility(video)
 
-/* 
-dimensions 
+/*
+dimensions
 */
 const videoWidth = computed(() => {
 	const videoTrack = props.video?.muxVideo?.asset?.data?.tracks?.find(
@@ -53,14 +54,20 @@ const videoHeight = computed(() => {
 	return videoTrack ? videoTrack.max_height : undefined
 })
 
-/* 
-setup 
+/*
+setup
 */
 const emit = defineEmits(['loaded'])
-useMuxStream(props.video?.muxVideo?.asset?.playbackId, video)
+useMuxStream({
+	muxVideo: props.video?.muxVideo,
+	videoEl: videoEl,
+	preferMp4: true,
+})
 
-/* 
-handle play state 
+console.log(props.video?.muxVideo?.asset?._id)
+
+/*
+handle play state
 */
 const updatePaused = (event) => {
 	isPlaying.value =
@@ -74,18 +81,21 @@ const updatePaused = (event) => {
 	}
 }
 
-/* 
+/*
 play only when visible
 */
-watch(isVisible, (isVisible) => {
-	if (video && isVisible) {
-		if (!isPlaying.value) {
-			video.value.play()
+const { stop } = useIntersectionObserver(
+	videoEl,
+	([{ isIntersecting }], observerElement) => {
+		if (isIntersecting) {
+			if (!isPlaying.value && props.isActive) {
+				videoEl?.value?.play()
+			}
+		} else {
+			setTimeout(() => {
+				videoEl?.value?.pause()
+			}, 100)
 		}
-	} else {
-		setTimeout(() => {
-			video.value.pause()
-		}, 100)
 	}
-})
+)
 </script>

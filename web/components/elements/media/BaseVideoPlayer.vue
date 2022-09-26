@@ -158,7 +158,7 @@ const posterSrc = computed(() => {
 /*
 load video
 */
-useMuxStream(props.video?.muxVideo?.asset?.playbackId, videoEl)
+useMuxStream({ muxVideo: props.video?.muxVideo, videoEl: videoEl })
 
 /*
 control video

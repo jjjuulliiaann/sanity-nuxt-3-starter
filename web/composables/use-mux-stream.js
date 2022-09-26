@@ -1,20 +1,40 @@
 import Hls from 'hls.js'
 
-export default function (playbackId, video) {
-	const playbackIdString = unref(playbackId)
-	if (!playbackIdString) {
+export default function ({ muxVideo, videoEl, preferMp4 = false }) {
+	const video = unref(muxVideo)
+	if (!video?.asset) {
 		return false
 	}
 
-	const stream = `https://stream.mux.com/${playbackIdString}.m3u8`
+	let stream = ''
 
 	const addStreamToVideo = () => {
-		if (Hls.isSupported()) {
-			const hls = new Hls()
-			hls.loadSource(stream)
-			hls.attachMedia(video.value)
-		} else if (video.value.canPlayType('application/vnd.apple.mpegurl')) {
-			video.value.src = stream
+		if (
+			preferMp4 &&
+			video.asset.data?.static_renditions?.status === 'ready'
+		) {
+			console.log(`MP4!`)
+			// create mp4 version
+			const filesSortedByBitrate = [
+				...video.asset.data?.static_renditions?.files,
+			].sort((a, b) => b.bitrate - a.bitrate)
+			const highVersionString = filesSortedByBitrate[0]?.name
+			stream = `https://stream.mux.com/${video.asset?.playbackId}/${highVersionString}`
+			videoEl.value.src = stream
+		} else {
+			console.log(`HLS! ${video.asset.data}`)
+			console.log(video.asset.data)
+			// create hls version
+			stream = `https://stream.mux.com/${video.asset?.playbackId}.m3u8`
+			if (Hls.isSupported()) {
+				const hls = new Hls()
+				hls.loadSource(stream)
+				hls.attachMedia(videoEl.value)
+			} else if (
+				videoEl.value.canPlayType('application/vnd.apple.mpegurl')
+			) {
+				videoEl.value.src = stream
+			}
 		}
 	}
 

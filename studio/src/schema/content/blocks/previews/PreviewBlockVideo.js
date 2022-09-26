@@ -19,7 +19,7 @@ export function PreviewBlockVideo({ value }) {
 	minutes = minutes >= 10 ? minutes : `0${minutes}`;
 	let seconds = Math.floor(duration % 60);
 	seconds = seconds >= 10 ? seconds : `0${seconds}`;
-	const durationString = `${minutes}:${seconds}`;
+	const durationString = duration ? `(${minutes}:${seconds})` : "";
 
 	return (
 		<div style={{ padding: "0.5rem" }}>
@@ -33,7 +33,7 @@ export function PreviewBlockVideo({ value }) {
 			>
 				Video&nbsp;
 				<span style={{ fontWeight: 350, color: "#51637f" }}>
-					({durationString})
+					{durationString}
 				</span>
 			</h3>
 			<img

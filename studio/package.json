@@ -29,7 +29,7 @@
 		"prop-types": "^15.7",
 		"react": "^17.0",
 		"react-dom": "^17.0",
-		"sanity-plugin-mux-input": "^1.1.6",
+		"sanity-plugin-mux-input": "^1.1.8",
 		"styled-components": "^5.2.0"
 	}
 }
