@@ -50,8 +50,8 @@ const randomize = () => {
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
-	width: 16rem;
-	height: 6rem;
+	width: 18rem;
+	height: 8rem;
 	border-radius: 0.5rem;
 	background: var(--rgb-accent);
 }

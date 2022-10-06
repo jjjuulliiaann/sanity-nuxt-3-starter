@@ -180,8 +180,8 @@
 	--lg-tracking: -0.01rem;
 
 	/* xl */
-	--xl-size-min: 55;
-	--xl-size-max: 65;
+	--xl-size-min: 75;
+	--xl-size-max: 90;
 	--xl-size-v: calc(((100 * (var(--xl-size-max) -  var(--xl-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--xl-size-r: calc((((var(--viewport-min) * var(--xl-size-max) - var(--viewport-max) * var(--xl-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--xl-size: clamp(
@@ -189,8 +189,8 @@
 		(var(--xl-size-v) + var(--xl-size-r)),
 		((var(--xl-size-max) / var(--root)) * 1rem)
 	);
-	--xl-leading-min: 55;
-	--xl-leading-max: 65;
+	--xl-leading-min: 75;
+	--xl-leading-max: 90;
 	--xl-leading-v: calc(((100 * (var(--xl-leading-max) -  var(--xl-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--xl-leading-r: calc((((var(--viewport-min) * var(--xl-leading-max) - var(--viewport-max) * var(--xl-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--xl-leading: clamp(

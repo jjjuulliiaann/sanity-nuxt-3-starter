@@ -4,7 +4,7 @@
 			<li
 				v-for="link in contentStore.siteNavigation?.navMain"
 				:key="link.id"
-				class="TheNavigation_Item"
+				class="TheNavigation_Item text-sm"
 			>
 				<ElementsTextLink
 					:link-type="link.linkType"
