@@ -112,13 +112,13 @@ export default defineNuxtConfig({
 								'--w-mobile-2': '(min-width: 375px)',
 								'--w-mobile-3': '(min-width: 450px)',
 
-								'--w-tablet-1': '(min-width: 700px)',
+								'--w-tablet-1': '(min-width: 768px)',
 								'--w-tablet-2': '(min-width: 850px)',
 
-								'--w-desktop-1': '(min-width: 1000px)',
-								'--w-desktop-2': '(min-width: 1300px)',
-								'--w-desktop-3': '(min-width: 1500px)',
-								'--w-desktop-4': '(min-width: 2000px)',
+								'--w-desktop-1': '(min-width: 1024px)',
+								'--w-desktop-2': '(min-width: 1280px)',
+								'--w-desktop-3': '(min-width: 1440px)',
+								'--w-desktop-4': '(min-width: 1920px)',
 
 								'--h-1': '(max-height: 550px)',
 								'--h-2': '(max-height: 750px)',

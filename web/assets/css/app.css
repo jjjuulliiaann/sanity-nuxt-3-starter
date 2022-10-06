@@ -2,10 +2,6 @@
 	background: rgba(0, 0, 0, 0.99);
 	color: rgb(255, 255, 255);
 }
-::-moz-selection {
-	background: rgba(0, 0, 0, 0.99);
-	color: rgb(255, 255, 255);
-}
 
 html {
 	box-sizing: border-box;
