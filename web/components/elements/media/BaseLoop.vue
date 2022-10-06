@@ -16,6 +16,7 @@
 			@playing="updatePaused"
 			@pause="updatePaused"
 		></video>
+		<img :data-src="posterSrc" class="VideoLoop_Image lazyload" />
 	</figure>
 </template>
 
@@ -54,6 +55,15 @@ const videoHeight = computed(() => {
 	return videoTrack ? videoTrack.max_height : undefined
 })
 
+/* 
+poster image 
+*/
+const posterSrc = computed(() => {
+	return props.video?.muxVideo?.asset?.playbackId
+		? `https://image.mux.com/${props.video.muxVideo.asset.playbackId}/thumbnail.jpg?time=0`
+		: ''
+})
+
 /*
 setup
 */
@@ -63,8 +73,6 @@ useMuxStream({
 	videoEl: videoEl,
 	preferMp4: true,
 })
-
-console.log(props.video?.muxVideo?.asset?._id)
 
 /*
 handle play state
@@ -82,6 +90,22 @@ const updatePaused = (event) => {
 }
 
 /*
+play promise
+*/
+const playVideo = () => {
+	// use promise to avoid play interruption
+	const playPromise = videoEl?.value?.play()
+
+	if (playPromise !== undefined) {
+		playPromise.catch(function (error) {
+			// Automatic playback failed
+		})
+	} else {
+		videoEl?.value?.play()
+	}
+}
+
+/*
 play only when visible
 */
 const { stop } = useIntersectionObserver(
@@ -89,13 +113,44 @@ const { stop } = useIntersectionObserver(
 	([{ isIntersecting }], observerElement) => {
 		if (isIntersecting) {
 			if (!isPlaying.value && props.isActive) {
-				videoEl?.value?.play()
+				playVideo()
 			}
 		} else {
 			setTimeout(() => {
 				videoEl?.value?.pause()
 			}, 100)
 		}
+	},
+	{
+		threshold: 0.0,
+	}
+)
+
+/* 
+play when active
+*/
+watch(
+	() => props.isActive,
+	(newVal) => {
+		if (newVal) {
+			playVideo()
+		}
 	}
 )
 </script>
+
+<style scoped>
+.VideoLoop_Image {
+	z-index: -1;
+}
+
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 0.75s;
+}
+</style>
