@@ -260,7 +260,7 @@ a {
 }
 
 .blockcontent a {
-	text-decoration: underline;
+	border-bottom: 1px solid currentColor;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -293,6 +293,7 @@ em {
 }
 
 .blockcontent p {
+	min-height: 1em;
 	margin-bottom: 1em;
 }
 
