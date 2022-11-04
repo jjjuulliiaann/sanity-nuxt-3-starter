@@ -13,7 +13,6 @@ export default function ({ muxVideo, videoEl, preferMp4 = false }) {
 			preferMp4 &&
 			video.asset.data?.static_renditions?.status === 'ready'
 		) {
-			console.log(`MP4!`)
 			// create mp4 version
 			const filesSortedByBitrate = [
 				...video.asset.data?.static_renditions?.files,
@@ -22,8 +21,6 @@ export default function ({ muxVideo, videoEl, preferMp4 = false }) {
 			stream = `https://stream.mux.com/${video.asset?.playbackId}/${highVersionString}`
 			videoEl.value.src = stream
 		} else {
-			console.log(`HLS! ${video.asset.data}`)
-			console.log(video.asset.data)
 			// create hls version
 			stream = `https://stream.mux.com/${video.asset?.playbackId}.m3u8`
 			if (Hls.isSupported()) {

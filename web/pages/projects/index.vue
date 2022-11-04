@@ -35,7 +35,6 @@ import { projectsQuery } from '@/queries/contentQueries'
 
 // get data
 const { data } = await useSanityQuery(projectsQuery)
-console.log(data.value)
 
 // meta
 useDefaultHead({

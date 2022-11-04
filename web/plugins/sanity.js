@@ -1,8 +1,7 @@
 import { useContentStore } from '~/stores/ContentStore'
 
+/* get global page data on start */
 export default defineNuxtPlugin(async () => {
-	console.log('fetch global data on start')
-
 	const contentStore = useContentStore()
 	await contentStore.fetchSiteContent()
 })

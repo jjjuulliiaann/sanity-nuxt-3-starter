@@ -23,15 +23,11 @@ import { useMainStore } from '~/stores/MainStore'
 const mainStore = useMainStore()
 
 const increase = () => {
-	console.log('increase!')
 	mainStore.increaseCounter()
-	console.log(mainStore.counter)
 }
 
 const randomize = () => {
-	console.log('randomize!')
 	mainStore.randomizeCounter()
-	console.log(mainStore.counter)
 }
 </script>
 

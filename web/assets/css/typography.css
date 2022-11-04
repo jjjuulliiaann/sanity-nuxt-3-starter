@@ -264,7 +264,7 @@ a {
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.blockcontent a:hover {
+	a:hover {
 		color: var(--rgb-accent);
 	}
 }

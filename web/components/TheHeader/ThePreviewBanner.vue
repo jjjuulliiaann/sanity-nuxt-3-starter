@@ -18,7 +18,6 @@
 const route = useRoute()
 
 const refreshData = () => {
-	console.log('refresh!')
 	refreshNuxtData()
 }
 </script>
