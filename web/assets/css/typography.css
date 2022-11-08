@@ -255,6 +255,7 @@ body {
 /* links */
 
 a {
+	display: inline-block;
 	color: var(--rgb-black);
 	text-decoration: none;
 }
@@ -267,6 +268,23 @@ a {
 	a:hover {
 		color: var(--rgb-accent);
 	}
+}
+
+/* a11y */
+
+a:focus-visible, button:focus-visible {
+	border-radius: 0.2rem;
+	outline: none;
+	box-shadow: 0 0 0 3px rgb(var(--clr-accent) / 1);
+	background: var(--rgb-accent);
+}
+
+.hidden-item {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	left: -1000px;
 }
 
 /* highlighting */
