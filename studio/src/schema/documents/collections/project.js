@@ -3,7 +3,7 @@ import { BiBookAlt } from "react-icons/bi/";
 import { slugify, validateSlug } from "../../../utils/helperFunctions.js";
 
 export default {
-	title: "Projects",
+	title: "Project",
 	name: "project",
 	type: "document",
 	icon: BiBookAlt,

@@ -6,15 +6,25 @@ export const getDefaultDocumentNode = () => {
 };
 
 // create document items
-const collectionList = ({ id, defaultOrdering = [] }) =>
-	S.documentTypeListItem(id).child(
-		S.documentTypeList(id).defaultOrdering(defaultOrdering)
-	);
+const collectionList = ({ title, schemaType, defaultOrdering = [] }) =>
+	S.listItem({
+		title: title,
+		id: schemaType,
+		schemaType: schemaType,
+		child: () =>
+			S.documentTypeList(schemaType)
+				.title(title)
+				.defaultOrdering(defaultOrdering),
+	});
 
-const singletonPage = ({ id, schemaType, preview = false }) =>
-	S.documentTypeListItem(schemaType).child(
-		S.document().schemaType(schemaType).id(id).views([S.view.form()])
-	);
+const singletonPage = ({ title, id, schemaType }) =>
+	S.listItem({
+		title: title,
+		id: id,
+		schemaType: schemaType,
+		child: () =>
+			S.document().schemaType(schemaType).id(id).views([S.view.form()]),
+	});
 
 // navigation structure
 export default () =>
@@ -22,9 +32,9 @@ export default () =>
 		.title("Content")
 		.items([
 			singletonPage({
+				title: "Home",
 				id: "pageHome",
 				schemaType: "pageHome",
-				preview: true,
 			}),
 
 			S.listItem()
@@ -35,7 +45,8 @@ export default () =>
 						.title("Projects")
 						.items([
 							collectionList({
-								id: "project",
+								title: "Projects",
+								schemaType: "project",
 								defaultOrdering: [
 									{
 										field: "title",
@@ -47,9 +58,9 @@ export default () =>
 							S.divider(),
 
 							singletonPage({
+								title: "Page",
 								id: "pageProjects",
 								schemaType: "pageProjects",
-								preview: true,
 							}),
 						])
 				),
@@ -57,7 +68,8 @@ export default () =>
 			S.divider(),
 
 			collectionList({
-				id: "pageText",
+				title: "Pages",
+				schemaType: "pageText",
 				defaultOrdering: [
 					{
 						field: "title",
@@ -67,11 +79,13 @@ export default () =>
 			}),
 
 			singletonPage({
+				title: "Navigation",
 				id: "siteNavigation",
 				schemaType: "siteNavigation",
 			}),
 
 			singletonPage({
+				title: "Options",
 				id: "siteOptions",
 				schemaType: "siteOptions",
 			}),

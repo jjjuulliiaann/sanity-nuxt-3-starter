@@ -1,8 +1,7 @@
 import { BiFile } from "react-icons/bi/";
-import { slugify, validateSlug } from "../../../utils/helperFunctions.js";
 
 export default {
-	title: "Page",
+	title: "Projects Page",
 	name: "pageProjects",
 	type: "document",
 	icon: BiFile,
