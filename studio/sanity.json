@@ -12,8 +12,7 @@
 		"@sanity/default-layout",
 		"@sanity/default-login",
 		"@sanity/desk-tool",
-		"mux-input",
-		"useful-links"
+		"mux-input"
 	],
 	"env": {
 		"development": {
@@ -28,6 +27,10 @@
 		{
 			"name": "part:@sanity/desk-tool/structure",
 			"path": "./src/desk-structure"
+		},
+		{
+			"name": "part:@sanity/base/new-document-structure",
+			"path": "./src/utils/newDocumentStructure.js"
 		},
 		{
 			"implements": "part:@sanity/base/theme/variables/override-style",
