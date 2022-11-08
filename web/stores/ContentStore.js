@@ -20,10 +20,6 @@ export const useContentStore = defineStore('ContentStore', {
 		}
 	},
 
-	getters: {
-		getHomeTitle: (state) => state.home.title,
-	},
-
 	actions: {
 		async fetchSlugs() {
 			const { data } = await useSanityQuery(slugsQuery)

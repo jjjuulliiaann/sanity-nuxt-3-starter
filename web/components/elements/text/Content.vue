@@ -7,7 +7,7 @@ import BaseFigure from '~/components/elements/media/BaseFigure'
 import BaseLoop from '~/components/elements/media/BaseLoop'
 import BaseVideoPlayer from '~/components/elements/media/BaseVideoPlayer'
 import Link from '~/components/elements/text/Link'
-import Small from '~/components/elements/text/Small'
+import Element from '~/components/elements/text/Element'
 
 const props = defineProps({
 	blocks: {
@@ -30,8 +30,8 @@ const serializers = {
 	},
 	styles: {
 		normal: 'p',
-		headline: 'h2',
-		small: Small,
+		headline: Element,
+		small: Element,
 	},
 }
 </script>

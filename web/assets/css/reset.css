@@ -12,6 +12,7 @@ button {
 	font: inherit;
 	color: inherit;
 	background: none;
+	-webkit-appearance: none;
 }
 
 button:hover {
@@ -19,11 +20,12 @@ button:hover {
 }
 
 input {
-	-webkit-appearance: none;
 	border-radius: 0;
 	font-family: inherit;
 	font-size: inherit;
 	background: none;
+	margin: 0;
+	-webkit-appearance: none;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
