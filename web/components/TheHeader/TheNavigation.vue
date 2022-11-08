@@ -1,8 +1,8 @@
 <template>
 	<nav class="TheNavigation">
-		<ul v-if="contentStore.siteNavigation" class="TheNavigation_List">
+		<ul v-if="mainStore.siteNavigation" class="TheNavigation_List">
 			<li
-				v-for="link in contentStore.siteNavigation?.navMain"
+				v-for="link in mainStore.siteNavigation?.navMain"
 				:key="link.id"
 				class="TheNavigation_Item text-sm"
 			>
@@ -22,11 +22,8 @@
 </template>
 
 <script setup>
-import { useContentStore } from '~/stores/ContentStore'
 import { useMainStore } from '~/stores/MainStore'
 
-// stores
-const contentStore = useContentStore()
 const mainStore = useMainStore()
 </script>
 

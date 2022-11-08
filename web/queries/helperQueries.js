@@ -7,8 +7,8 @@ export const linkQuery = `
 		"route": select(
 			linkTarget->_type == "pageHome" => "index",
 			linkTarget->_type == "pageProjects" => "projects",
-			linkTarget->_type == "project" => "projects-slug",
 			linkTarget->_type == "pageText" => "slug",
+			linkTarget->_type == "project" => "projects-slug",
 			"index"
 		),
 		"slug": linkTarget->slug.current

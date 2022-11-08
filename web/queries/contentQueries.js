@@ -5,11 +5,6 @@ import {
 	imageLoopArrayQuery,
 } from '@/queries/helperQueries'
 
-export const slugsQuery = groq`{
-	"pages": *[_type == "templateText"].slug.current,
-	"projects": *[_type == "project"].slug.current,
-}`
-
 export const siteQuery = groq`{
 	"siteOptions": *[_id == "siteOptions"] [0] {
 		...,

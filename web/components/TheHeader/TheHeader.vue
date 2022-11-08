@@ -2,8 +2,8 @@
 	<header class="TheHeader" v-on-click-outside="mainStore.closeMenu">
 		<div class="TheHeader_Bar">
 			<NuxtLink :to="{ name: 'index' }" class="text_bold"
-				>{{ contentStore.siteOptions?.name }}
-				{{ contentStore.siteOptions?.headerTitle }}</NuxtLink
+				>{{ mainStore.siteOptions?.name }}
+				{{ mainStore.siteOptions?.headerTitle }}</NuxtLink
 			>
 			<button @click="toggleMenu" class="TheHeader_NavButton">
 				Menü
@@ -14,19 +14,16 @@
 </template>
 
 <script setup>
-import { useContentStore } from '~/stores/ContentStore'
 import { useMainStore } from '~/stores/MainStore'
 import { vOnClickOutside } from '@vueuse/components'
 import { useMediaQuery } from '@vueuse/core'
 
 // get content
-const contentStore = useContentStore()
+const mainStore = useMainStore()
 
 /*
 mobile menu
 */
-const mainStore = useMainStore()
-
 const toggleMenu = () => {
 	mainStore.toggleMenu()
 }

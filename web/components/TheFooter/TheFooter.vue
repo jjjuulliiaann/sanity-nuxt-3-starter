@@ -1,16 +1,16 @@
 <template>
 	<footer class="TheFooter">
 		<p class="text-sm">
-			{{ contentStore.siteOptions?.copyrightText }}, {{ currentYear }}
+			{{ mainStore.siteOptions?.copyrightText }}, {{ currentYear }}
 		</p>
 	</footer>
 </template>
 
 <script setup>
-import { useContentStore } from '~/stores/ContentStore'
+import { useMainStore } from '~/stores/MainStore'
 
 // content
-const contentStore = useContentStore()
+const mainStore = useMainStore()
 const currentYear = new Date().getFullYear()
 </script>
 

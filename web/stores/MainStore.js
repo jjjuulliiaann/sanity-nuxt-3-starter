@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
+import { siteQuery } from '@/queries/contentQueries'
 
 export const useMainStore = defineStore('MainStore', {
 	state: () => {
 		return {
-			counter: 0,
+			siteOptions: {},
+			siteNavigation: {},
 			window: {
 				width: 0,
 				height: 0,
@@ -13,6 +15,7 @@ export const useMainStore = defineStore('MainStore', {
 			messages: {
 				notFound: 'Page not found.',
 			},
+			counter: 0,
 		}
 	},
 
@@ -21,14 +24,10 @@ export const useMainStore = defineStore('MainStore', {
 	},
 
 	actions: {
-		increaseCounter() {
-			this.counter++
-		},
-		randomizeCounter() {
-			this.counter = Math.round(100 * Math.random())
-		},
-		resetCounter() {
-			this.counter = 0
+		async fetchSiteContent() {
+			const { data } = await useSanityQuery(siteQuery)
+			this.siteOptions = data.value.siteOptions
+			this.siteNavigation = data.value.siteNavigation
 		},
 		closeMenu() {
 			this.menuIsOpen = false
@@ -39,7 +38,14 @@ export const useMainStore = defineStore('MainStore', {
 		toggleMenu() {
 			this.menuIsOpen = !this.menuIsOpen
 		},
+		increaseCounter() {
+			this.counter++
+		},
+		randomizeCounter() {
+			this.counter = Math.round(100 * Math.random())
+		},
+		resetCounter() {
+			this.counter = 0
+		},
 	},
-
-	// getters
 })

@@ -9,33 +9,33 @@
 <script setup>
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
-import { useContentStore } from '~/stores/ContentStore'
+import { useMainStore } from '~/stores/MainStore'
 
 // meta
-const contentStore = useContentStore()
+const mainStore = useMainStore()
 const route = useRoute()
 const config = useRuntimeConfig()
 
 useHead({
 	titleTemplate: (title) =>
 		title
-			? `${contentStore.siteOptions?.name} - ${title}`
-			: contentStore.siteOptions?.name,
+			? `${mainStore.siteOptions?.name} - ${title}`
+			: mainStore.siteOptions?.name,
 	htmlAttrs: {
-		lang: contentStore.siteOptions?.language ?? 'de',
+		lang: mainStore.siteOptions?.language ?? 'de',
 	},
 	meta: [
 		{
 			property: 'og:locale',
-			content: contentStore.siteOptions?.language ?? 'de',
+			content: mainStore.siteOptions?.language ?? 'de',
 		},
 		{
 			property: 'og:title',
-			content: contentStore.siteOptions?.name,
+			content: mainStore.siteOptions?.name,
 		},
 		{
 			property: 'og:site_name',
-			content: contentStore.siteOptions?.name,
+			content: mainStore.siteOptions?.name,
 		},
 		{
 			property: 'og:url',
@@ -43,40 +43,39 @@ useHead({
 		},
 		{
 			name: 'description',
-			content: contentStore.siteOptions?.seo?.metaDescription,
+			content: mainStore.siteOptions?.seo?.metaDescription,
 		},
 		{
 			property: 'og:description',
-			content: contentStore.siteOptions?.seo?.metaDescription,
+			content: mainStore.siteOptions?.seo?.metaDescription,
 		},
 		{
 			name: 'keywords',
-			content: contentStore.siteOptions?.seo?.metaKeywords
-				? contentStore.siteOptions?.seo?.metaKeywords.join(',')
+			content: mainStore.siteOptions?.seo?.metaKeywords
+				? mainStore.siteOptions?.seo?.metaKeywords.join(',')
 				: '',
 		},
 		{
 			property: 'og:image',
-			content: contentStore.siteOptions?.seo?.ogImage?.asset
-				? contentStore.siteOptions?.seo?.ogImage?.asset.url
+			content: mainStore.siteOptions?.seo?.ogImage?.asset
+				? mainStore.siteOptions?.seo?.ogImage?.asset.url
 				: '',
 		},
 		{
 			property: 'og:image:width',
 			content:
-				contentStore.siteOptions?.seo?.ogImage?.asset?.metadata
-					?.dimensions?.width ?? '',
+				mainStore.siteOptions?.seo?.ogImage?.asset?.metadata?.dimensions
+					?.width ?? '',
 		},
 		{
 			property: 'og:image:height',
 			content:
-				contentStore.siteOptions?.seo?.ogImage?.asset?.metadata
-					?.dimensions?.height ?? '',
+				mainStore.siteOptions?.seo?.ogImage?.asset?.metadata?.dimensions
+					?.height ?? '',
 		},
 		{
 			property: 'og:image:type',
-			content:
-				contentStore.siteOptions?.seo?.ogImage?.asset?.mimeType ?? '',
+			content: mainStore.siteOptions?.seo?.ogImage?.asset?.mimeType ?? '',
 		},
 		{
 			name: 'twitter:card',
@@ -84,16 +83,16 @@ useHead({
 		},
 		{
 			name: 'twitter:title',
-			content: contentStore.siteOptions?.name,
+			content: mainStore.siteOptions?.name,
 		},
 		{
 			name: 'twitter:description',
-			content: contentStore.siteOptions?.seo?.metaDescription,
+			content: mainStore.siteOptions?.seo?.metaDescription,
 		},
 		{
 			name: 'twitter:image',
-			content: contentStore.siteOptions?.seo?.ogImage?.asset
-				? contentStore.siteOptions?.seo?.ogImage?.asset.url
+			content: mainStore.siteOptions?.seo?.ogImage?.asset
+				? mainStore.siteOptions?.seo?.ogImage?.asset.url
 				: '',
 		},
 	],

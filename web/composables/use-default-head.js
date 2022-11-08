@@ -1,10 +1,10 @@
-import { useContentStore } from '~/stores/ContentStore'
+import { useMainStore } from '~/stores/MainStore'
 
 export default function ({ title, seo, titleImage }) {
 	const titleString = unref(title)
 	if (!titleString) return
 
-	const contentStore = useContentStore()
+	const mainStore = useMainStore()
 	const route = useRoute()
 	const config = useRuntimeConfig()
 
@@ -13,7 +13,7 @@ export default function ({ title, seo, titleImage }) {
 		? seo?.ogImage?.asset
 		: titleImage?.asset
 		? titleImage.asset
-		: contentStore.siteOptions?.seo?.ogImage?.asset
+		: mainStore.siteOptions?.seo?.ogImage?.asset
 
 	const { $urlFor } = useNuxtApp()
 	const shareImageUrl = computed(() =>
@@ -25,7 +25,7 @@ export default function ({ title, seo, titleImage }) {
 		meta: [
 			{
 				property: 'og:title',
-				content: `${titleString} – ${contentStore.siteOptions?.name}`,
+				content: `${titleString} – ${mainStore.siteOptions?.name}`,
 			},
 			{
 				property: 'og:url',
@@ -35,22 +35,22 @@ export default function ({ title, seo, titleImage }) {
 				name: 'description',
 				content:
 					seo?.metaDescription ??
-					contentStore.siteOptions?.seo?.metaDescription ??
+					mainStore.siteOptions?.seo?.metaDescription ??
 					'',
 			},
 			{
 				property: 'og:description',
 				content:
 					seo?.metaDescription ??
-					contentStore.siteOptions?.seo?.metaDescriptio ??
+					mainStore.siteOptions?.seo?.metaDescriptio ??
 					'',
 			},
 			{
 				name: 'keywords',
 				content: seo?.metaKeywords
 					? seo?.metaKeywords.join(',')
-					: contentStore.siteOptions?.seo?.metaKeywords
-					? contentStore.siteOptions?.seo?.metaKeywords?.join(',')
+					: mainStore.siteOptions?.seo?.metaKeywords
+					? mainStore.siteOptions?.seo?.metaKeywords?.join(',')
 					: '',
 			},
 			{
@@ -74,13 +74,13 @@ export default function ({ title, seo, titleImage }) {
 			},
 			{
 				name: 'twitter:title',
-				content: `${titleString} – ${contentStore.siteOptions?.name}`,
+				content: `${titleString} – ${mainStore.siteOptions?.name}`,
 			},
 			{
 				name: 'twitter:description',
 				content:
 					seo?.metaDescription ??
-					contentStore.siteOptions?.seo?.metaDescription,
+					mainStore.siteOptions?.seo?.metaDescription,
 			},
 			{
 				name: 'twitter:image',

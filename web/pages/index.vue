@@ -1,18 +1,17 @@
 <template>
 	<main>
 		<TheCounter />
-		<section class="text-base">
-			<ElementsTextContent :blocks="contentStore.pageHome?.content" />
+		<section v-if="data.content" class="text-base">
+			<ElementsTextContent :blocks="data.content" />
 		</section>
 	</main>
 </template>
 
 <script setup>
-import { useContentStore } from '~/stores/ContentStore'
+import { homeQuery } from '@/queries/contentQueries'
 
 // get data
-const contentStore = useContentStore()
-contentStore.fetchHome()
+const { data } = await useSanityQuery(homeQuery)
 
 // meta
 useHead({
