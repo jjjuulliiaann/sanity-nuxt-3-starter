@@ -1,12 +1,12 @@
 export default {
 	widgets: [
 		{
-			name: "netlify",
+			name: 'netlify',
 			options: {
-				title: "Website Deployment",
+				title: 'Website Deployment',
 				sites: [
 					{
-						title: "Website ",
+						title: 'Website ',
 						apiId: process.env.SANITY_STUDIO_NETLIFY_API_ID,
 						buildHookId:
 							process.env.SANITY_STUDIO_NETLIFY_BUILD_HOOK_ID,
@@ -17,11 +17,11 @@ export default {
 			},
 		},
 		{
-			name: "useful-links",
+			name: 'useful-links',
 			layout: {
-				width: "small",
-				height: "small",
+				width: 'small',
+				height: 'small',
 			},
 		},
 	],
-};
+}

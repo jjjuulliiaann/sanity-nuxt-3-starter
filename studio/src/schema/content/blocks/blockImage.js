@@ -1,24 +1,24 @@
-import { BiImage } from "react-icons/bi/";
-import { PreviewBlockImage } from "./previews";
+import { BiImage } from 'react-icons/bi/'
+import { PreviewBlockImage } from './previews'
 
 export default {
-	title: "Image",
-	name: "blockImage",
+	title: 'Image',
+	name: 'blockImage',
 	icon: BiImage,
-	type: "object",
+	type: 'object',
 	fields: [
 		{
-			title: "Image",
-			name: "image",
-			type: "picture",
+			title: 'Image',
+			name: 'image',
+			type: 'picture',
 			validation: (Rule) => Rule.required(),
 		},
 	],
 	preview: {
 		select: {
-			image: "image.asset",
-			caption: "image.caption",
+			image: 'image.asset',
+			caption: 'image.caption',
 		},
 		component: PreviewBlockImage,
 	},
-};
+}

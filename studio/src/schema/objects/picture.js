@@ -1,34 +1,34 @@
 export default {
-	title: "Image",
-	name: "picture",
-	type: "image",
+	title: 'Image',
+	name: 'picture',
+	type: 'image',
 	options: {
 		hotspot: true,
-		metadata: ["lqip"],
+		metadata: ['lqip'],
 	},
 	fields: [
 		{
-			title: "Alternative Text",
-			name: "alt",
-			type: "string",
-			description: "Important for SEO and Accessibility.",
+			title: 'Alternative Text',
+			name: 'alt',
+			type: 'string',
+			description: 'Important for SEO and Accessibility.',
 		},
 	],
 	preview: {
 		select: {
-			asset: "asset.url",
-			dimensions: "asset.metadata.dimensions",
-			filename: "asset.originalFilename",
+			asset: 'asset.url',
+			dimensions: 'asset.metadata.dimensions',
+			filename: 'asset.originalFilename',
 		},
 		prepare(selection) {
-			const { asset, title, dimensions, filename } = selection;
+			const { asset, title, dimensions, filename } = selection
 			return {
-				imageUrl: asset ? asset : "",
+				imageUrl: asset ? asset : '',
 				title: filename,
 				subtitle: dimensions
 					? `${dimensions.width}px × ${dimensions.height}px`
-					: "…",
-			};
+					: '…',
+			}
 		},
 	},
-};
+}

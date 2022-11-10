@@ -1,24 +1,24 @@
-import { BiMapAlt } from "react-icons/bi/";
+import { BiMapAlt } from 'react-icons/bi/'
 
 export default {
-	title: "Navigation",
-	name: "siteNavigation",
-	type: "document",
+	title: 'Navigation',
+	name: 'siteNavigation',
+	type: 'document',
 	icon: BiMapAlt,
-	__experimental_actions: ["update", "create", "delete", "publish"],
+	__experimental_actions: ['update', 'create', 'delete', 'publish'],
 	fields: [
 		{
-			title: "Main Navigation",
-			name: "navMain",
-			type: "array",
-			layout: "grid",
-			editModal: "popover",
+			title: 'Main Navigation',
+			name: 'navMain',
+			type: 'array',
+			layout: 'grid',
+			editModal: 'popover',
 			of: [
 				{
-					type: "internalLink",
+					type: 'internalLink',
 				},
 				{
-					type: "externalLink",
+					type: 'externalLink',
 				},
 			],
 		},
@@ -26,8 +26,8 @@ export default {
 	preview: {
 		prepare({}) {
 			return {
-				title: "Navigation",
-			};
+				title: 'Navigation',
+			}
 		},
 	},
-};
+}

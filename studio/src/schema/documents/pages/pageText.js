@@ -1,53 +1,53 @@
-import { BiFile } from "react-icons/bi/";
-import { slugify, validateSlug } from "../../../utils/helperFunctions.js";
+import { BiFile } from 'react-icons/bi/'
+import { slugify, validateSlug } from '../../../utils/helperFunctions.js'
 
 export default {
-	title: "Page",
-	name: "pageText",
-	type: "document",
+	title: 'Page',
+	name: 'pageText',
+	type: 'document',
 	icon: BiFile,
-	__experimental_actions: ["update", "create", "delete", "publish"],
+	__experimental_actions: ['update', 'create', 'delete', 'publish'],
 	groups: [
 		{
-			title: "Content",
-			name: "content",
+			title: 'Content',
+			name: 'content',
 			default: true,
 		},
 		{
-			title: "SEO",
-			name: "seo",
+			title: 'SEO',
+			name: 'seo',
 		},
 	],
 	fields: [
 		{
-			title: "Title",
-			name: "title",
-			type: "string",
+			title: 'Title',
+			name: 'title',
+			type: 'string',
 			validation: (Rule) => Rule.required(),
-			group: "content",
+			group: 'content',
 		},
 		{
-			title: "Slug",
-			name: "slug",
-			type: "slug",
+			title: 'Slug',
+			name: 'slug',
+			type: 'slug',
 			options: {
-				source: "title",
+				source: 'title',
 				slugify: slugify,
 			},
 			validation: validateSlug,
-			group: "content",
+			group: 'content',
 		},
 		{
-			title: "Content",
-			name: "content",
-			type: "contentText",
-			group: "content",
+			title: 'Content',
+			name: 'content',
+			type: 'contentText',
+			group: 'content',
 		},
 		{
-			title: "SEO",
-			name: "seo",
-			type: "seo",
-			group: "seo",
+			title: 'SEO',
+			name: 'seo',
+			type: 'seo',
+			group: 'seo',
 		},
 	],
-};
+}

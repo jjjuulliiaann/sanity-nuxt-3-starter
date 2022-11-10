@@ -1,15 +1,13 @@
-import S from "@sanity/desk-tool/structure-builder";
-import { BiBookAlt } from "react-icons/bi/";
-import PreviewComponent from "./../utils/preview";
+import S from '@sanity/desk-tool/structure-builder'
+import { BiBookAlt } from 'react-icons/bi/'
+import PreviewComponent from './../utils/preview'
 
 // create preview view
-const previewComponentView = S.view
-	.component(PreviewComponent)
-	.title("Preview");
+const previewComponentView = S.view.component(PreviewComponent).title('Preview')
 
 export const getDefaultDocumentNode = () => {
-	return S.document().views([S.view.form(), previewComponentView]);
-};
+	return S.document().views([S.view.form(), previewComponentView])
+}
 
 // create document items
 const collectionList = ({ title, schemaType, defaultOrdering = [] }) =>
@@ -21,7 +19,7 @@ const collectionList = ({ title, schemaType, defaultOrdering = [] }) =>
 			S.documentTypeList(schemaType)
 				.title(title)
 				.defaultOrdering(defaultOrdering),
-	});
+	})
 
 const singletonPage = ({ title, id, schemaType, preview = false }) =>
 	S.listItem({
@@ -36,34 +34,34 @@ const singletonPage = ({ title, id, schemaType, preview = false }) =>
 					S.view.form(),
 					...(preview ? [previewComponentView] : []),
 				]),
-	});
+	})
 
 // navigation structure
 export default () =>
 	S.list()
-		.title("Content")
+		.title('Content')
 		.items([
 			singletonPage({
-				title: "Home",
-				id: "pageHome",
-				schemaType: "pageHome",
+				title: 'Home',
+				id: 'pageHome',
+				schemaType: 'pageHome',
 				preview: true,
 			}),
 
 			S.listItem()
-				.title("Projects")
+				.title('Projects')
 				.icon(BiBookAlt)
 				.child(
 					S.list()
-						.title("Projects")
+						.title('Projects')
 						.items([
 							collectionList({
-								title: "Projects",
-								schemaType: "project",
+								title: 'Projects',
+								schemaType: 'project',
 								defaultOrdering: [
 									{
-										field: "title",
-										direction: "asc",
+										field: 'title',
+										direction: 'asc',
 									},
 								],
 							}),
@@ -71,9 +69,9 @@ export default () =>
 							S.divider(),
 
 							singletonPage({
-								title: "Page",
-								id: "pageProjects",
-								schemaType: "pageProjects",
+								title: 'Page',
+								id: 'pageProjects',
+								schemaType: 'pageProjects',
 								preview: true,
 							}),
 						])
@@ -82,25 +80,25 @@ export default () =>
 			S.divider(),
 
 			collectionList({
-				title: "Pages",
-				schemaType: "pageText",
+				title: 'Pages',
+				schemaType: 'pageText',
 				defaultOrdering: [
 					{
-						field: "title",
-						direction: "asc",
+						field: 'title',
+						direction: 'asc',
 					},
 				],
 			}),
 
 			singletonPage({
-				title: "Navigation",
-				id: "siteNavigation",
-				schemaType: "siteNavigation",
+				title: 'Navigation',
+				id: 'siteNavigation',
+				schemaType: 'siteNavigation',
 			}),
 
 			singletonPage({
-				title: "Options",
-				id: "siteOptions",
-				schemaType: "siteOptions",
+				title: 'Options',
+				id: 'siteOptions',
+				schemaType: 'siteOptions',
 			}),
-		]);
+		])

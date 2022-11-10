@@ -1,30 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import styles from "./UsefulLinks.css";
+import styles from './UsefulLinks.css'
 
 class UsefulLinks extends React.Component {
 	static propTypes = {
 		imageWidth: PropTypes.number,
-	};
+	}
 
 	static defaultProps = {
 		imageWidth: 600,
-	};
+	}
 
 	state = {
 		error: null,
-	};
+	}
 	componentDidMount() {
 		// nothing
 	}
 
 	render() {
-		const { imageUrl, error } = this.state;
+		const { imageUrl, error } = this.state
 		if (error) {
-			return <pre>{JSON.stringify(error, null, 2)}</pre>;
+			return <pre>{JSON.stringify(error, null, 2)}</pre>
 		}
-		const { imageWidth } = this.props;
+		const { imageWidth } = this.props
 		return (
 			<div className={styles.container}>
 				<header className={styles.header}>
@@ -44,11 +44,11 @@ class UsefulLinks extends React.Component {
 					</p>
 				</div>
 			</div>
-		);
+		)
 	}
 }
 
 export default {
-	name: "useful-links",
+	name: 'useful-links',
 	component: UsefulLinks,
-};
+}
