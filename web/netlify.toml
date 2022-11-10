@@ -1,2 +1,3 @@
-[build]
-  command = "pnpm install --shamefully-hoist"
+[build.environment]
+  NETLIFY_USE_PNPM = true
+  PNPM_FLAGS = "--shamefully-hoist"
