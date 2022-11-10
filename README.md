@@ -4,7 +4,7 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 do
 
 ## Features
 
--   Monorepo using NPM Workspaces
+-   Monorepo using PNPM Workspaces
 -   Sanity 2 React Backend (in /studio)
 -   Nuxt 3 Frontend (in /web)
 -   Vite Module Bundler
@@ -35,13 +35,13 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 do
 5. Install dependencies (from root)
 
     ```
-    npm i
+    pnpm i --shamefully-hoist
     ```
 
 6. Start development at localhost:3000 (Nuxt frontend) and localhost:3333 (Sanity studio)
 
     ```
-    npm start
+    pnpm dev
     ```
 
 ## Documentation
@@ -62,7 +62,7 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 do
     cd studio
     sanity upgrade
     cd ..
-    npm i
+    pnpm i --shamefully-hoist
     ```
 
 ### Nuxt
