@@ -25,7 +25,7 @@ usePreviewHandler({ query: pageTextQuery, params, data })
 const pageError = usePageError(data)
 
 // meta
-useDefaultHead({ title: data.value.title, seo: data.value.seo })
+useDefaultHead({ title: data.value?.title, seo: data.value?.seo })
 </script>
 
 <style scoped>

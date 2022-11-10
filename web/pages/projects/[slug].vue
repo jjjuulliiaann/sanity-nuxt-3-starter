@@ -1,7 +1,9 @@
 <template>
 	<main v-if="data" class="Project">
 		<section class="Project_Title">
-			<h1 class="text-lg text_bold text_white">{{ data.title }}</h1>
+			<h1 v-if="data.title" class="text-lg text_bold text_white">{{
+				data.title
+			}}</h1>
 			<ElementsMediaBaseImage
 				:image="data.images[0]"
 				class="Project_Titleimage"
@@ -31,7 +33,7 @@ usePreviewHandler({ query: singleProjectQuery, params, data })
 const pageError = usePageError(data)
 
 // meta
-useDefaultHead({ title: data.value.title, seo: data.value.seo })
+useDefaultHead({ title: data.value?.title, seo: data.value?.seo })
 </script>
 
 <style scoped>

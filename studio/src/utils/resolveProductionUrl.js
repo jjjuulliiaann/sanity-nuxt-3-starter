@@ -30,7 +30,5 @@ export default function resolveProductionUrl(document, isFrame) {
 		document.slug?.current ? "/" + document.slug?.current : ""
 	}/${urlQuery}`;
 
-	console.log(`isFrame: ${isFrame}`);
-
 	return isFrame ? productionUrl : productionUrl + fullscreenQuery;
 }

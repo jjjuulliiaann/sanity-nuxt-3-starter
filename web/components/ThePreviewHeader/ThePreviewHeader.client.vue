@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+import { onBeforeMount } from '@vue/runtime-core'
 import { useMainStore } from '~/stores/MainStore'
 
 const route = useRoute()
@@ -25,7 +26,7 @@ const refreshPreview = () => {
 	mainStore.refreshPreview()
 }
 
-onMounted(() => {
+onBeforeMount(() => {
 	if (route.query.preview) {
 		mainStore.preview.isActive = true
 	}
@@ -33,6 +34,8 @@ onMounted(() => {
 		mainStore.preview.isFullscreen = true
 	}
 })
+
+onMounted(() => {})
 </script>
 
 <style scoped>

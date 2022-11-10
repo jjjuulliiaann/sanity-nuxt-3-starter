@@ -41,8 +41,8 @@ usePreviewHandler({ query: projectsQuery, data })
 
 // meta
 useDefaultHead({
-	title: data.value.title,
-	seo: data.value.seo,
+	title: data.value?.title,
+	seo: data.value?.seo,
 })
 </script>
 
