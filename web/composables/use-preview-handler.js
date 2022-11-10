@@ -8,7 +8,7 @@ export default function ({ query, params, data }) {
 		() => mainStore.preview.data,
 		(newVal) => {
 			if (newVal) {
-				// replace page data with new data
+				// replace page data with new preview data
 				data.value = mainStore.preview.data
 			}
 		}
@@ -21,9 +21,8 @@ export default function ({ query, params, data }) {
 	}
 
 	onMounted(() => {
-		setupPreview()
-
 		if (mainStore.preview.isActive) {
+			setupPreview()
 			setTimeout(() => {
 				mainStore.refreshPreview()
 			}, 300)
