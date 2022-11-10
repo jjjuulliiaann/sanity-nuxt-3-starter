@@ -13,9 +13,13 @@ import { pageTextQuery } from '@/queries/contentQueries'
 
 // get data
 const route = useRoute()
-const { data } = await useSanityQuery(pageTextQuery, {
+const params = {
 	slug: route.params.slug,
-})
+}
+const { data } = await useSanityQuery(pageTextQuery, params)
+
+// preview handling
+usePreviewHandler({ query: pageTextQuery, params, data })
 
 // error handling
 const pageError = usePageError(data)

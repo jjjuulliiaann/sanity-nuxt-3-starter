@@ -19,9 +19,13 @@ import { singleProjectQuery } from '@/queries/contentQueries'
 
 // get data
 const route = useRoute()
-const { data } = await useSanityQuery(singleProjectQuery, {
+const params = {
 	slug: route.params.slug,
-})
+}
+const { data } = await useSanityQuery(singleProjectQuery, params)
+
+// preview handling
+usePreviewHandler({ query: singleProjectQuery, params, data })
 
 // error handling
 const pageError = usePageError(data)

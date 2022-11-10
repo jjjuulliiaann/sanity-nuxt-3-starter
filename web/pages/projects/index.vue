@@ -36,6 +36,9 @@ import { projectsQuery } from '@/queries/contentQueries'
 // get data
 const { data } = await useSanityQuery(projectsQuery)
 
+// preview handling
+usePreviewHandler({ query: projectsQuery, data })
+
 // meta
 useDefaultHead({
 	title: data.value.title,

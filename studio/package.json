@@ -23,7 +23,7 @@
     "@sanity/default-login": "^2.30.1",
     "@sanity/desk-tool": "^2.35.1",
     "@sanity/eslint-config-studio": "^2.0.1",
-    "@sanity/production-preview": "^2.29.3",
+    "@sanity/production-preview": "^2.33.2",
     "@sanity/vision": "^2.30.1",
     "eslint": "^8.6.0",
     "prop-types": "^15.7",

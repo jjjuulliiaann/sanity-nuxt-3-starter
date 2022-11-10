@@ -16,6 +16,13 @@ export const useMainStore = defineStore('MainStore', {
 				notFound: 'Page not found.',
 			},
 			counter: 0,
+			preview: {
+				isActive: false,
+				isFullscreen: false,
+				query: '',
+				params: {},
+				data: {},
+			},
 		}
 	},
 
@@ -28,6 +35,29 @@ export const useMainStore = defineStore('MainStore', {
 			const { data } = await useSanityQuery(siteQuery)
 			this.siteOptions = data.value.siteOptions
 			this.siteNavigation = data.value.siteNavigation
+		},
+		async refreshPreview() {
+			if (!this.preview.query) {
+				console.error(`Preview query is missing.`)
+				return false
+			}
+			try {
+				const { data } = await useSanityQuery(
+					this.preview.query,
+					this.preview.params,
+					{
+						client: 'preview',
+						server: false,
+						initialCache: false,
+					}
+				)
+				if (!data.value) {
+					throw new Error('Received no data')
+				}
+				this.preview.data = data
+			} catch (e) {
+				console.error(e)
+			}
 		},
 		closeMenu() {
 			this.menuIsOpen = false

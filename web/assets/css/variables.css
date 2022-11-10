@@ -5,7 +5,6 @@
 	--rgb-white: rgb(var(--clr-white));
 	--clr-accent: 239 40 40;
 	--rgb-accent: rgb(var(--clr-accent));
-	--clr-focus: 236 145 106;
 	--preview-banner-height: 43px;
 	--header-height: 3rem;
 }

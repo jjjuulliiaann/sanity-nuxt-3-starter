@@ -70,3 +70,15 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 do
 Nuxt 3 is still in release candidate stage. You can check the [`Roadmap`](https://v3.nuxtjs.org/community/roadmap).
 
 To update manually: Bump `nuxt` dependency to `3.0.0-rc.XX` and then use `npx nuxi@latest cleanup` to cleanup any local caches.
+
+### Preview Mode
+
+#### Studio:
+
+All singleton documents with `preview: true` set in the desk structure and all collection documents feature a Preview panel. The URL schema of those documents has to be defined in `utils/resolveProductionUrl.js` to adapt to your front end's URL structure.
+
+#### Frontend:
+
+(Setup for Universal Rendering) A separate Sanity client named `preview` is defined in `nuxt.config.js`. You have to allow credentials for the frontend URL in your Sanity API settings to access unpublished data from Sanity.
+
+All pages that support previews include the composable `use-preview-handler`. If the URL contains the param `?preview=true` the Preview header is visible and the separate sanity preview client is used for updates.

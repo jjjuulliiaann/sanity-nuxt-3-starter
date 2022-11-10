@@ -1,7 +1,7 @@
 <template>
 	<main>
 		<TheCounter />
-		<section v-if="data.content" class="text-base">
+		<section v-if="data.content" class="blockcontent text-base">
 			<ElementsTextContent :blocks="data.content" />
 		</section>
 	</main>
@@ -12,6 +12,9 @@ import { homeQuery } from '@/queries/contentQueries'
 
 // get data
 const { data } = await useSanityQuery(homeQuery)
+
+// preview handling
+usePreviewHandler({ query: homeQuery, data })
 
 // meta
 useHead({

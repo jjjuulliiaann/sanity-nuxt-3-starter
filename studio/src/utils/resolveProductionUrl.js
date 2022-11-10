@@ -1,17 +1,36 @@
 const baseUrl = process.env.SANITY_STUDIO_FRONTEND_URL;
 const urlQuery = "?preview=true";
+const fullscreenQuery = "&fullscreen=true";
 
-export default function resolveProductionUrl(document) {
-	// set slug to empty string if no slug exists
-	let slug = document.slug ? document.slug?.current : "";
-	// return undefined if no current slug is set
-	if (typeof slug === "undefined") {
-		return undefined;
-	}
+const previewDocuments = [
+	{
+		_type: "pageHome",
+		path: "",
+	},
+	{
+		_type: "pageProjects",
+		path: "projects",
+	},
+	{
+		_type: "project",
+		path: "projects",
+	},
+	{
+		_type: "pageText",
+		path: "",
+	},
+];
 
-	// review production url according to frontend route setup (check for trailing slash!)
-	if (document._type === "project") {
-		return `${baseUrl}/projects/${slug}/${urlQuery}`;
-	}
-	return `${baseUrl}/${slug}/${urlQuery}`;
+export default function resolveProductionUrl(document, isFrame) {
+	const path = previewDocuments.filter(
+		(doc) => doc._type === document._type
+	)[0]?.path;
+
+	const productionUrl = `${baseUrl}${path ? "/" + path : ""}${
+		document.slug?.current ? "/" + document.slug?.current : ""
+	}/${urlQuery}`;
+
+	console.log(`isFrame: ${isFrame}`);
+
+	return isFrame ? productionUrl : productionUrl + fullscreenQuery;
 }

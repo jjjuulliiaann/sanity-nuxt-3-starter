@@ -96,6 +96,12 @@ export default defineNuxtConfig({
 		dataset: process.env.SANITY_DATASET,
 		apiVersion: '2022-04-26',
 		useCdn: true,
+		additionalClients: {
+			preview: {
+				useCdn: false,
+				withCredentials: true,
+			},
+		},
 	},
 
 	// postcss
