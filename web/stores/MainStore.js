@@ -36,6 +36,7 @@ export const useMainStore = defineStore('MainStore', {
 			this.siteOptions = data.value.siteOptions
 			this.siteNavigation = data.value.siteNavigation
 		},
+		// load preview data with sanity preview client
 		async refreshPreview() {
 			if (!this.preview.query) {
 				console.error(`Preview query is missing.`)

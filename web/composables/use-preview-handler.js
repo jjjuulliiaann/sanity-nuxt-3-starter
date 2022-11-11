@@ -23,6 +23,7 @@ export default function ({ query, params, data }) {
 	onMounted(() => {
 		if (mainStore.preview.isActive) {
 			setupPreview()
+			// load inital preview data
 			setTimeout(() => {
 				mainStore.refreshPreview()
 			}, 300)

@@ -34,8 +34,6 @@ onBeforeMount(() => {
 		mainStore.preview.isFullscreen = true
 	}
 })
-
-onMounted(() => {})
 </script>
 
 <style scoped>
