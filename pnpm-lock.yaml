@@ -53,9 +53,9 @@ importers:
       '@pinia/nuxt': ^0.4.2
       '@sanity/image-url': ^1.0.1
       '@vueuse/components': ^9.4.0
-      '@vueuse/core': ^9.4.0
+      '@vueuse/core': ^9.5.0
       '@vueuse/motion': ^2.0.0-beta.18
-      '@vueuse/nuxt': ^9.4.0
+      '@vueuse/nuxt': ^9.5.0
       eslint: ^8.23.1
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
@@ -85,8 +85,8 @@ importers:
       '@babel/eslint-parser': 7.19.1_eslint@8.27.0
       '@nuxtjs/eslint-config': 11.0.0_eslint@8.27.0
       '@vueuse/components': 9.4.0_vue@3.2.41
-      '@vueuse/core': 9.4.0_vue@3.2.41
-      '@vueuse/nuxt': 9.4.0_ytk2lqdjpnw7bprddxw22xkcli
+      '@vueuse/core': 9.5.0_vue@3.2.41
+      '@vueuse/nuxt': 9.5.0_ytk2lqdjpnw7bprddxw22xkcli
       eslint: 8.27.0
       eslint-config-prettier: 8.5.0_eslint@8.27.0
       eslint-plugin-prettier: 4.2.1_v7o5sx5x3wbs57ifz6wc4f76we
@@ -4458,13 +4458,25 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+    dev: true
+
+  /@vueuse/core/9.5.0_vue@3.2.41:
+    resolution: {integrity: sha512-6GsWBsJHEb3sYw15mbLrcbslAVY45pkzjJYTKYKCXv88z7srAF0VEW0q+oXKsl58tCbqooplInahXFg8Yo1m4w==}
+    dependencies:
+      '@types/web-bluetooth': 0.0.16
+      '@vueuse/metadata': 9.5.0
+      '@vueuse/shared': 9.5.0_vue@3.2.41
+      vue-demi: 0.13.11_vue@3.2.41
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
 
   /@vueuse/head/1.0.0-rc.14_vue@3.2.41:
     resolution: {integrity: sha512-3DtOfSE1141IKPIq4AR5UXQZPWQFSd7E5f3M+HkBRyxWsyxbNBBmK5hqkSYc2ENoFXa3xPhLYZXJPKuxqfJmiA==}
     peerDependencies:
       vue: '>=2.7 || >=3'
     dependencies:
-      '@vueuse/shared': 9.4.0_vue@3.2.41
+      '@vueuse/shared': 9.5.0_vue@3.2.41
       '@zhead/schema': 0.9.9
       '@zhead/schema-vue': 0.9.9_vue@3.2.41
       vue: 3.2.41
@@ -4474,13 +4486,17 @@ packages:
 
   /@vueuse/metadata/9.4.0:
     resolution: {integrity: sha512-7GKMdGAsJyQJl35MYOz/RDpP0FxuiZBRDSN79QIPbdqYx4Sd0sVTnIC68KJ6Oln0t0SouvSUMvRHuno216Ud2Q==}
+    dev: true
+
+  /@vueuse/metadata/9.5.0:
+    resolution: {integrity: sha512-4M1AyPZmIv41pym+K5+4wup3bKuYebbH8w8BROY1hmT7rIwcyS4tEL+UsGz0Hiu1FCOxcoBrwtAizc0YmBJjyQ==}
 
   /@vueuse/motion/2.0.0-beta.24_vue@3.2.41:
     resolution: {integrity: sha512-OPAlN+jWi418SVdIa3e6oIz65QFnOXregMPwHbn6k0fEhRe/VoR24qxLuAecvdCmpVq+i42ra45cA3PmQiospg==}
     peerDependencies:
       vue: '>=3.0.0'
     dependencies:
-      '@vueuse/core': 9.4.0_vue@3.2.41
+      '@vueuse/core': 9.5.0_vue@3.2.41
       '@vueuse/shared': 9.4.0_vue@3.2.41
       csstype: 3.1.1
       framesync: 6.1.2
@@ -4495,14 +4511,14 @@ packages:
       - supports-color
     dev: false
 
-  /@vueuse/nuxt/9.4.0_ytk2lqdjpnw7bprddxw22xkcli:
-    resolution: {integrity: sha512-R2XGbDAQ1kCEqnUHv+sTISOCuu7tfSpEFdYZxiIaEH+D8o2vxZx4itAoAoe1LxmyBsd9fakyQ6qpvkUeQVAfoQ==}
+  /@vueuse/nuxt/9.5.0_ytk2lqdjpnw7bprddxw22xkcli:
+    resolution: {integrity: sha512-8NWnxixEgA10R2Vazt4lfF21ZnFgjL/Bm3BUl8IRojPclrbjjJC7SNXeN13kdGgPekDVRJKD+lW86oeR8OyfXQ==}
     peerDependencies:
       nuxt: ^3.0.0-rc.9
     dependencies:
       '@nuxt/kit': 3.0.0-rc.13
-      '@vueuse/core': 9.4.0_vue@3.2.41
-      '@vueuse/metadata': 9.4.0
+      '@vueuse/core': 9.5.0_vue@3.2.41
+      '@vueuse/metadata': 9.5.0
       local-pkg: 0.4.2
       nuxt: 3.0.0-rc.13_eslint@8.27.0
       vue-demi: 0.13.11_vue@3.2.41
@@ -4521,12 +4537,20 @@ packages:
       - '@vue/composition-api'
       - vue
 
+  /@vueuse/shared/9.5.0_vue@3.2.41:
+    resolution: {integrity: sha512-HnnCWU1Vg9CVWRCcI8ohDKDRB2Sc4bTgT1XAIaoLSfVHHn+TKbrox6pd3klCSw4UDxkhDfOk8cAdcK+Z5KleCA==}
+    dependencies:
+      vue-demi: 0.13.11_vue@3.2.41
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
   /@zhead/schema-vue/0.9.9_vue@3.2.41:
     resolution: {integrity: sha512-f7sOPMc1zQJ+tDDWWaksNsGoGGuRv5aHvOdZvsL3dIxbiHVlGVhDi/HZbUUupCtlYAPv2D8E/tUmwWKh/UrbXw==}
     peerDependencies:
       vue: '>=2.7 || >=3'
     dependencies:
-      '@vueuse/shared': 9.4.0_vue@3.2.41
+      '@vueuse/shared': 9.5.0_vue@3.2.41
       '@zhead/schema': 0.9.9
       vue: 3.2.41
     transitivePeerDependencies:
@@ -8195,7 +8219,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-    dev: true
 
   /follow-redirects/1.15.2_debug@2.6.9:
     resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
@@ -8494,7 +8517,7 @@ packages:
       create-error-class: 3.0.2
       debug: 2.6.9
       decompress-response: 6.0.0
-      follow-redirects: 1.15.2_debug@2.6.9
+      follow-redirects: 1.15.2
       form-urlencoded: 2.0.9
       into-stream: 3.1.0
       is-plain-object: 2.0.4
