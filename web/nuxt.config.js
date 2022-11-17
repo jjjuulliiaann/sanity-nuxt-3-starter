@@ -63,32 +63,10 @@ export default defineNuxtConfig({
 	],
 
 	// modules
-	modules: ['@nuxtjs/sanity', '@vueuse/motion/nuxt'],
+	modules: ['@nuxtjs/sanity', '@pinia/nuxt', '@vueuse/nuxt'],
 
 	// build modules
-	buildModules: ['@pinia/nuxt', '@vueuse/nuxt'],
-
-	// vueuse motion
-	motion: {
-		directives: {
-			'pop-up': {
-				initial: {
-					opacity: 0,
-					scale: 0.5,
-				},
-				visible: {
-					opacity: 1,
-					scale: 1,
-					transition: {
-						type: 'spring',
-						stiffness: 250,
-						damping: 15,
-						mass: 0.5,
-					},
-				},
-			},
-		},
-	},
+	buildModules: [],
 
 	// sanity
 	sanity: {

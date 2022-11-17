@@ -3,13 +3,11 @@
 		<div
 			class="TheCounter_Number"
 			:class="{ TheCounter_Number_empty: mainStore.counterIsZero }"
-			v-motion
-			v-motion-pop-up
 		>
 			<span class="text-xl text_bold">{{ mainStore.counter }}</span>
 		</div>
 
-		<div class="TheCounter_Buttons" v-motion v-motion-pop-up>
+		<div class="TheCounter_Buttons">
 			<button @click="increase">Add 1</button>
 			<button @click="randomize">Randomize</button>
 			<button @click="mainStore.resetCounter">Reset</button>
