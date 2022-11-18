@@ -1,6 +1,6 @@
 # 🍿 Sanity Nuxt 3 Starter
 
-Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 documentation`](https://v3.nuxtjs.org) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
+Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 documentation`](https://nuxt.com/docs/getting-started/introduction) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
 
 ## Features
 
@@ -67,7 +67,7 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 do
 
 ### Nuxt
 
-Nuxt 3 is still in release candidate stage. You can check the [`Roadmap`](https://v3.nuxtjs.org/community/roadmap).
+To upgrade Nuxt 3 to the latest release, use the `npx nuxi upgrade` command.
 
 To update manually: Bump `nuxt` dependency to `3.0.0-rc.XX` and then use `npx nuxi@latest cleanup` to cleanup any local caches.
 
