@@ -1,57 +1,56 @@
 export default defineNuxtConfig({
 	app: {
 		pageTransition: { name: 'page', mode: 'out-in' },
+		head: {
+			meta: [
+				{
+					name: 'viewport',
+					content: 'width=device-width, initial-scale=1',
+				},
+				{
+					name: 'og:type',
+					content: 'website',
+				},
+			],
+			link: [
+				{
+					rel: 'apple-touch-icon',
+					sizes: '180x180',
+					href: '/favicons/apple-touch-icon.png',
+				},
+				{
+					rel: 'icon',
+					type: 'image/png',
+					sizes: '32x32',
+					href: '/favicons/favicon-32x32.png',
+				},
+				{
+					rel: 'icon',
+					type: 'image/png',
+					sizes: '16x16',
+					href: '/favicons/favicon-16x16.png',
+				},
+				{
+					rel: 'manifest',
+					href: '/favicons/site.webmanifest',
+				},
+				{
+					rel: 'mask-icon',
+					href: '/favicons/safari-pinned-tab.svg',
+					color: '#000000',
+				},
+				{
+					rel: 'shortcut icon',
+					href: '/favicons/favicon.ico',
+				},
+			],
+		},
 	},
 
-	// meta
-	meta: {
-		title: 'Sanity Nuxt 3 Starter',
-		meta: [
-			{
-				name: 'viewport',
-				content: 'width=device-width, initial-scale=1',
-			},
-			{
-				name: 'og:type',
-				content: 'website',
-			},
-		],
-		link: [
-			{
-				rel: 'apple-touch-icon',
-				sizes: '180x180',
-				href: '/favicons/apple-touch-icon.png',
-			},
-			{
-				rel: 'icon',
-				type: 'image/png',
-				sizes: '32x32',
-				href: '/favicons/favicon-32x32.png',
-			},
-			{
-				rel: 'icon',
-				type: 'image/png',
-				sizes: '16x16',
-				href: '/favicons/favicon-16x16.png',
-			},
-			{
-				rel: 'manifest',
-				href: '/favicons/site.webmanifest',
-			},
-			{
-				rel: 'mask-icon',
-				href: '/favicons/safari-pinned-tab.svg',
-				color: '#000000',
-			},
-			{
-				rel: 'shortcut icon',
-				href: '/favicons/favicon.ico',
-			},
-		],
-	},
-
-	publicRuntimeConfig: {
-		BASE_URL: process.env.BASE_URL,
+	runtimeConfig: {
+		public: {
+			BASE_URL: process.env.BASE_URL,
+		},
 	},
 
 	// css

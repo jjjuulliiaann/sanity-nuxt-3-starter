@@ -29,7 +29,7 @@ export default function ({ title, seo, titleImage }) {
 			},
 			{
 				property: 'og:url',
-				content: `${config.BASE_URL}${route.fullPath}`,
+				content: `${config.public.BASE_URL}${route.fullPath}`,
 			},
 			{
 				name: 'description',

@@ -1,11 +1,11 @@
 {
 	"root": true,
-	"project": {
-		"name": "Sanity Nuxt 3 Starter"
-	},
 	"api": {
 		"projectId": "nwd3y69e",
 		"dataset": "production"
+	},
+	"project": {
+		"name": "Sanity Nuxt 3 Starter"
 	},
 	"plugins": [
 		"@sanity/base",

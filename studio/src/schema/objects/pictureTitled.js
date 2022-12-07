@@ -33,8 +33,10 @@ export default {
 			const { asset, caption, dimensions, filename } = selection
 			return {
 				imageUrl: asset ? asset : '',
-				caption: caption ? caption : filename,
-				subtitle: dimensions
+				title: filename ?? '',
+				subtitle: caption
+					? caption
+					: dimensions
 					? `${dimensions.width}px × ${dimensions.height}px`
 					: '…',
 			}
