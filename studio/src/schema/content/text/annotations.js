@@ -1,16 +1,16 @@
-import { BiLinkAlt, BiPaperclip, BiLinkExternal } from 'react-icons/bi/'
+import { BiLinkAlt, BiPaperclip, BiFileBlank } from 'react-icons/bi/'
 import { linkTargets } from '../../../utils/internalLinkTargets'
 
 export const annotations = [
 	{
 		title: 'External Link',
-		name: 'externalLink',
+		name: 'link',
 		type: 'object',
 		blockEditor: {
-			icon: BiLinkExternal,
+			icon: BiLinkAlt,
 		},
 		initialValue: {
-			blank: false,
+			blank: true,
 		},
 		fields: [
 			{
@@ -35,7 +35,7 @@ export const annotations = [
 		name: 'internalLink',
 		type: 'object',
 		blockEditor: {
-			icon: BiLinkAlt,
+			icon: BiFileBlank,
 		},
 		fields: [
 			{

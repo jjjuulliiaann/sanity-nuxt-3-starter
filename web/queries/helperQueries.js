@@ -13,7 +13,7 @@ export const linkQuery = `
 		),
 		"slug": linkTarget->slug.current
 	},
-	_type == "externalLink" => {
+	_type == "link" => {
 		...,
 		"linkType": "externalLink",
 		"title": coalesce(title, href)

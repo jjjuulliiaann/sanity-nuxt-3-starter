@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import client from 'part:@sanity/base/client'
 import imageUrlBuilder from '@sanity/image-url'
 
-const builder = imageUrlBuilder(client)
+const sanityClient = client.withConfig({ apiVersion: '2022-04-26' })
+const builder = imageUrlBuilder(sanityClient)
 
 function urlFor(source) {
 	return builder.image(source)
