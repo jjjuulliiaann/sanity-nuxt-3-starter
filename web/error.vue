@@ -1,7 +1,10 @@
 <template>
 	<main>
-		<p class="text-">{{ props.error.message }}</p>
-		<button @click="handleError">Back to Main</button>
+		<p class="text-base"
+			><span class="text_bold">Error {{ props.error.statusCode }}:</span>
+			{{ props.error.message }}</p
+		>
+		<button @click="handleError" class="textlink">Back to Main</button>
 	</main>
 </template>
 

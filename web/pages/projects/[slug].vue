@@ -17,7 +17,22 @@
 </template>
 
 <script setup>
+import { useMainStore } from '~/stores/MainStore'
 import { singleProjectQuery } from '@/queries/contentQueries'
+
+definePageMeta({
+	validate({ params }) {
+		const mainStore = useMainStore()
+		if (!mainStore.slugs.projects.includes(params.slug)) {
+			return createError({
+				statusCode: 404,
+				message: 'Project not found',
+			})
+		}
+
+		return true
+	},
+})
 
 // get data
 const route = useRoute()
@@ -28,9 +43,6 @@ const { data } = await useSanityQuery(singleProjectQuery, params)
 
 // preview handling
 usePreviewHandler({ query: singleProjectQuery, params, data })
-
-// error handling
-const pageError = usePageError(data)
 
 // meta
 usePageHead({

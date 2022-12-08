@@ -9,7 +9,22 @@
 </template>
 
 <script setup>
+import { useMainStore } from '~/stores/MainStore'
 import { pageTextQuery } from '@/queries/contentQueries'
+
+definePageMeta({
+	validate({ params }) {
+		const mainStore = useMainStore()
+		if (!mainStore.slugs.pages.includes(params.slug)) {
+			return createError({
+				statusCode: 404,
+				message: 'Page not found',
+			})
+		}
+
+		return true
+	},
+})
 
 // get data
 const route = useRoute()
@@ -20,9 +35,6 @@ const { data } = await useSanityQuery(pageTextQuery, params)
 
 // preview handling
 usePreviewHandler({ query: pageTextQuery, params, data })
-
-// error handling
-const pageError = usePageError(data)
 
 // meta
 usePageHead({ title: data.value?.title, seo: data.value?.seo })

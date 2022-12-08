@@ -66,6 +66,7 @@ onBeforeMount(() => {
 	font-weight: 500;
 	font-size: 13px;
 	line-height: 20px;
+	letter-spacing: 0;
 	text-align: left;
 	color: var(--_rgb-grey);
 	border-radius: 3px;

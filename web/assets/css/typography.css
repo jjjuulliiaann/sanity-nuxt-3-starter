@@ -265,7 +265,7 @@ a {
 }
 
 @media (hover: hover) and (pointer: fine) {
-	a:hover {
+	a:hover, .textlink:hover {
 		color: var(--rgb-accent);
 	}
 }

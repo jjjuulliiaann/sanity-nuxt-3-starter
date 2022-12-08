@@ -20,6 +20,10 @@ export const siteQuery = groq`{
 		navMain[]{
 			${linkQuery}
 		}
+	},
+	"slugs": {
+		"pages": *[_type == "pageText"].slug.current,
+		"projects": *[_type == "project"].slug.current,
 	}
 }`
 
