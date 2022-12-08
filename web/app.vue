@@ -16,6 +16,10 @@ import { useMainStore } from '~/stores/MainStore'
 const mainStore = useMainStore()
 const route = useRoute()
 const config = useRuntimeConfig()
+const { $urlFor } = useNuxtApp()
+const ogImageUrl = mainStore.siteOptions?.seo?.ogImage
+	? $urlFor(mainStore.siteOptions?.seo?.ogImage).width(1200).url()
+	: ''
 
 useHead({
 	titleTemplate: (title) =>
@@ -58,21 +62,21 @@ useHead({
 		},
 		{
 			property: 'og:image',
-			content: mainStore.siteOptions?.seo?.ogImage?.asset
-				? mainStore.siteOptions?.seo?.ogImage?.asset.url
-				: '',
+			content: ogImageUrl,
 		},
 		{
 			property: 'og:image:width',
-			content:
-				mainStore.siteOptions?.seo?.ogImage?.asset?.metadata?.dimensions
-					?.width ?? '',
+			content: ogImageUrl ? '1200' : '',
 		},
 		{
 			property: 'og:image:height',
-			content:
-				mainStore.siteOptions?.seo?.ogImage?.asset?.metadata?.dimensions
-					?.height ?? '',
+			content: ogImageUrl
+				? Math.floor(
+						1200 /
+							(mainStore.siteOptions?.seo?.ogImage?.metadata
+								?.dimensions?.aspectRatio ?? 1.5)
+				  )
+				: '',
 		},
 		{
 			property: 'og:image:type',
@@ -92,9 +96,7 @@ useHead({
 		},
 		{
 			name: 'twitter:image',
-			content: mainStore.siteOptions?.seo?.ogImage?.asset
-				? mainStore.siteOptions?.seo?.ogImage?.asset.url
-				: '',
+			content: ogImageUrl,
 		},
 	],
 })

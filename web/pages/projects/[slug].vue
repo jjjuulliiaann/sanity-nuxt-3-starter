@@ -33,7 +33,11 @@ usePreviewHandler({ query: singleProjectQuery, params, data })
 const pageError = usePageError(data)
 
 // meta
-useDefaultHead({ title: data.value?.title, seo: data.value?.seo })
+usePageHead({
+	title: data.value?.title,
+	seo: data.value?.seo,
+	titleImage: data.value?.images?.[0],
+})
 </script>
 
 <style scoped>

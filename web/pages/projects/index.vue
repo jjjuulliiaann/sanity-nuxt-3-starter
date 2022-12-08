@@ -40,7 +40,7 @@ const { data } = await useSanityQuery(projectsQuery)
 usePreviewHandler({ query: projectsQuery, data })
 
 // meta
-useDefaultHead({
+usePageHead({
 	title: data.value?.title,
 	seo: data.value?.seo,
 })

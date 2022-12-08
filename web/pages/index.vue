@@ -17,7 +17,7 @@ const { data } = await useSanityQuery(homeQuery)
 usePreviewHandler({ query: homeQuery, data })
 
 // meta
-useHead({
+usePageHead({
 	title: '',
 })
 </script>
