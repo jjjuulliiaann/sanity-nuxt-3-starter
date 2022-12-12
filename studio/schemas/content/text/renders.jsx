@@ -1,7 +1,11 @@
 import React from 'react'
 
 // Render custom content in Editor
-export const renderHeadline = ({children}) => (
+export const renderHeadline1 = ({children}) => (
+	<span style={{fontWeight: 'bold', fontSize: '1.4rem'}}>{children}</span>
+)
+
+export const renderHeadline2 = ({children}) => (
 	<span style={{fontWeight: 'bold', fontSize: '1rem'}}>{children}</span>
 )
 
