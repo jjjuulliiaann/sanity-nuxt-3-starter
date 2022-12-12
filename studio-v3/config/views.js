@@ -1,10 +1,14 @@
 import Iframe from 'sanity-plugin-iframe-pane'
 
 /*
-default document node (form + preview)
+list of schema types supporting preview
 */
 const previewSchemaTypes = ['pageHome', 'project', 'page']
 
+/*
+default document node:
+add preview view if part of list
+*/
 export const defaultDocumentNode = (S, {schemaType}) => {
 	const frontendUrl = import.meta.env.SANITY_STUDIO_FRONTEND_URL
 
@@ -29,16 +33,15 @@ export const defaultDocumentNode = (S, {schemaType}) => {
 	}
 }
 
+/*
+resolve production url
+*/
 export const resolveProductionUrl = async ({doc, context, frontendUrl}) => {
 	const {getClient} = context
 
-	if(!doc) {
+	if (!doc) {
 		doc = context.document
 	}
-
-	console.log(`frontendUrl: ${frontendUrl}`);
-
-	console.log(doc)
 
 	if (previewSchemaTypes.includes(doc._type)) {
 		const client = await getClient({apiVersion: '2022-05-04'})
@@ -68,5 +71,5 @@ export const resolveProductionUrl = async ({doc, context, frontendUrl}) => {
 		return url.toString()
 	}
 
-	return 'nope'
+	return ''
 }

@@ -5,6 +5,7 @@ import {muxInput} from 'sanity-plugin-mux-input'
 import {structure} from './config/structure'
 import {defaultDocumentNode} from './config/views'
 import {resolveProductionUrl} from './config/views'
+import {initialValueTemplates} from './config/initialValueTemplates'
 import {schemaTypes} from './schemas'
 
 export default defineConfig({
@@ -24,6 +25,7 @@ export default defineConfig({
 
 	schema: {
 		types: schemaTypes,
+		templates: (prev) => initialValueTemplates(prev),
 	},
 
 	document: {
