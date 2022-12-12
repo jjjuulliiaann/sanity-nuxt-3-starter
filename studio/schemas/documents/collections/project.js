@@ -1,4 +1,3 @@
-import React from 'react'
 import {BiBookAlt} from 'react-icons/bi/'
 import {slugify, validateSlug} from '@/utils/helperFunctions.js'
 
@@ -78,7 +77,13 @@ export default {
 	preview: {
 		select: {
 			title: 'title',
-			media: 'titleImage',
+			titleImage: 'titleImage',
+		},
+		prepare({title, titleImage}) {
+			return {
+				title: title ?? '',
+				media: titleImage ?? BiBookAlt,
+			}
 		},
 	},
 

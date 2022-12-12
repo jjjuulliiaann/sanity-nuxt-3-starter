@@ -9,13 +9,27 @@ export const structure = (S) =>
 				id: 'projects',
 				schemaType: 'project',
 				child: () =>
-					S.documentTypeList('project')
+					S.list()
 						.title('Projects')
-						.defaultOrdering([
-							{
-								field: 'title',
-								direction: 'asc',
-							},
+						.items([
+							S.listItem({
+								title: 'Projects',
+								id: 'projects',
+								schemaType: 'project',
+								child: () =>
+									S.documentTypeList('project')
+										.title('Projects')
+										.defaultOrdering([
+											{
+												field: 'title',
+												direction: 'asc',
+											},
+										]),
+							}),
+							S.documentListItem()
+								.id('pageProjects')
+								.title('Page')
+								.schemaType('pageProjects'),
 						]),
 			}),
 
@@ -35,6 +49,8 @@ export const structure = (S) =>
 			}),
 
 			S.divider(),
+
+			S.documentListItem().id('siteNav').schemaType('siteNav'),
 
 			S.documentListItem().id('siteOptions').schemaType('siteOptions'),
 		])

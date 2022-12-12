@@ -1,6 +1,6 @@
 export const linkTargets = [
-	{type: 'pageHome'},
 	{type: 'page'},
-	/* { type: 'pageProjects' }, */
 	{type: 'project'},
+	{type: 'pageHome'},
+	{type: 'pageProjects'},
 ]

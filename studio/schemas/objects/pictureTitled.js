@@ -11,15 +11,17 @@ export default {
 	},
 	fields: [
 		{
+			title: 'Caption',
+			name: 'caption',
+			type: 'text',
+			rows: 3,
+		},
+		{
 			title: 'Alternative Text',
 			name: 'alt',
 			type: 'string',
-			description: 'Important for SEO and Accessibility.',
-		},
-		{
-			title: 'Caption',
-			name: 'caption',
-			type: 'string',
+			description:
+				'Describes the appearance or function of the image. Alt text is used by visually impaired users and is indexed by search engine bots.',
 		},
 	],
 	preview: {

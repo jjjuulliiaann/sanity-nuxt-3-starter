@@ -40,7 +40,7 @@ export default {
 		{
 			title: 'Language Code',
 			description:
-				'ISO 639-1 Language Codes, i.e. „de“ or „en“. You can add a country code like this: „en-us“',
+				'ISO 639-1 Language Codes (i.e. “de” or “en”), can be country specific (i.e. “en-us”)',
 			name: 'language',
 			type: 'string',
 			group: 'seo',

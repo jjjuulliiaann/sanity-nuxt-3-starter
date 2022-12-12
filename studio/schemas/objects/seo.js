@@ -18,7 +18,7 @@ export default {
 			},
 		},
 		{
-			title: 'OG Image',
+			title: 'Open Graph Image',
 			name: 'ogImage',
 			type: 'image',
 		},

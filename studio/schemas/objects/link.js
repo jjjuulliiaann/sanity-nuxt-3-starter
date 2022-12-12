@@ -1,10 +1,10 @@
-import {BiLinkExternal} from 'react-icons/bi/'
+import {BiLinkAlt} from 'react-icons/bi/'
 
 export default {
 	title: 'External Link',
 	name: 'link',
 	type: 'object',
-	icon: BiLinkExternal,
+	icon: BiLinkAlt,
 	initialValue: {
 		blank: true,
 	},
@@ -37,8 +37,9 @@ export default {
 		},
 		prepare({url, title}) {
 			return {
-				title: title ? title : 'Untitled Link',
+				title: title ?? 'Untitled Link',
 				subtitle: url,
+				media: BiLinkAlt,
 			}
 		},
 	},

@@ -2,6 +2,8 @@
 import project from './documents/collections/project'
 import page from './documents/collections/page'
 import pageHome from './documents/singletons/pageHome'
+import pageProjects from './documents/singletons/pageProjects'
+import siteNav from './documents/site/siteNav'
 import siteOptions from './documents/site/siteOptions'
 // content
 import editorText from './content/editors/editorText'
@@ -19,6 +21,8 @@ export const schemaTypes = [
 	project,
 	page,
 	pageHome,
+	pageProjects,
+	siteNav,
 	siteOptions,
 	editorText,
 	editorTextMedia,

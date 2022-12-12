@@ -12,6 +12,9 @@ export default {
 			name: 'linkTarget',
 			type: 'reference',
 			to: linkTargets,
+			options: {
+				disableNew: true,
+			},
 			validation: (Rule) => Rule.required(),
 		},
 		{
@@ -21,4 +24,16 @@ export default {
 			type: 'string',
 		},
 	],
+	preview: {
+		select: {
+			title: 'title',
+			targetTitle: 'linkTarget.title',
+		},
+		prepare({title, targetTitle}) {
+			return {
+				title: title ?? targetTitle ?? '',
+				media: BiDirections,
+			}
+		},
+	},
 }
