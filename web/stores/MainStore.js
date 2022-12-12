@@ -5,7 +5,7 @@ export const useMainStore = defineStore('MainStore', {
 	state: () => {
 		return {
 			siteOptions: {},
-			siteNavigation: {},
+			siteNav: {},
 			slugs: {},
 			window: {
 				width: 0,
@@ -35,7 +35,7 @@ export const useMainStore = defineStore('MainStore', {
 		async fetchSiteContent() {
 			const { data } = await useSanityQuery(siteQuery)
 			this.siteOptions = data.value.siteOptions
-			this.siteNavigation = data.value.siteNavigation
+			this.siteNav = data.value.siteNav
 			this.slugs = data.value.slugs
 		},
 		// load preview data with sanity preview client

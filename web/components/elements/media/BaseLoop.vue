@@ -1,8 +1,8 @@
 <template>
-	<figure>
+	<figure class="VideoLoop">
 		<video
 			ref="videoEl"
-			class="VideoLoop"
+			class="VideoLoop_Video"
 			:class="{ VideoLoop_playing: isPlaying }"
 			muted
 			playsinline
@@ -26,6 +26,12 @@ const props = defineProps({
 		type: Object,
 		default: () => undefined,
 	},
+
+	posterImage: {
+		type: Object,
+		default: () => undefined,
+	},
+
 	isActive: {
 		type: Boolean,
 		default: () => true,
@@ -55,13 +61,19 @@ const videoHeight = computed(() => {
 	return videoTrack ? videoTrack.max_height : undefined
 })
 
-/* 
-poster image 
+/*
+poster image
 */
+const { $urlFor } = useNuxtApp()
 const posterSrc = computed(() => {
-	return props.video?.muxVideo?.asset?.playbackId
-		? `https://image.mux.com/${props.video.muxVideo.asset.playbackId}/thumbnail.jpg?time=0`
-		: ''
+	if (!props.posterImage) {
+		return props.video?.muxVideo?.asset?.playbackId
+			? `https://image.mux.com/${props.video?.muxVideo?.asset?.playbackId}/thumbnail.jpg?time=0`
+			: ''
+	}
+	return $urlFor(props.posterImage)
+		.width(videoWidth.value ?? 1000)
+		.url()
 })
 
 /*
@@ -140,8 +152,14 @@ watch(
 </script>
 
 <style scoped>
+.VideoLoop {
+	position: relative;
+}
+
 .VideoLoop_Image {
+	position: absolute;
 	z-index: -1;
+	left: 0;
 }
 
 .lazyload,

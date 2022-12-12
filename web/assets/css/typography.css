@@ -338,6 +338,11 @@ em {
 	margin: 2em 0 1em;
 }
 
+.blockcontent h3 {
+	font-weight: 700;
+	margin: 2em 0 1em;
+}
+
 .blockcontent h2:first-child {
 	margin-top: 0;
 }

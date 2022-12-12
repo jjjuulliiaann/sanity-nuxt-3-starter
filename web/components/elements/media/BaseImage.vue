@@ -21,7 +21,7 @@ const { $urlFor } = useNuxtApp()
 const props = defineProps({
 	image: {
 		type: Object,
-		required: true,
+		default: () => undefined,
 	},
 	svgPlaceholder: {
 		type: Boolean,
@@ -66,18 +66,23 @@ const placeholderSrc = computed(() => {
 	return props.svgPlaceholder
 		? `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${cropWidth.value} ${cropHeight.value}'%3E%3Crect width='${cropWidth.value}' height='${cropHeight.value}' fill='${svgColor}' /%3E%3C/svg%3E`
 		: props.lqipPlaceholder
-		? props.image.asset?.metadata?.lqip
+		? props.image?.asset?.metadata?.lqip
 		: ''
 })
 
 const imageSrc = computed(() =>
-	$urlFor(props.image).width(1000).auto(props.auto).fit(props.fit)
+	props.image?.asset
+		? $urlFor(props.image).width(1000).auto(props.auto).fit(props.fit)
+		: ''
 )
 
 const imageSrcSet = computed(() => {
 	let srcSet = ''
 	const widths = [250, 375, 500, 750, 1000, 1400, 2000, 3000]
 	widths.forEach((width, index) => {
+		if (!props.image?.asset) {
+			return false
+		}
 		srcSet +=
 			$urlFor(props.image).width(width).auto(props.auto).fit(props.fit) +
 			` ${width}w`
@@ -90,17 +95,17 @@ const imageSrcSet = computed(() => {
 })
 
 const cropWidth = computed(() => {
-	const originalWidth = props.image.asset?.metadata?.dimensions?.width
-	const cropLeft = props.image.crop?.left ?? 0
-	const cropRight = props.image.crop?.right ?? 0
+	const originalWidth = props.image?.asset?.metadata?.dimensions?.width
+	const cropLeft = props.image?.crop?.left ?? 0
+	const cropRight = props.image?.crop?.right ?? 0
 
 	return originalWidth - cropLeft * originalWidth - cropRight * originalWidth
 })
 
 const cropHeight = computed(() => {
-	const originalHeight = props.image.asset?.metadata?.dimensions?.height
-	const cropTop = props.image.crop?.top ?? 0
-	const cropBottom = props.image.crop?.bottom ?? 0
+	const originalHeight = props.image?.asset?.metadata?.dimensions?.height
+	const cropTop = props.image?.crop?.top ?? 0
+	const cropBottom = props.image?.crop?.bottom ?? 0
 	return (
 		originalHeight - cropTop * originalHeight - cropBottom * originalHeight
 	)
@@ -116,14 +121,14 @@ const orientation = computed(() => {
 		: 'square'
 })
 
-const altText = computed(() => props.image.alt ?? props.alt)
+const altText = computed(() => props.image?.alt ?? props.alt)
 
 const objectPositionStyle = computed(() => {
-	return props.useObjectPosition && props.image.hotspot
+	return props.useObjectPosition && props.image?.hotspot
 		? {
 				'object-position': `${[
-					props.image.hotspot.x,
-					props.image.hotspot.y,
+					props.image?.hotspot.x,
+					props.image?.hotspot.y,
 				]
 					.map((value) => `${(value * 100).toFixed(2)}%`)
 					.join(' ')}`,

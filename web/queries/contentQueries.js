@@ -16,13 +16,13 @@ export const siteQuery = groq`{
 		},
 		${seoQuery}
 	},
-	"siteNavigation": *[_id == "siteNavigation"] [0] {
+	"siteNav": *[_id == "siteNav"] [0] {
 		navMain[]{
 			${linkQuery}
 		}
 	},
 	"slugs": {
-		"pages": *[_type == "pageText"].slug.current,
+		"pages": *[_type == "page"].slug.current,
 		"projects": *[_type == "project"].slug.current,
 	}
 }`
@@ -35,8 +35,8 @@ export const homeQuery = groq`*[(
 		},
 }`
 
-export const pageTextQuery = groq`
-*[_type == 'pageText' && slug.current == $slug] | order(_updatedAt desc) [0]{
+export const pageQuery = groq`
+*[_type == 'page' && slug.current == $slug] | order(_updatedAt desc) [0]{
 	...,
 	content[] {
 		${contentBlockQuery}
@@ -48,7 +48,7 @@ export const pageTextQuery = groq`
 export const projectsQuery = groq`
 *[(_type == "pageProjects")] | order(_updatedAt desc) [0]{
 	...,
-	projects[]->{title, slug, "firstImage": images[0]{..., asset->}},
+	projects[]->{title, slug, titleImage{..., asset->}},
 	${seoQuery}
 }
 `

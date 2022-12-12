@@ -18,9 +18,9 @@ const props = defineProps({
 
 const serializers = {
 	types: {
-		blockImage: BaseFigure,
-		blockLoop: BaseLoop,
-		blockVideo: BaseVideoPlayer,
+		pictureTitled: BaseFigure,
+		video: BaseLoop,
+		videoPlayer: BaseVideoPlayer,
 	},
 	marks: {
 		link: Link,
@@ -30,7 +30,8 @@ const serializers = {
 	},
 	styles: {
 		normal: 'p',
-		headline: Element,
+		h2: Element,
+		h3: Element,
 		small: Element,
 	},
 }

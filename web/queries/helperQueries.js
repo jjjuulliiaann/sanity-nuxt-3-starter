@@ -7,7 +7,7 @@ export const linkQuery = `
 		"route": select(
 			linkTarget->_type == "pageHome" => "index",
 			linkTarget->_type == "pageProjects" => "projects",
-			linkTarget->_type == "pageText" => "slug",
+			linkTarget->_type == "page" => "slug",
 			linkTarget->_type == "project" => "projects-slug",
 			"index"
 		),
@@ -21,15 +21,16 @@ export const linkQuery = `
 `
 
 export const contentBlockQuery = `
-	...,
-	_type == "blockImage" => {
-		image {..., asset->}
+	_type == "block" => {
+		...
 	},
-	_type == "blockLoop" => {
-		video {muxVideo{asset->}}
+	_type == "picture" || _type == "pictureTitled" => {
+		_type,
+		"image": {..., asset->}
 	},
-	_type == "blockVideo" => {
-		video {muxVideo{asset->}},
+	_type == "video" || _type == "videoPlayer" => {
+		_type,
+		"video": {muxVideo{..., asset->}},
 		posterImage {..., asset->}
 	},
 	markDefs[]{

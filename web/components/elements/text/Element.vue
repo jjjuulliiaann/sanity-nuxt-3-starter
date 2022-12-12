@@ -1,5 +1,6 @@
 <template>
-	<h2 v-if="props.style === 'headline'" class="text-lg"><slot /></h2>
+	<h2 v-if="props.style === 'h2'" class="text-lg"><slot /></h2>
+	<h3 v-if="props.style === 'h3'" class="text-base"><slot /></h3>
 	<p v-else-if="props.style === 'small'" class="text-sm"><slot /></p>
 	<p v-else><slot /></p>
 </template>

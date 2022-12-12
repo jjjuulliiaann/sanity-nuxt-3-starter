@@ -20,7 +20,7 @@
 							{{ project.title }}
 						</h2>
 						<ElementsMediaBaseImage
-							:image="project.firstImage"
+							:image="project.titleImage"
 							class="Projects_ItemImage"
 						/>
 					</ElementsTextLink>

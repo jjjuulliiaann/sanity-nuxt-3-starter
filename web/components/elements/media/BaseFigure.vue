@@ -25,6 +25,10 @@ const props = defineProps({
 		type: Object,
 		default: () => undefined,
 	},
+	alt: {
+		type: String,
+		default: () => 'Missing alternative text',
+	},
 	svgPlaceholder: {
 		type: Boolean,
 		default: () => true,
@@ -40,10 +44,6 @@ const props = defineProps({
 	dataParentFit: {
 		type: String,
 		default: () => '',
-	},
-	alt: {
-		type: String,
-		default: 'Missing alternative text',
 	},
 	auto: {
 		default: 'format',

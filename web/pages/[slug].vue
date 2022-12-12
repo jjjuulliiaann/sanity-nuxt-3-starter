@@ -10,7 +10,7 @@
 
 <script setup>
 import { useMainStore } from '~/stores/MainStore'
-import { pageTextQuery } from '@/queries/contentQueries'
+import { pageQuery } from '@/queries/contentQueries'
 
 definePageMeta({
 	validate({ params }) {
@@ -31,10 +31,10 @@ const route = useRoute()
 const params = {
 	slug: route.params.slug,
 }
-const { data } = await useSanityQuery(pageTextQuery, params)
+const { data } = await useSanityQuery(pageQuery, params)
 
 // preview handling
-usePreviewHandler({ query: pageTextQuery, params, data })
+usePreviewHandler({ query: pageQuery, params, data })
 
 // meta
 usePageHead({ title: data.value?.title, seo: data.value?.seo })

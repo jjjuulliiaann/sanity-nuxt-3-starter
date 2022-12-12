@@ -1,8 +1,8 @@
 <template>
 	<nav class="TheNavigation">
-		<ul v-if="mainStore.siteNavigation" class="TheNavigation_List">
+		<ul v-if="mainStore.siteNav" class="TheNavigation_List">
 			<li
-				v-for="link in mainStore.siteNavigation?.navMain"
+				v-for="link in mainStore.siteNav?.navMain"
 				:key="link.id"
 				class="TheNavigation_Item text-sm"
 			>
