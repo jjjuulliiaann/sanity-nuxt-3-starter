@@ -17,6 +17,6 @@ const currentYear = new Date().getFullYear()
 <style scoped>
 .TheFooter {
 	position: relative;
-	padding: 5rem 1rem 1rem;
+	padding: 10rem 1rem 1rem;
 }
 </style>

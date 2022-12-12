@@ -30,9 +30,7 @@ export const siteQuery = groq`{
 export const homeQuery = groq`*[(
 	_type == "pageHome")] | order(_updatedAt desc) [0]{
 		...,
-		content[] {
-			${contentBlockQuery}
-		},
+		projects[]->{_id, title, location, slug, titleImage{..., asset->}},
 }`
 
 export const pageQuery = groq`

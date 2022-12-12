@@ -1,15 +1,19 @@
 <template>
 	<header class="TheHeader" v-on-click-outside="mainStore.closeMenu">
 		<div class="TheHeader_Bar">
-			<NuxtLink :to="{ name: 'index' }" class="text_bold"
-				>{{ mainStore.siteOptions?.name }}
-				{{ mainStore.siteOptions?.headerTitle }}</NuxtLink
+			<NuxtLink :to="{ name: 'index' }" class="text-lg">{{
+				mainStore.siteOptions?.name
+			}}</NuxtLink>
+			<button
+				@click="toggleMenu"
+				class="TheHeader_NavButton textlink text-lg"
 			>
-			<button @click="toggleMenu" class="TheHeader_NavButton">
-				Menü
+				Menu
 			</button>
 		</div>
-		<TheNavigation v-show="mainStore.menuIsOpen || isDesktop" />
+		<transition name="fade">
+			<TheNavigation v-show="mainStore.menuIsOpen" />
+		</transition>
 	</header>
 </template>
 
@@ -27,25 +31,15 @@ mobile menu
 const toggleMenu = () => {
 	mainStore.toggleMenu()
 }
-const isDesktop = useMediaQuery(
-	`(min-width: ${mainStore.window.desktopWidth}px)`
-)
 </script>
 
 <style scoped>
 .TheHeader {
-	position: fixed;
+	position: sticky;
 	width: 100%;
 	top: 0;
-	min-height: var(--header-height);
-	background: rgb(var(--clr-white) / 0.5);
-	backdrop-filter: blur(10px);
-	z-index: 99;
-
-	@media (--w-tablet-1) {
-		position: sticky;
-		display: flex;
-	}
+	mix-blend-mode: difference;
+	z-index: 10;
 }
 
 .TheHeader_Bar {
@@ -58,12 +52,6 @@ const isDesktop = useMediaQuery(
 	@media (--w-tablet-1) {
 		display: flex;
 		justify-content: space-between;
-	}
-}
-
-.TheHeader_NavButton {
-	@media (--w-tablet-1) {
-		display: none;
 	}
 }
 </style>

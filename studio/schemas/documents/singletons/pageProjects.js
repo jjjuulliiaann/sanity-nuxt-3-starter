@@ -25,19 +25,6 @@ export default {
 			group: 'content',
 		},
 		{
-			title: 'Featured Projects',
-			name: 'projects',
-			type: 'array',
-			of: [
-				{
-					type: 'reference',
-					to: [{type: 'project'}],
-				},
-			],
-			validation: (Rule) => Rule.unique(),
-			group: 'content',
-		},
-		{
 			title: 'SEO',
 			name: 'seo',
 			type: 'seo',

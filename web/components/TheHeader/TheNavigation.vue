@@ -1,10 +1,10 @@
 <template>
-	<nav class="TheNavigation">
+	<nav class="TheNavigation text-lg">
 		<ul v-if="mainStore.siteNav" class="TheNavigation_List">
 			<li
 				v-for="link in mainStore.siteNav?.navMain"
 				:key="link.id"
-				class="TheNavigation_Item text-sm"
+				class="TheNavigation_Item text-lg"
 			>
 				<ElementsTextLink
 					:link-type="link.linkType"
@@ -29,37 +29,28 @@ const mainStore = useMainStore()
 
 <style scoped>
 .TheNavigation {
-	position: relative;
+	position: absolute;
 	width: 100%;
-	padding: 0 1rem 1rem;
+	bottom: 1rem;
+	transform: translateY(100%);
+	padding: 0.1rem 1rem 1rem;
 
 	@media (--w-tablet-1) {
-		width: auto;
-		padding: 1rem;
+		padding: 0.3rem 1rem 1rem;
 	}
 }
 
 .TheNavigation_List {
 	position: relative;
 	list-style: none;
-
-	@media (--w-tablet-1) {
-		display: flex;
-		margin: 0 -0.5rem;
-	}
 }
 
 .TheNavigation_Item {
 	padding: 0.1rem 0;
+	text-align: right;
 
 	@media (--w-tablet-1) {
-		padding: 0 0.5rem;
-	}
-}
-
-@media (hover: hover) and (pointer: fine) {
-	.TheNavigation_Item:deep(.link:hover) {
-		color: rgb(var(--clr-accent));
+		padding: 0.3rem 0;
 	}
 }
 </style>

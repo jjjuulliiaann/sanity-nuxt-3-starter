@@ -67,8 +67,8 @@
 	--base-tracking: -0.01rem;
 
 	/* lg */
-	--lg-size-min: 24;
-	--lg-size-max: 30;
+	--lg-size-min: 28;
+	--lg-size-max: 38;
 	--lg-size-v: calc(((100 * (var(--lg-size-max) -  var(--lg-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--lg-size-r: calc((((var(--viewport-min) * var(--lg-size-max) - var(--viewport-max) * var(--lg-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--lg-size: clamp(
@@ -76,8 +76,8 @@
 		(var(--lg-size-v) + var(--lg-size-r)),
 		((var(--lg-size-max) / var(--root)) * 1rem)
 	);
-	--lg-leading-min: 24;
-	--lg-leading-max: 30;
+	--lg-leading-min: 28;
+	--lg-leading-max: 38;
 	--lg-leading-v: calc(((100 * (var(--lg-leading-max) -  var(--lg-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--lg-leading-r: calc((((var(--viewport-min) * var(--lg-leading-max) - var(--viewport-max) * var(--lg-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--lg-leading: clamp(
@@ -85,7 +85,7 @@
 		(var(--lg-leading-v) + var(--lg-leading-r)),
 		((var(--lg-leading-max) / var(--root)) * 1rem)
 	);
-	--lg-tracking: -0.01rem;
+	--lg-tracking: -0.03rem;
 
 	/* xl */
 	--xl-size-min: 40;
@@ -114,7 +114,7 @@
 		/* variables */
 	--viewport-min: 768;
 	--viewport-max: 1920;
-	--root: 15;
+	--root: 10;
 
 	/* sm */
 	--sm-size-min: 14;
@@ -159,8 +159,8 @@
 	--base-tracking: -0.01rem;
 
 	/* lg */
-	--lg-size-min: 30;
-	--lg-size-max: 34;
+	--lg-size-min: 46;
+	--lg-size-max: 60;
 	--lg-size-v: calc(((100 * (var(--lg-size-max) -  var(--lg-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--lg-size-r: calc((((var(--viewport-min) * var(--lg-size-max) - var(--viewport-max) * var(--lg-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--lg-size: clamp(
@@ -168,8 +168,8 @@
 		(var(--lg-size-v) + var(--lg-size-r)),
 		((var(--lg-size-max) / var(--root)) * 1rem)
 	);
-	--lg-leading-min: 30;
-	--lg-leading-max: 34;
+	--lg-leading-min: 40;
+	--lg-leading-max: 50;
 	--lg-leading-v: calc(((100 * (var(--lg-leading-max) -  var(--lg-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--lg-leading-r: calc((((var(--viewport-min) * var(--lg-leading-max) - var(--viewport-max) * var(--lg-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--lg-leading: clamp(
@@ -177,7 +177,7 @@
 		(var(--lg-leading-v) + var(--lg-leading-r)),
 		((var(--lg-leading-max) / var(--root)) * 1rem)
 	);
-	--lg-tracking: -0.01rem;
+	--lg-tracking: -0.03rem;
 
 	/* xl */
 	--xl-size-min: 75;
@@ -224,6 +224,7 @@
 	font-size: var(--lg-size);
 	line-height: var(--lg-leading);
 	letter-spacing: var(--lg-tracking);
+	font-weight: 600;
 }
 
 .text-xl {
@@ -248,7 +249,7 @@ body {
 	font-size: var(--base-size);
 	line-height: var(--base-leading);
 	letter-spacing: var(--base-tracking);
-	color: var(--rgb-black);
+	color: var(--rgb-white);
 	font-weight: 400;
 }
 
@@ -256,7 +257,7 @@ body {
 
 a {
 	display: inline-block;
-	color: var(--rgb-black);
+	color: var(--rgb-white);
 	text-decoration: none;
 }
 
@@ -268,7 +269,27 @@ a {
 	a:hover, .textlink:hover {
 		color: var(--rgb-accent);
 	}
+
+
+	a .imagelink::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background: var(--rgb-hover);
+		z-index: 2;
+		mix-blend-mode: darken;
+		opacity: 0;
+	}
+
+	a:hover .imagelink::after {
+		opacity: 1;
+	}
 }
+
+
 
 /* a11y */
 
@@ -291,7 +312,7 @@ a:focus-visible, button:focus-visible {
 
 .text_bold,
 .blockcontent strong {
-	font-weight: 700;
+	font-weight: 600;
 }
 
 .text_italic,

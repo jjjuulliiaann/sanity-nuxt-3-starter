@@ -12,9 +12,20 @@ export default {
 			type: 'string',
 		},
 		{
-			title: 'Content',
-			name: 'content',
-			type: 'editorTextMedia',
+			title: 'Featured Projects',
+			name: 'projects',
+			type: 'array',
+			of: [
+				{
+					type: 'reference',
+					to: [{type: 'project'}],
+					options: {
+						disableNew: true,
+					},
+				},
+			],
+
+			validation: (Rule) => Rule.unique(),
 		},
 	],
 	preview: {

@@ -25,14 +25,14 @@ export default {
 			group: 'page',
 		},
 		{
-			title: 'Header Title',
-			name: 'headerTitle',
+			title: 'Copyright',
+			name: 'copyrightText',
 			type: 'string',
 			group: 'page',
 		},
 		{
-			title: 'Copyright',
-			name: 'copyrightText',
+			title: 'Location Prefix',
+			name: 'locationPrefix',
 			type: 'string',
 			group: 'page',
 		},

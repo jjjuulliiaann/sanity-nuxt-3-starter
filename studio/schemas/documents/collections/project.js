@@ -37,6 +37,13 @@ export default {
 			group: 'content',
 		},
 		{
+			title: 'Location',
+			name: 'location',
+			type: 'string',
+			validation: (Rule) => Rule.required(),
+			group: 'content',
+		},
+		{
 			title: 'Content',
 			name: 'content',
 			type: 'editorTextMedia',
@@ -46,24 +53,6 @@ export default {
 			title: 'Title Image',
 			name: 'titleImage',
 			type: 'picture',
-			group: 'content',
-		},
-		{
-			title: 'Images',
-			name: 'images',
-			type: 'array',
-			layout: 'grid',
-			editModal: 'popover',
-			of: [
-				{
-					title: 'Image',
-					type: 'picture',
-				},
-				{
-					title: 'Video Loop',
-					type: 'video',
-				},
-			],
 			group: 'content',
 		},
 		{
