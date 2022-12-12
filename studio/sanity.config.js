@@ -1,6 +1,7 @@
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
+import {media} from 'sanity-plugin-media'
 import {muxInput} from 'sanity-plugin-mux-input'
 import {structure} from './config/structure'
 import {defaultDocumentNode} from './config/views'
@@ -21,6 +22,7 @@ export default defineConfig({
 		}),
 		visionTool(),
 		muxInput({mp4_support: 'standard'}),
+		media(),
 	],
 
 	schema: {
