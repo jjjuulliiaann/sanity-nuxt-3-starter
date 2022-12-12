@@ -1,13 +1,13 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { BiBookAlt } from 'react-icons/bi/'
-import PreviewComponent from './../utils/preview'
+/* import PreviewComponent from './../utils/preview' */
 
 // create preview view
-const previewComponentView = S.view.component(PreviewComponent).title('Preview')
+/* const previewComponentView = S.view.component(PreviewComponent).title('Preview')
 
 export const getDefaultDocumentNode = () => {
 	return S.document().views([S.view.form(), previewComponentView])
-}
+} */
 
 // create document items
 const collectionList = ({ title, schemaType, defaultOrdering = [] }) =>
@@ -27,13 +27,10 @@ const singletonPage = ({ title, id, schemaType, preview = false }) =>
 		id: id,
 		schemaType: schemaType,
 		child: () =>
-			S.document()
-				.schemaType(schemaType)
-				.id(id)
-				.views([
-					S.view.form(),
-					...(preview ? [previewComponentView] : []),
-				]),
+			S.document().schemaType(schemaType).id(id).views([
+				S.view.form(),
+				/* ...(preview ? [previewComponentView] : []), */
+			]),
 	})
 
 // navigation structure

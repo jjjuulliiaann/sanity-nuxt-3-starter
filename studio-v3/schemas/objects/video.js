@@ -1,13 +1,13 @@
 import React from 'react'
-import {BiMoviePlay} from 'react-icons/bi/'
-import VideoPreview from '@/src/previews/VideoPreview.jsx'
-import {getDurationString} from '@/src/utils/helperFunctions'
+import {BiMovie} from 'react-icons/bi/'
+import VideoPreview from '@/previews/VideoPreview.jsx'
+import {getDurationString} from '@/utils/helperFunctions'
 
 export default {
-	name: 'videoPlayer',
-	title: 'Video Player',
+	name: 'video',
+	title: 'Video',
 	type: 'object',
-	icon: BiMoviePlay,
+	icon: BiMovie,
 	fields: [
 		{
 			title: 'Video',
@@ -40,11 +40,11 @@ export default {
 			const videoHeight = videoTrack ? videoTrack.max_height : undefined
 			// return
 			return {
-				title: 'Video Player',
+				title: 'Video',
 				subtitle: videoTrack
 					? `${durationString} (${videoWidth}px × ${videoHeight}px)`
 					: durationString,
-				media: BiMoviePlay,
+				media: BiMovie,
 				poster: poster,
 				playbackId: playbackId,
 			}

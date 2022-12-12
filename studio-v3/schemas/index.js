@@ -1,6 +1,6 @@
 // documents
 import project from './documents/collections/project'
-import pageText from './documents/collections/pageText'
+import page from './documents/collections/page'
 import pageHome from './documents/singletons/pageHome'
 import siteOptions from './documents/site/siteOptions'
 // content
@@ -17,7 +17,7 @@ import videoPlayer from './objects/videoPlayer'
 
 export const schemaTypes = [
 	project,
-	pageText,
+	page,
 	pageHome,
 	siteOptions,
 	editorText,

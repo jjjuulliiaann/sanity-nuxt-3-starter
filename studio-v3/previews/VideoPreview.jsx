@@ -1,6 +1,6 @@
 import React from 'react'
 import { Stack, Box } from '@sanity/ui'
-import { useSanityClient } from '../utils/helperFunctions'
+import { useSanityClient } from '@/utils/helperFunctions'
 import imageUrlBuilder from '@sanity/image-url'
 
 export default function VideoPreview(props) {

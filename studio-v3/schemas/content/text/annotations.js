@@ -1,5 +1,5 @@
 import {BiLinkAlt, BiDirections, BiPaperclip} from 'react-icons/bi/'
-import {linkTargets} from '../../../utils/internalLinkTargets'
+import {linkTargets} from '@/utils/internalLinkTargets'
 
 export const annotations = [
 	{

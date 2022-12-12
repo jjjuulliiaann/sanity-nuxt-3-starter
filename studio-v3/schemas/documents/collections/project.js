@@ -1,6 +1,6 @@
 import React from 'react'
 import {BiBookAlt} from 'react-icons/bi/'
-import {slugify, validateSlug} from '@/src/utils/helperFunctions.js'
+import {slugify, validateSlug} from '@/utils/helperFunctions.js'
 
 export default {
 	title: 'Project',
@@ -38,15 +38,15 @@ export default {
 			group: 'content',
 		},
 		{
-			title: 'Test',
-			type: 'internalLink',
-			group: 'content',
-			name: 'test',
-		},
-		{
 			title: 'Content',
 			name: 'content',
 			type: 'editorTextMedia',
+			group: 'content',
+		},
+		{
+			title: 'Title Image',
+			name: 'titleImage',
+			type: 'picture',
 			group: 'content',
 		},
 		{
@@ -78,21 +78,7 @@ export default {
 	preview: {
 		select: {
 			title: 'title',
-			image: 'images.0.asset.url',
-		},
-		prepare({title, image}) {
-			let styles = {
-				position: 'relative',
-				width: '100%',
-				height: '100%',
-				overflow: 'hidden',
-				background: 'rgb(239,239,239)',
-				objectFit: 'cover',
-			}
-			return {
-				title: title ? title : '',
-				media: image ? <img style={styles} src={image} /> : BiBookAlt,
-			}
+			media: 'titleImage',
 		},
 	},
 

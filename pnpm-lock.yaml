@@ -16,6 +16,7 @@ importers:
       react-icons: ^4.7.1
       react-is: ^18.2.0
       sanity: ^3.0.0
+      sanity-plugin-iframe-pane: ^2.1.1
       sanity-plugin-mux-input: ^2.0.2
       styled-components: ^5.2.0
       typescript: ^4.0.0
@@ -26,6 +27,7 @@ importers:
       react-icons: 4.7.1_react@18.2.0
       react-is: 18.2.0
       sanity: 3.0.6_2zpt4ilzykmne4yndyzrqd4gdm
+      sanity-plugin-iframe-pane: 2.1.1_526llu3n5kiwfu57zut2owdttu
       sanity-plugin-mux-input: 2.0.2_526llu3n5kiwfu57zut2owdttu
       styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
     devDependencies:
@@ -8810,6 +8812,25 @@ packages:
       diff-match-patch: 1.0.5
     dev: false
 
+  /sanity-plugin-iframe-pane/2.1.1_526llu3n5kiwfu57zut2owdttu:
+    resolution: {integrity: sha512-uyZUxcWApnDMrBu4jfX3xshs5Yy3eTOI4iNUV6i7v1Zt2vxlF78fp6q+VNvNlzexM5znWT24kEAQdaF4swGutw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: ^18
+      sanity: ^3.0.0
+    dependencies:
+      '@sanity/icons': 2.1.0_react@18.2.0
+      '@sanity/incompatible-plugin': 1.0.4_biqbaboplfbrettd7655fr4n2y
+      '@sanity/ui': 1.0.1_23mhwjhnzfjwvdn7ol54k26zom
+      react: 18.2.0
+      sanity: 3.0.6_2zpt4ilzykmne4yndyzrqd4gdm
+      usehooks-ts: 2.9.1_biqbaboplfbrettd7655fr4n2y
+    transitivePeerDependencies:
+      - react-dom
+      - react-is
+      - styled-components
+    dev: false
+
   /sanity-plugin-mux-input/2.0.2_526llu3n5kiwfu57zut2owdttu:
     resolution: {integrity: sha512-fS19zf4j4g7yhnC6LjU0EczK3cJXuHvYHgyEsVaMdwHK4P7lXARgZllEEmyRv5Kztt7l+7BdDZFEn8Co/HirWQ==}
     engines: {node: '>=14'}
@@ -9928,6 +9949,17 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /usehooks-ts/2.9.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-2FAuSIGHlY+apM9FVlj8/oNhd+1y+Uwv5QNkMQz1oSfdHk4PXo1qoCw9I5M7j0vpH8CSWFJwXbVPeYDjLCx9PA==}
+    engines: {node: '>=16.15.0', npm: '>=8'}
+    peerDependencies:
+      react: ^16.8.0  || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0  || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /util-deprecate/1.0.2:

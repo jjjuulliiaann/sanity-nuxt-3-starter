@@ -2,7 +2,7 @@ import {BiBookAlt, BiFile, BiHome} from 'react-icons/bi/'
 
 export const linkTargets = [
 	{type: 'pageHome'},
-	{type: 'pageText'},
+	{type: 'page'},
 	/* { type: 'pageProjects' }, */
 	{type: 'project'},
 ]

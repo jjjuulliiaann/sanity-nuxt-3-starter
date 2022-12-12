@@ -1,5 +1,5 @@
 import {BiDirections} from 'react-icons/bi/'
-import {linkTargets} from '@/src/utils/internalLinkTargets'
+import {linkTargets} from '@/utils/internalLinkTargets'
 
 export default {
 	title: 'Internal Link',
