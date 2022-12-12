@@ -1,10 +1,5 @@
 import S from '@sanity/base/structure-builder'
 
-/*
-Document ids which:
-- cannot be created in the 'new document' menu
-- cannot be duplicated, unpublished or deleted
-*/
 const LOCKED_DOCUMENT_IDS = [
 	'siteNavigation',
 	'siteOptions',
