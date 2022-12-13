@@ -12,7 +12,7 @@
 			</button>
 		</div>
 		<transition name="fade">
-			<TheNavigation v-show="mainStore.menuIsOpen" />
+			<TheHeaderNavigation v-show="mainStore.menuIsOpen" />
 		</transition>
 	</header>
 </template>
@@ -46,6 +46,7 @@ const toggleMenu = () => {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-start;
 	width: 100%;
 	padding: 1rem;
 

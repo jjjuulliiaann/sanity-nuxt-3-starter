@@ -1,10 +1,10 @@
 <template>
-	<nav class="TheNavigation text-lg">
-		<ul v-if="mainStore.siteNav" class="TheNavigation_List">
+	<nav class="Navigation text-lg">
+		<ul v-if="mainStore.siteNav?.navMain" class="Navigation_List">
 			<li
 				v-for="link in mainStore.siteNav?.navMain"
 				:key="link.id"
-				class="TheNavigation_Item text-lg"
+				class="Navigation_Item text-lg"
 			>
 				<ElementsTextLink
 					:link-type="link.linkType"
@@ -28,7 +28,7 @@ const mainStore = useMainStore()
 </script>
 
 <style scoped>
-.TheNavigation {
+.Navigation {
 	position: absolute;
 	width: 100%;
 	bottom: 1rem;
@@ -40,12 +40,12 @@ const mainStore = useMainStore()
 	}
 }
 
-.TheNavigation_List {
+.Navigation_List {
 	position: relative;
 	list-style: none;
 }
 
-.TheNavigation_Item {
+.Navigation_Item {
 	padding: 0.1rem 0;
 	text-align: right;
 

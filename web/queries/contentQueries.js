@@ -19,7 +19,10 @@ export const siteQuery = groq`{
 	"siteNav": *[_id == "siteNav"] [0] {
 		navMain[]{
 			${linkQuery}
-		}
+		},
+		navFooter[]{
+			${linkQuery}
+		},
 	},
 	"slugs": {
 		"pages": *[_type == "page"].slug.current,
@@ -46,7 +49,7 @@ export const pageQuery = groq`
 export const projectsQuery = groq`
 *[(_type == "pageProjects")] | order(_updatedAt desc) [0]{
 	...,
-	"projects": *[_type == "project"] | order(_updatedAt desc) {
+	"projects": *[_type == "project"] | order(title asc, _updatedAt desc) {
 		title, slug, subtitle, titleImage{..., asset->}
 	},
 	${seoQuery}

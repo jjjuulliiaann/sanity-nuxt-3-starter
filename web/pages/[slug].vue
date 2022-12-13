@@ -2,8 +2,10 @@
 	<main v-if="data" class="TextPage">
 		<h1 class="text-lg text_bold">{{ data.title }}</h1>
 
-		<section class="TextPage_Text blockcontent">
-			<ElementsTextContent :blocks="data.content" />
+		<section class="TextPage_Text">
+			<div class="blockcontent">
+				<ElementsTextContent :blocks="data.content" />
+			</div>
 		</section>
 	</main>
 </template>
@@ -41,14 +43,25 @@ usePageHead({ title: data.value?.title, seo: data.value?.seo })
 </script>
 
 <style scoped>
-.TextPage {
-	position: relative;
-	padding: 1rem;
+h1 {
+	margin-bottom: 10rem;
 }
+
+/* text */
 
 .TextPage_Text {
 	position: relative;
-	padding: 2rem 0;
-	max-width: 60rem;
+	display: grid;
+
+	@media (--w-tablet-1) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+}
+
+.TextPage_Text > div {
+	@media (--w-tablet-1) {
+		grid-column: 1 / -2;
+	}
 }
 </style>

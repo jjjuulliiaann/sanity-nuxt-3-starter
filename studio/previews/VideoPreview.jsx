@@ -43,6 +43,7 @@ export default function VideoPreview(props) {
 					height: 'auto',
 					maxHeight: '10rem',
 				}}
+				alt=""
 				src={thumbnailUrl}
 			/>
 		</Box>

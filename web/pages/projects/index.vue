@@ -1,5 +1,5 @@
 <template>
-	<main class="Projects">
+	<main v-if="data" class="Projects">
 		<h1 class="hidden-item">
 			{{ data.title }}
 		</h1>

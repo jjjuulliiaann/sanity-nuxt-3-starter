@@ -1,6 +1,6 @@
 <template>
 	<main class="Home">
-		<section class="Home_Projects">
+		<section v-if="data" class="Home_Projects">
 			<ul>
 				<li
 					v-for="project in data.projects"
@@ -17,9 +17,9 @@
 							:image="project.titleImage"
 							class="Home_Image imagelink"
 						/>
-						<h2 class="text-lg">
+						<span class="Home_Head text-lg">
 							{{ project.title }}
-						</h2>
+						</span>
 						<span class="text-base text_bold">
 							{{ project.subtitle }}
 						</span>

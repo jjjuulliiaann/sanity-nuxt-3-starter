@@ -21,6 +21,21 @@ export default {
 				},
 			],
 		},
+		{
+			title: 'Footer Navigation',
+			name: 'navFooter',
+			type: 'array',
+			layout: 'grid',
+			editModal: 'popover',
+			of: [
+				{
+					type: 'internalLink',
+				},
+				{
+					type: 'link',
+				},
+			],
+		},
 	],
 	preview: {
 		prepare({}) {

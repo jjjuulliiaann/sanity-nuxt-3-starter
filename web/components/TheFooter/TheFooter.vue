@@ -1,8 +1,9 @@
 <template>
 	<footer class="TheFooter">
-		<p class="text-sm">
+		<p class="text_bold">
 			{{ mainStore.siteOptions?.copyrightText }}, {{ currentYear }}
 		</p>
+		<TheFooterNavigation />
 	</footer>
 </template>
 
@@ -17,6 +18,14 @@ const currentYear = new Date().getFullYear()
 <style scoped>
 .TheFooter {
 	position: relative;
+	display: grid;
+	gap: 1rem;
+	width: 100%;
 	padding: 10rem 1rem 1rem;
+
+	@media (--w-mobile-3) {
+		display: flex;
+		gap: 4rem;
+	}
 }
 </style>

@@ -4,6 +4,7 @@
 			<ElementsMediaBaseFigure
 				:image="data.titleImage"
 				class="Project_Titleimage"
+				use-object-position
 			/>
 			<h1 v-if="data.title" class="text-lg text_bold text_white">{{
 				data.title

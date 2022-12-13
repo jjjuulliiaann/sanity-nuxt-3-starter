@@ -25,7 +25,7 @@
 	--root: 10;
 
 	/* sm */
-	--sm-size-min: 9;
+	--sm-size-min: 11;
 	--sm-size-max: 12;
 	--sm-size-v: calc(((100 * (var(--sm-size-max) -  var(--sm-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--sm-size-r: calc((((var(--viewport-min) * var(--sm-size-max) - var(--viewport-max) * var(--sm-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
@@ -34,7 +34,7 @@
 		(var(--sm-size-v) + var(--sm-size-r)),
 		((var(--sm-size-max) / var(--root)) * 1rem)
 	);
-	--sm-leading-min: 12;
+	--sm-leading-min: 14;
 	--sm-leading-max: 15;	
 	--sm-leading-v: calc(((100 * (var(--sm-leading-max) -  var(--sm-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--sm-leading-r: calc((((var(--viewport-min) * var(--sm-leading-max) - var(--viewport-max) * var(--sm-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
@@ -67,7 +67,7 @@
 	--base-tracking: -0.01rem;
 
 	/* lg */
-	--lg-size-min: 28;
+	--lg-size-min: 26;
 	--lg-size-max: 38;
 	--lg-size-v: calc(((100 * (var(--lg-size-max) -  var(--lg-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--lg-size-r: calc((((var(--viewport-min) * var(--lg-size-max) - var(--viewport-max) * var(--lg-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
@@ -76,7 +76,7 @@
 		(var(--lg-size-v) + var(--lg-size-r)),
 		((var(--lg-size-max) / var(--root)) * 1rem)
 	);
-	--lg-leading-min: 28;
+	--lg-leading-min: 26;
 	--lg-leading-max: 38;
 	--lg-leading-v: calc(((100 * (var(--lg-leading-max) -  var(--lg-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--lg-leading-r: calc((((var(--viewport-min) * var(--lg-leading-max) - var(--viewport-max) * var(--lg-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
@@ -265,6 +265,10 @@ a {
 	border-bottom: 1px solid currentColor;
 }
 
+.imagelink {
+	display: flex;
+}
+
 @media (hover: hover) and (pointer: fine) {
 	a:hover, .textlink:hover {
 		color: var(--rgb-accent);
@@ -273,7 +277,7 @@ a {
 	a .imagelink::after {
 		content: '';
 		position: absolute;
-		left: 0;
+	left: 0;
 		top: 0;
 		right: 0;
 		bottom: 0;
