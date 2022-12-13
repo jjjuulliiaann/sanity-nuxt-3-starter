@@ -1,0 +1,11 @@
+[build]
+  publish = "dist/"
+
+[build.environment]
+  NETLIFY_USE_PNPM = "true"
+  PNPM_FLAGS = "--shamefully-hoist"
+
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200

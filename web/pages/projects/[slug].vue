@@ -41,7 +41,10 @@ import { singleProjectQuery } from '@/queries/contentQueries'
 definePageMeta({
 	validate({ params }) {
 		const mainStore = useMainStore()
-		if (!mainStore.slugs.projects.includes(params.slug)) {
+		if (
+			!mainStore.slugs.projects.includes(params.slug) &&
+			!mainStore.previewIsActive
+		) {
 			return createError({
 				statusCode: 404,
 				message: 'Project not found',

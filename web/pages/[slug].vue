@@ -17,7 +17,10 @@ import { pageQuery } from '@/queries/contentQueries'
 definePageMeta({
 	validate({ params }) {
 		const mainStore = useMainStore()
-		if (!mainStore.slugs.pages.includes(params.slug)) {
+		if (
+			!mainStore.slugs.pages.includes(params.slug) &&
+			!mainStore.previewIsActive
+		) {
 			return createError({
 				statusCode: 404,
 				message: 'Page not found',
