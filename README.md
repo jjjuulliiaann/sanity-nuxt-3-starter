@@ -1,11 +1,13 @@
-# 🍿 Sanity Nuxt 3 Starter
+# 🌵 Sanity Nuxt 3 Starter
 
-Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 documentation`](https://nuxt.com/docs/getting-started/introduction) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
+> The Starter uses Sanity Studio Version 3. For the previous v2 version, have a look at the [`studio-v2` branch](https://github.com/jjjuulliiaann/sanity-nuxt-3-starter/tree/studio-v2)
 
-## Features
+Opinionated monorepo starter based on Nuxt 3 and Sanity 3. Look at the [`Nuxt 3 documentation`](https://nuxt.com/docs/getting-started/introduction) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
+
+## ✨ Features
 
 -   Monorepo using PNPM Workspaces
--   Sanity 2 React Backend (in /studio)
+-   Sanity Studio v3 React Backend (in /studio)
 -   Nuxt 3 Frontend (in /web)
 -   Vite Module Bundler
 -   Pinia Store
@@ -15,7 +17,7 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 do
 -   Studio using Mux for videos
 -   Configured for Netlify Hosting
 
-## Quick start
+## 🚀 Quick start
 
 1. Clone the repository
 
@@ -44,7 +46,7 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 do
     pnpm dev
     ```
 
-## Documentation
+## 📖 Documentation
 
 ### Deploying to Netlify
 
@@ -69,7 +71,7 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity. Look at the [`Nuxt 3 do
 
 To upgrade Nuxt 3 to the latest release, use the `npx nuxi upgrade` command.
 
-To update manually: Bump `nuxt` dependency to `3.0.0-rc.XX` and then use `npx nuxi@latest cleanup` to cleanup any local caches.
+To update manually: Bump `nuxt` dependency to the new version and then use `npx nuxi@latest cleanup` to cleanup any local caches.
 
 ### Preview Mode
 
