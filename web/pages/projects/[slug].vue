@@ -12,7 +12,7 @@
 				Image by:
 				<ElementsTextLink
 					link-type="externalLink"
-					:href="data.photographer.url"
+					:href="data.photographer.website"
 					:blank="true"
 					class="Projects_Photographer"
 				>
@@ -24,8 +24,10 @@
 			</span>
 		</section>
 
-		<section class="Project_Text blockcontent">
-			<ElementsTextContent :blocks="data.content" />
+		<section class="Project_Text">
+			<div class="blockcontent">
+				<ElementsTextContent :blocks="data.content" />
+			</div>
 		</section>
 	</main>
 </template>
@@ -75,7 +77,7 @@ usePageHead({
 .Project_Title {
 	position: relative;
 	width: 100%;
-	margin-bottom: 4rem;
+	margin-bottom: 10rem;
 }
 
 .Project_Titleimage {
@@ -86,6 +88,7 @@ usePageHead({
 
 .Project_Titleimage:deep(img) {
 	position: relative;
+	display: block;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -95,15 +98,21 @@ h1 {
 	padding: 0.5rem 0;
 }
 
-.Project_Credits {
-}
-
 /* text */
 
 .Project_Text {
 	position: relative;
-	min-height: 50vh;
-	padding: 1rem;
-	max-width: 60rem;
+	display: grid;
+
+	@media (--w-tablet-1) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+}
+
+.Project_Text > div {
+	@media (--w-tablet-1) {
+		grid-column: 1 / -2;
+	}
 }
 </style>
