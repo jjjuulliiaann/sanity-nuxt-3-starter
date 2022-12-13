@@ -30,7 +30,7 @@ export const siteQuery = groq`{
 export const homeQuery = groq`*[(
 	_type == "pageHome")] | order(_updatedAt desc) [0]{
 		...,
-		projects[]->{_id, title, location, slug, titleImage{..., asset->}},
+		projects[]->{_id, title, subtitle, slug, titleImage{..., asset->}},
 }`
 
 export const pageQuery = groq`
@@ -46,7 +46,9 @@ export const pageQuery = groq`
 export const projectsQuery = groq`
 *[(_type == "pageProjects")] | order(_updatedAt desc) [0]{
 	...,
-	projects[]->{title, slug, titleImage{..., asset->}},
+	"projects": *[_type == "project"] | order(_updatedAt desc) {
+		title, slug, subtitle, titleImage{..., asset->}
+	},
 	${seoQuery}
 }
 `
@@ -57,9 +59,7 @@ export const singleProjectQuery = groq`
 	content[] {
 		${contentBlockQuery}
 	},
-	images[]{
-		${imageLoopArrayQuery}
-	},
+	titleImage{..., asset->},
 	${seoQuery}
 }
 `

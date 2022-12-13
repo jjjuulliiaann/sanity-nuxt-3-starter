@@ -37,10 +37,31 @@ export default {
 			group: 'content',
 		},
 		{
-			title: 'Location',
-			name: 'location',
+			title: 'Subtitle',
+			name: 'subtitle',
 			type: 'string',
 			validation: (Rule) => Rule.required(),
+			group: 'content',
+		},
+		{
+			title: 'Photographer',
+			name: 'photographer',
+			type: 'object',
+			fields: [
+				{
+					title: 'Name',
+					name: 'name',
+					type: 'string',
+				},
+				{
+					title: 'Website',
+					name: 'website',
+					type: 'url',
+				},
+			],
+			options: {
+				columns: 2,
+			},
 			group: 'content',
 		},
 		{

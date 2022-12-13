@@ -21,8 +21,7 @@
 							{{ project.title }}
 						</h2>
 						<span class="text-base text_bold">
-							{{ mainStore.siteOptions.locationPrefix
-							}}{{ project.location }}
+							{{ project.subtitle }}
 						</span>
 					</ElementsTextLink>
 				</li>
@@ -37,7 +36,7 @@ import { homeQuery } from '@/queries/contentQueries'
 
 // get data
 const mainStore = useMainStore()
-const { data } = useSanityQuery(homeQuery)
+const { data } = await useSanityQuery(homeQuery)
 
 // preview handling
 usePreviewHandler({ query: homeQuery, data })

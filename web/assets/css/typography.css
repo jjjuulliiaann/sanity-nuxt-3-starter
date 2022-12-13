@@ -46,8 +46,8 @@
 	--sm-tracking: -0.01rem;
 
 	/* base */
-	--base-size-min: 16;
-	--base-size-max: 18;
+	--base-size-min: 14;
+	--base-size-max: 16;
 	--base-size-v: calc(((100 * (var(--base-size-max) -  var(--base-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--base-size-r: calc((((var(--viewport-min) * var(--base-size-max) - var(--viewport-max) * var(--base-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--base-size: clamp(
@@ -55,8 +55,8 @@
 		(var(--base-size-v) + var(--base-size-r)),
 		((var(--base-size-max) / var(--root)) * 1rem)
 	);
-	--base-leading-min: 20;
-	--base-leading-max: 22;
+	--base-leading-min: 17;
+	--base-leading-max: 19;
 	--base-leading-v: calc(((100 * (var(--base-leading-max) -  var(--base-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--base-leading-r: calc((((var(--viewport-min) * var(--base-leading-max) - var(--viewport-max) * var(--base-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--base-leading: clamp(
@@ -138,8 +138,8 @@
 	--sm-tracking: -0.01rem;
 
 	/* base */
-	--base-size-min: 17;
-	--base-size-max: 18;
+	--base-size-min: 15;
+	--base-size-max: 17;
 	--base-size-v: calc(((100 * (var(--base-size-max) -  var(--base-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--base-size-r: calc((((var(--viewport-min) * var(--base-size-max) - var(--viewport-max) * var(--base-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--base-size: clamp(
@@ -147,8 +147,8 @@
 		(var(--base-size-v) + var(--base-size-r)),
 		((var(--base-size-max) / var(--root)) * 1rem)
 	);
-	--base-leading-min: 20;
-	--base-leading-max: 22;
+	--base-leading-min: 18;
+	--base-leading-max: 20;
 	--base-leading-v: calc(((100 * (var(--base-leading-max) -  var(--base-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
 	--base-leading-r: calc((((var(--viewport-min) * var(--base-leading-max) - var(--viewport-max) * var(--base-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
 	--base-leading: clamp(
@@ -270,7 +270,6 @@ a {
 		color: var(--rgb-accent);
 	}
 
-
 	a .imagelink::after {
 		content: '';
 		position: absolute;
@@ -285,7 +284,7 @@ a {
 	}
 
 	a:hover .imagelink::after {
-		opacity: 1;
+		opacity: 0.8;
 	}
 }
 

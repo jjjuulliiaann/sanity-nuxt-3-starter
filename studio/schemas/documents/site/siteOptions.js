@@ -30,12 +30,6 @@ export default {
 			type: 'string',
 			group: 'page',
 		},
-		{
-			title: 'Location Prefix',
-			name: 'locationPrefix',
-			type: 'string',
-			group: 'page',
-		},
 		/* seo */
 		{
 			title: 'Language Code',

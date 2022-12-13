@@ -1,6 +1,6 @@
 <template>
 	<main class="Projects">
-		<h1 class="text-lg text_bold">
+		<h1 class="hidden-item">
 			{{ data.title }}
 		</h1>
 
@@ -16,13 +16,13 @@
 						route="projects-slug"
 						:slug="project.slug.current"
 					>
-						<h2 class="text-base text_bold text_white">
-							{{ project.title }}
-						</h2>
-						<ElementsMediaBaseImage
+						<ElementsMediaBaseFigure
 							:image="project.titleImage"
-							class="Projects_ItemImage"
+							class="Projects_ItemImage imagelink"
 						/>
+						<span class="text-base text_bold">
+							{{ project.title }}<br />{{ project.subtitle }}
+						</span>
 					</ElementsTextLink>
 				</li>
 			</ul>
@@ -31,9 +31,11 @@
 </template>
 
 <script setup>
+import { useMainStore } from '~/stores/MainStore'
 import { projectsQuery } from '@/queries/contentQueries'
 
 // get data
+const mainStore = useMainStore()
 const { data } = await useSanityQuery(projectsQuery)
 
 // preview handling
@@ -47,29 +49,23 @@ usePageHead({
 </script>
 
 <style scoped>
-main {
-	padding: 1rem;
-}
-
 .Projects_Grid {
-	padding: 1rem 0;
+	padding: 0;
 }
 
 .Projects_Grid ul {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 1rem;
+	gap: 6rem;
 
 	@media (--w-tablet-1) {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+		gap: 10rem 1rem;
 	}
 }
 
 .Projects_Item {
 	position: relative;
-	border-radius: 0.2rem;
-	box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0);
-	background: var(--rgb-black);
 	transition: box-shadow 0.5s ease;
 	overflow: hidden;
 }
@@ -80,27 +76,19 @@ main {
 	line-height: 0;
 }
 
-h2 {
-	position: absolute;
-	padding: 1rem;
-	z-index: 2;
+.Projects_Item span {
+	position: relative;
+	display: block;
+	padding: 0.5rem 0;
 }
 
 .Projects_ItemImage {
 	position: relative;
-	width: 100%;
-	height: auto;
-	opacity: 0.8;
-	transition: opacity 0.5s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-	.Projects_Item:hover {
-		box-shadow: 0px 5px 14px 5px rgba(0, 0, 0, 0.25);
-	}
-
-	.Projects_Item:hover .Projects_ItemImage {
-		opacity: 1;
-	}
+.Projects_ItemImage:deep(img) {
+	position: relative;
+	width: 100%;
+	height: auto;
 }
 </style>

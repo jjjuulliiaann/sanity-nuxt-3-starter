@@ -1,13 +1,27 @@
 <template>
 	<main v-if="data" class="Project">
 		<section class="Project_Title">
+			<ElementsMediaBaseFigure
+				:image="data.titleImage"
+				class="Project_Titleimage"
+			/>
 			<h1 v-if="data.title" class="text-lg text_bold text_white">{{
 				data.title
 			}}</h1>
-			<ElementsMediaBaseImage
-				:image="data.images[0]"
-				class="Project_Titleimage"
-			/>
+			<span class="Project_Credits text_bold">
+				Image by:
+				<ElementsTextLink
+					link-type="externalLink"
+					:href="data.photographer.url"
+					:blank="true"
+					class="Projects_Photographer"
+				>
+					{{ data.photographer.name }}</ElementsTextLink
+				> </span
+			><br />
+			<span class="text-base text_bold">
+				{{ data.subtitle }}
+			</span>
 		</section>
 
 		<section class="Project_Text blockcontent">
@@ -35,6 +49,7 @@ definePageMeta({
 })
 
 // get data
+const mainStore = useMainStore()
 const route = useRoute()
 const params = {
 	slug: route.params.slug,
@@ -53,10 +68,6 @@ usePageHead({
 </script>
 
 <style scoped>
-main {
-	margin-top: 0;
-}
-
 .Project {
 	position: relative;
 }
@@ -64,24 +75,27 @@ main {
 .Project_Title {
 	position: relative;
 	width: 100%;
-	top: 0;
-
-	@media (--w-tablet-1) {
-		top: calc(var(--header-height) * -1);
-	}
+	margin-bottom: 4rem;
 }
 
 .Project_Titleimage {
 	position: relative;
 	width: 100%;
-	height: auto;
+	aspect-ratio: 2 / 1;
+}
+
+.Project_Titleimage:deep(img) {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 h1 {
-	position: absolute;
-	bottom: 1rem;
-	padding: 1rem;
-	z-index: 2;
+	padding: 0.5rem 0;
+}
+
+.Project_Credits {
 }
 
 /* text */
