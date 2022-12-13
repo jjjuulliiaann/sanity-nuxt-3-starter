@@ -1,10 +1,10 @@
-import {BiFile} from 'react-icons/bi/'
+import {BiGridAlt} from 'react-icons/bi/'
 
 export default {
 	title: 'Projects Page',
 	name: 'pageProjects',
 	type: 'document',
-	icon: BiFile,
+	icon: BiGridAlt,
 	groups: [
 		{
 			title: 'Content',
@@ -35,7 +35,7 @@ export default {
 		prepare() {
 			return {
 				title: 'Projects Page',
-				media: BiFile,
+				media: BiGridAlt,
 			}
 		},
 	},

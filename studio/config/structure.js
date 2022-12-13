@@ -9,29 +9,17 @@ export const structure = (S) =>
 				id: 'projects',
 				schemaType: 'project',
 				child: () =>
-					S.list()
+					S.documentTypeList('project')
 						.title('Projects')
-						.items([
-							S.listItem({
-								title: 'Projects',
-								id: 'projects',
-								schemaType: 'project',
-								child: () =>
-									S.documentTypeList('project')
-										.title('Projects')
-										.defaultOrdering([
-											{
-												field: 'title',
-												direction: 'asc',
-											},
-										]),
-							}),
-							S.documentListItem()
-								.id('pageProjects')
-								.title('Page')
-								.schemaType('pageProjects'),
+						.defaultOrdering([
+							{
+								field: 'title',
+								direction: 'asc',
+							},
 						]),
 			}),
+
+			S.documentListItem().id('pageProjects').schemaType('pageProjects'),
 
 			S.listItem({
 				title: 'Pages',
