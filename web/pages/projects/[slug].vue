@@ -2,26 +2,27 @@
 	<main v-if="data" class="Project">
 		<section class="Project_Title">
 			<ElementsMediaBaseFigure
+				v-if="data?.titleImage"
 				:image="data.titleImage"
 				class="Project_Titleimage"
 				use-object-position
 			/>
-			<h1 v-if="data.title" class="text-lg text_bold text_white">{{
+			<h1 v-if="data?.title" class="text-lg text_bold text_white">{{
 				data.title
 			}}</h1>
 			<span class="Project_Credits text_bold">
 				Image by:
 				<ElementsTextLink
 					link-type="externalLink"
-					:href="data.photographer.website"
+					:href="data?.photographer?.website"
 					:blank="true"
 					class="Projects_Photographer"
 				>
-					{{ data.photographer.name }}</ElementsTextLink
+					{{ data?.photographer?.name }}</ElementsTextLink
 				> </span
 			><br />
 			<span class="text-base text_bold">
-				{{ data.subtitle }}
+				{{ data?.subtitle }}
 			</span>
 		</section>
 
@@ -52,21 +53,17 @@ definePageMeta({
 })
 
 // get data
-const mainStore = useMainStore()
 const route = useRoute()
 const params = {
 	slug: route.params.slug,
 }
-const { data } = await useSanityQuery(singleProjectQuery, params)
-
-// preview handling
-usePreviewHandler({ query: singleProjectQuery, params, data })
+const data = await useSanityData({ query: singleProjectQuery, params })
 
 // meta
 usePageHead({
 	title: data.value?.title,
 	seo: data.value?.seo,
-	titleImage: data.value?.images?.[0],
+	titleImage: data.value?.titleImage,
 })
 </script>
 
@@ -106,7 +103,7 @@ h1 {
 	display: grid;
 
 	@media (--w-tablet-1) {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-columns: repeat(6, minmax(0, 1fr));
 		gap: 1rem;
 	}
 }
@@ -114,6 +111,10 @@ h1 {
 .Project_Text > div {
 	@media (--w-tablet-1) {
 		grid-column: 1 / -2;
+	}
+
+	@media (--w-desktop-1) {
+		grid-column: 1 / -4;
 	}
 }
 </style>

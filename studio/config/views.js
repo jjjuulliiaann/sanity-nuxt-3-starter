@@ -23,7 +23,6 @@ export const defaultDocumentNode = (S, {schemaType}) => {
 					defaultSize: 'desktop',
 					reload: {
 						button: true,
-						revision: true,
 					},
 					attributes: {
 						allow: 'fullscreen',

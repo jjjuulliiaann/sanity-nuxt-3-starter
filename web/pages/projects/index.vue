@@ -31,15 +31,10 @@
 </template>
 
 <script setup>
-import { useMainStore } from '~/stores/MainStore'
 import { projectsQuery } from '@/queries/contentQueries'
 
 // get data
-const mainStore = useMainStore()
-const { data } = await useSanityQuery(projectsQuery)
-
-// preview handling
-usePreviewHandler({ query: projectsQuery, data })
+const data = await useSanityData({ query: projectsQuery })
 
 // meta
 usePageHead({

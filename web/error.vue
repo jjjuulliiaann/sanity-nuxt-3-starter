@@ -1,11 +1,19 @@
 <template>
-	<main>
-		<p class="text-base"
-			><span class="text_bold">Error {{ props.error.statusCode }}:</span>
-			{{ props.error.message }}</p
-		>
-		<button @click="handleError" class="textlink">Back to Main</button>
-	</main>
+	<div class="container">
+		<TheHeader @click="handleError" />
+
+		<main>
+			<p class="text-lg"
+				><span class="text_bold"
+					>Error {{ props.error.statusCode }}:</span
+				>
+				{{ props.error.message }}</p
+			>
+			<button @click="handleError" class="text-base text_bold textlink"
+				>Back to Main</button
+			>
+		</main>
+	</div>
 </template>
 
 <script setup>
@@ -22,6 +30,13 @@ const handleError = () => clearError({ redirect: '/' })
 <style scoped>
 main {
 	position: relative;
-	padding: 1rem;
+}
+
+button {
+	margin-top: 2rem;
+}
+
+.TheHeader:deep(.TheHeader_NavButton) {
+	display: none;
 }
 </style>

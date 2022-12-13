@@ -33,10 +33,7 @@ const route = useRoute()
 const params = {
 	slug: route.params.slug,
 }
-const { data } = await useSanityQuery(pageQuery, params)
-
-// preview handling
-usePreviewHandler({ query: pageQuery, params, data })
+const data = await useSanityData({ query: pageQuery, params })
 
 // meta
 usePageHead({ title: data.value?.title, seo: data.value?.seo })
@@ -54,7 +51,7 @@ h1 {
 	display: grid;
 
 	@media (--w-tablet-1) {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-columns: repeat(6, minmax(0, 1fr));
 		gap: 1rem;
 	}
 }
@@ -62,6 +59,10 @@ h1 {
 .TextPage_Text > div {
 	@media (--w-tablet-1) {
 		grid-column: 1 / -2;
+	}
+
+	@media (--w-desktop-1) {
+		grid-column: 1 / -4;
 	}
 }
 </style>
