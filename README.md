@@ -2,7 +2,7 @@
 
 > The Starter uses Sanity Studio Version 3. For the previous v2 version, have a look at the [`studio-v2` branch](https://github.com/jjjuulliiaann/sanity-nuxt-3-starter/tree/studio-v2)
 
-Opinionated monorepo starter based on Nuxt 3 and Sanity 3. Look at the [`Nuxt 3 documentation`](https://nuxt.com/docs/getting-started/introduction) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
+Opinionated monorepo starter based on Nuxt 3 and Sanity v3. Look at the [`Nuxt 3 documentation`](https://nuxt.com/docs/getting-started/introduction) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
 
 ## ✨ Features
 
@@ -19,7 +19,11 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity 3. Look at the [`Nuxt 3 
 
 ## 🚀 Quick start
 
-1. Clone the repository
+1. Install the project as a nuxt template
+
+    ```
+    npx nuxi init -t gh:jjjuulliiaann/sanity-nuxt-3-starter my-project-title
+    ```
 
 2. If not installed, you can install the sanity cli globally
 
@@ -37,19 +41,25 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity 3. Look at the [`Nuxt 3 
    
    (Currently it seems not to be possible to create a new sanity project using the cli without installing a new studio folder)
    
-4. Run `sanity projects list` to get the ID of the newly created project. 
+4. Get the ID of your newly created project by listing your projects:
+
+    ```
+	sanity projects list
+	```
    
 5. Create a `.env` file from `.env.template` in both `/studio` and `/web` and fill in the project ID and dataset.
    
 6. Rename project in `package.json` and your studio in `studio/sanity.config.js`
 
-7. Install dependencies (from root)
+7. On [sanity.io/manage](https://sanity.io/manage) add `http://localhost:3000` to the CORS origins (allow Credentials for Previews)
+
+8. Install dependencies (from root)
 
     ```
     pnpm i --shamefully-hoist
     ```
 
-8. Start developing on localhost:3000 (Nuxt frontend) and localhost:3333 (Sanity studio) (from root)
+9. Start developing on localhost:3000 (Nuxt frontend) and localhost:3333 (Sanity studio) (from root)
 
     ```
     pnpm dev
