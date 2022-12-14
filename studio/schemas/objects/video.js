@@ -1,6 +1,6 @@
 import React from 'react'
 import {BiMovie} from 'react-icons/bi/'
-import VideoPreview from '@/previews/VideoPreview.jsx'
+import VideoPreview from '@/components/VideoPreview.jsx'
 import {getDurationString} from '@/utils/helperFunctions'
 
 export default {
