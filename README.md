@@ -21,26 +21,27 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity 3. Look at the [`Nuxt 3 
 
 1. Clone the repository
 
-2. Rename Studio (in `studio/sanity.js`), rename project (in `package.json`)
-
-3. Initialize Sanity studio (select "Reconfigure" when asked)
+2. If not installed, you can install the sanity cli globally
 
     ```
-    cd studio
-    sanity init
+    npm install --global sanity@latest
     ```
 
-4. In `/web` create a `.env` file from `.env.example` and paste the `SANITY_PROJECT_ID` from `studio/sanity.json`
+3. Run `sanity projects list` to get the ID of an existing project. Or run `sanity manage` to open the browser, create a new project and copy the project ID. 
+   
+   (Currently it seems not to be possible to create a new sanity project using the cli without installing a new studio folder)
+   
+4. Create a `.env` file from `.env.example` in both `/studio` and `/web` and fill in the project ID and dataset.
+   
+5. Rename project in `package.json` and your studio in `studio/sanity.config.js`
 
-    In `/studio` create a `.env.development` file from `.env.development.example`
-
-5. Install dependencies (from root)
+6. Install dependencies (from root)
 
     ```
     pnpm i --shamefully-hoist
     ```
 
-6. Start development at localhost:3000 (Nuxt frontend) and localhost:3333 (Sanity studio)
+7. Start developing on localhost:3000 (Nuxt frontend) and localhost:3333 (Sanity studio) (from root)
 
     ```
     pnpm dev
