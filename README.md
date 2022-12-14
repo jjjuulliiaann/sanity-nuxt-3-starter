@@ -52,7 +52,7 @@ Opinionated monorepo starter based on Nuxt 3 and Sanity 3. Look at the [`Nuxt 3 
 
 -   In Netlify add two separate sites with "studio" / "web" as the base directories. The rest of the build settings is handled automatically (and by the `studio/netlify.toml` file).
 
--   You will need to add environment variables used in your .env and .env.development to Netlify as well.
+-   You will need to add environment variables used in your .env files to Netlify as well.
 
 ### Sanity
 
@@ -77,10 +77,13 @@ To update manually: Bump `nuxt` dependency to the new version and then use `npx 
 
 #### Studio:
 
-All singleton documents with `preview: true` set in the desk structure and all collection documents feature a Preview panel. The URL schema of those documents has to be defined in `utils/resolveProductionUrl.js` to adapt to your front end's URL structure.
+- All documents defined in `config/views.js` have a preview tab in the Studio
+- The production urls for those documents are resolved with the `resolveProductionUrl` function in `config/views.js`
+- The "Open preview" button in the studio context menu is defined in `sanity.config.js` using `resolveProductionUrl`
+- The studio uses the `sanity-plugin-iframe-pane` to show the page inside a preview pane
 
 #### Frontend:
 
-(Setup for Universal Rendering) A separate Sanity client named `preview` is defined in `nuxt.config.js`. You have to allow credentials for the frontend URL in your Sanity API settings to access unpublished data from Sanity.
-
-All pages that support previews include the composable `use-preview-handler`. If the URL contains the param `?preview=true` the Preview header is visible and the separate sanity preview client is used for updates.
+- A separate Sanity client named `preview` is defined in `nuxt.config.js`. 
+- You have to allow credentials for the frontend URL in your Sanity API settings to access unpublished data from Sanity.
+- If the url contains the `preview` query, the `useSanityData` composable uses the preview client for fetching data
