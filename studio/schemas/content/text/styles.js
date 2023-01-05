@@ -1,27 +1,21 @@
-import {renderHeadline1, renderHeadline2, renderSmall} from './renders.jsx'
+import { TextLg, TextBold, TextSm } from '@/components/TextPreviews'
 
 // Define Hierarchie of text
 export const styles = [
-	{title: 'Regular', value: 'normal'},
+	{ title: 'Regular', value: 'normal' },
 	{
 		title: 'Headline 1',
 		value: 'h2',
-		blockEditor: {
-			render: renderHeadline1,
-		},
+		component: TextLg,
 	},
 	{
 		title: 'Headline 2',
 		value: 'h3',
-		blockEditor: {
-			render: renderHeadline2,
-		},
+		component: TextBold,
 	},
 	{
 		title: 'Small',
 		value: 'small',
-		blockEditor: {
-			render: renderSmall,
-		},
+		component: TextSm,
 	},
 ]

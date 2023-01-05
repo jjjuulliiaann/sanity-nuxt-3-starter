@@ -1,13 +1,13 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {media} from 'sanity-plugin-media'
-import {muxInput} from 'sanity-plugin-mux-input'
-import {structure} from './config/structure'
-import {defaultDocumentNode} from './config/views'
-import {resolveProductionUrl} from './config/views'
-import {initialValueTemplates} from './config/initialValueTemplates'
-import {schemaTypes} from './schemas'
+import { defineConfig, isDev } from 'sanity'
+import { deskTool } from 'sanity/desk'
+import { visionTool } from '@sanity/vision'
+import { media } from 'sanity-plugin-media'
+import { muxInput } from 'sanity-plugin-mux-input'
+import { structure } from './config/structure'
+import { defaultDocumentNode } from './config/views'
+import { resolveProductionUrl } from './config/views'
+import { initialValueTemplates } from './config/initialValueTemplates'
+import { schemaTypes } from './schemas'
 
 export default defineConfig({
 	name: 'default',
@@ -20,9 +20,9 @@ export default defineConfig({
 			structure,
 			defaultDocumentNode,
 		}),
-		visionTool(),
-		muxInput({mp4_support: 'standard'}),
+		muxInput({ mp4_support: 'standard' }),
 		media(),
+		...(isDev ? [visionTool()] : []),
 	],
 
 	schema: {
