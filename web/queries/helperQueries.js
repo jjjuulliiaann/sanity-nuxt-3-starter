@@ -40,15 +40,6 @@ export const contentBlockQuery = `
 	}
 `
 
-export const imageLoopArrayQuery = `
-	_type == "picture" => {
-		..., asset->
-	},
-	_type == "video" => {
-		..., muxVideo{asset->}
-	},
-`
-
 export const seoQuery = `
 	seo {
 		...,

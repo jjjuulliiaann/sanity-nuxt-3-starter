@@ -3,11 +3,11 @@
 </template>
 
 <script setup>
-import BaseFigure from '~/components/elements/media/BaseFigure'
-import BaseLoop from '~/components/elements/media/BaseLoop'
-import BaseVideoPlayer from '~/components/elements/media/BaseVideoPlayer'
-import Link from '~/components/elements/text/Link'
-import Element from '~/components/elements/text/Element'
+import BaseFigure from '@/components/elements/media/BaseFigure'
+import BaseLoop from '@/components/elements/media/BaseLoop'
+import BaseVideoPlayer from '@/components/elements/media/BaseVideoPlayer'
+import Link from '@/components/elements/text/Link'
+import Element from '@/components/elements/text/Element'
 
 const props = defineProps({
 	blocks: {

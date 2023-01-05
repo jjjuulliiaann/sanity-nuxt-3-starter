@@ -16,7 +16,7 @@
 	width: 10px;
 	height: auto;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		width: 15px;
 	}
 }

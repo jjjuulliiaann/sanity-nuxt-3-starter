@@ -53,7 +53,7 @@ usePageHead({
 	grid-template-columns: 1fr;
 	gap: 6rem;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 		gap: 10rem 1rem;
 	}

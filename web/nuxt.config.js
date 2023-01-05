@@ -1,3 +1,5 @@
+import { tokens } from './assets/tokens'
+
 export default defineNuxtConfig({
 	app: {
 		pageTransition: { name: 'page', mode: 'out-in' },
@@ -86,27 +88,16 @@ export default defineNuxtConfig({
 		plugins: {
 			autoprefixer: {},
 			'postcss-import': {},
+			'postcss-design-tokens': { tokens },
 			'postcss-nesting': {},
-			'postcss-custom-media': {
-				preserve: false,
-				importFrom: {
-					customMedia: {
-						'--w-mobile-1': '(min-width: 320px)',
-						'--w-mobile-2': '(min-width: 375px)',
-						'--w-mobile-3': '(min-width: 450px)',
+		},
+	},
 
-						'--w-tablet-1': '(min-width: 768px)',
-						'--w-tablet-2': '(min-width: 850px)',
-
-						'--w-desktop-1': '(min-width: 1024px)',
-						'--w-desktop-2': '(min-width: 1280px)',
-						'--w-desktop-3': '(min-width: 1440px)',
-						'--w-desktop-4': '(min-width: 1920px)',
-
-						'--h-1': '(max-height: 550px)',
-						'--h-2': '(max-height: 750px)',
-						'--h-3': '(max-height: 900px)',
-					},
+	vite: {
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@import ".assets/css/test.css";`,
 				},
 			},
 		},

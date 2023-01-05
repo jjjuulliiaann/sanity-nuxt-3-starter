@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { useMainStore } from '~/stores/MainStore'
+import { useMainStore } from '@/stores/MainStore'
 
 const mainStore = useMainStore()
 </script>
@@ -35,7 +35,7 @@ const mainStore = useMainStore()
 	transform: translateY(100%);
 	padding: 0.1rem 1rem 1rem;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		padding: 0.3rem 1rem 1rem;
 	}
 }
@@ -49,7 +49,7 @@ const mainStore = useMainStore()
 	padding: 0.1rem 0;
 	text-align: right;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		padding: 0.3rem 0;
 	}
 }

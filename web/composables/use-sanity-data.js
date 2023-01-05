@@ -1,4 +1,4 @@
-import { useMainStore } from '~/stores/MainStore'
+import { useMainStore } from '@/stores/MainStore'
 
 export default async function ({ query, params }) {
 	const mainStore = useMainStore()

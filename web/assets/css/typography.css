@@ -109,7 +109,7 @@
 	--xl-tracking: -0.01rem;
 }
 
-@media (--w-tablet-1) {
+@media (min-width: token(width.md)) {
 	:root {
 		/* variables */
 	--viewport-min: 768;

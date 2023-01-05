@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { useMainStore } from '~/stores/MainStore'
+import { useMainStore } from '@/stores/MainStore'
 import { vOnClickOutside } from '@vueuse/components'
 import { useMediaQuery } from '@vueuse/core'
 
@@ -40,6 +40,7 @@ const toggleMenu = () => {
 	top: 0;
 	mix-blend-mode: difference;
 	z-index: 10;
+	min-height: var(--header-height);
 }
 
 .TheHeader_Bar {
@@ -50,7 +51,7 @@ const toggleMenu = () => {
 	width: 100%;
 	padding: 1rem;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		display: flex;
 		justify-content: space-between;
 	}

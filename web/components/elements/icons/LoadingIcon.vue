@@ -33,7 +33,7 @@ export default {
 	height: auto;
 	animation: spinning 1s linear infinite;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		width: 15px;
 	}
 }

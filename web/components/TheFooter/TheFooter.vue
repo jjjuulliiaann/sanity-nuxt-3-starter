@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { useMainStore } from '~/stores/MainStore'
+import { useMainStore } from '@/stores/MainStore'
 
 // content
 const mainStore = useMainStore()
@@ -23,7 +23,7 @@ const currentYear = new Date().getFullYear()
 	width: 100%;
 	padding: 10rem 1rem 1rem;
 
-	@media (--w-mobile-3) {
+	@media (min-width: token(width.sm)) {
 		display: flex;
 		gap: 4rem;
 	}

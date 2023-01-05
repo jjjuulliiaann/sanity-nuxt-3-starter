@@ -1,9 +1,4 @@
-import {
-	contentBlockQuery,
-	seoQuery,
-	linkQuery,
-	imageLoopArrayQuery,
-} from '@/queries/helperQueries'
+import { contentBlockQuery, seoQuery, linkQuery } from '@/queries/helperQueries'
 
 export const siteQuery = groq`{
 	"siteOptions": *[_id == "siteOptions"] [0] {

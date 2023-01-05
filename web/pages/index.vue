@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { useMainStore } from '~/stores/MainStore'
+import { useMainStore } from '@/stores/MainStore'
 import { homeQuery } from '@/queries/contentQueries'
 
 // get data
@@ -49,7 +49,7 @@ usePageHead({
 	display: grid;
 	gap: 6rem;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		grid-template-columns: repeat(6, minmax(0, 1fr));
 		gap: 10rem 1rem;
 	}
@@ -59,7 +59,7 @@ usePageHead({
 	position: relative;
 	width: 100%;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		grid-column: 1 / -3;
 	}
 }

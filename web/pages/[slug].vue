@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { useMainStore } from '~/stores/MainStore'
+import { useMainStore } from '@/stores/MainStore'
 import { pageQuery } from '@/queries/contentQueries'
 
 definePageMeta({
@@ -53,18 +53,18 @@ h1 {
 	position: relative;
 	display: grid;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		grid-template-columns: repeat(6, minmax(0, 1fr));
 		gap: 1rem;
 	}
 }
 
 .TextPage_Text > div {
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		grid-column: 1 / -2;
 	}
 
-	@media (--w-desktop-1) {
+	@media (min-width: token(width.lg)) {
 		grid-column: 1 / -4;
 	}
 }

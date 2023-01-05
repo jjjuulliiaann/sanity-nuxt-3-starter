@@ -9,7 +9,7 @@
 <script setup>
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
-import { useMainStore } from '~/stores/MainStore'
+import { useMainStore } from '@/stores/MainStore'
 
 // meta
 const mainStore = useMainStore()

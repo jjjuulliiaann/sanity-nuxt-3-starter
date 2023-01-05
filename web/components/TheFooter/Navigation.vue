@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { useMainStore } from '~/stores/MainStore'
+import { useMainStore } from '@/stores/MainStore'
 
 const mainStore = useMainStore()
 </script>

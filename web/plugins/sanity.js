@@ -1,4 +1,4 @@
-import { useMainStore } from '~/stores/MainStore'
+import { useMainStore } from '@/stores/MainStore'
 
 /* get global page data on start */
 export default defineNuxtPlugin(async () => {

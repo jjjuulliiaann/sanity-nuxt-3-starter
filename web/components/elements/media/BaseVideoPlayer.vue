@@ -376,7 +376,7 @@ controls
 		hsla(0, 0%, 0%, 0.2) 100%
 	);
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		height: 50px;
 	}
 }
@@ -409,7 +409,7 @@ controls
 	width: auto;
 	padding: 0 10px;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		width: auto;
 		padding: 0 20px;
 	}
@@ -531,7 +531,7 @@ progress[value]::-moz-progress-bar {
 	align-items: center;
 	padding: 0 0 0 0.5rem;
 
-	@media (--w-tablet-1) {
+	@media (min-width: token(width.md)) {
 		min-width: 9rem;
 	}
 }
