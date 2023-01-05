@@ -4,6 +4,8 @@
 
 Opinionated monorepo starter based on Nuxt 3 and Sanity v3. Look at the [`Nuxt 3 documentation`](https://nuxt.com/docs/getting-started/introduction) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
 
+Preview: https://sanity-nuxt-3-starter.netlify.app 👀
+
 ## ✨ Features
 
 -   Monorepo using PNPM Workspaces
