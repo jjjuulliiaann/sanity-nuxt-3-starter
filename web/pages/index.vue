@@ -31,7 +31,6 @@
 </template>
 
 <script setup>
-import { useMainStore } from '@/stores/MainStore'
 import { homeQuery } from '@/queries/contentQueries'
 
 // get data

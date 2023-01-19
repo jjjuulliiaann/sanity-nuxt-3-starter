@@ -35,7 +35,6 @@
 </template>
 
 <script setup>
-import { useMainStore } from '@/stores/MainStore'
 import { singleProjectQuery } from '@/queries/contentQueries'
 
 definePageMeta({

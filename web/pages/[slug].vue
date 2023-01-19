@@ -11,7 +11,6 @@
 </template>
 
 <script setup>
-import { useMainStore } from '@/stores/MainStore'
 import { pageQuery } from '@/queries/contentQueries'
 
 definePageMeta({

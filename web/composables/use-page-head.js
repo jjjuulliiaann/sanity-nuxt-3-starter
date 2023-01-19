@@ -1,5 +1,3 @@
-import { useMainStore } from '@/stores/MainStore'
-
 export default function ({ title, seo, titleImage }) {
 	const titleString = unref(title)
 	if (!titleString) {

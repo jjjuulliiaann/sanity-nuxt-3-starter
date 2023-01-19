@@ -55,7 +55,6 @@ export default defineNuxtConfig({
 		},
 	},
 
-	// css
 	css: [
 		'~/assets/css/reset.css',
 		'~/assets/css/variables.css',
@@ -63,13 +62,14 @@ export default defineNuxtConfig({
 		'~/assets/css/app.css',
 	],
 
-	// modules
 	modules: ['@nuxtjs/sanity', '@pinia/nuxt', '@vueuse/nuxt'],
 
-	// build modules
 	buildModules: [],
 
-	// sanity
+	imports: {
+		dirs: ['stores'],
+	},
+
 	sanity: {
 		projectId: process.env.SANITY_PROJECT_ID,
 		dataset: process.env.SANITY_DATASET,
@@ -83,7 +83,6 @@ export default defineNuxtConfig({
 		},
 	},
 
-	// postcss
 	postcss: {
 		plugins: {
 			autoprefixer: {},

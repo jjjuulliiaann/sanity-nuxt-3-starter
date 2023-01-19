@@ -18,9 +18,7 @@
 </template>
 
 <script setup>
-import { useMainStore } from '@/stores/MainStore'
 import { vOnClickOutside } from '@vueuse/components'
-import { useMediaQuery } from '@vueuse/core'
 
 // get content
 const mainStore = useMainStore()

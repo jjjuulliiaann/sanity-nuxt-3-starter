@@ -8,8 +8,6 @@
 </template>
 
 <script setup>
-import { useMainStore } from '@/stores/MainStore'
-
 // content
 const mainStore = useMainStore()
 const currentYear = new Date().getFullYear()
