@@ -107,4 +107,4 @@ To update manually: Bump `nuxt` dependency to the new version and then use `npx 
 - The plugin `preview.js` is checking if the current route contains a `?preview=true` query and sets `previewIsActive` and a `sanityClient` object in MainStore accordingly.
 - All pages supporting previews use the `sanityClient` object inside `useSanityQuery()` and will retrieve preview data if the route contains `?preview=true`
 - Don't forget to allow credentials for the frontend URL in your Sanity API settings to access unpublished data from Sanity.
-- Groq queries should be ordererd by releaseDate (`order(_updatedAt desc) [0]`) so that unpublished drafts are queried in preview mode.
+- Groq queries should be ordererd by updates (`order(_updatedAt desc) [0]`) so that unpublished drafts are queried in preview mode.
