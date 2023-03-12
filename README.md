@@ -1,7 +1,5 @@
 # 🌵 Sanity Nuxt 3 Starter
 
-> ℹ️ The Starter uses Sanity Studio v3. For the previous v2 version, have a look at the [`studio-v2` branch](https://github.com/jjjuulliiaann/sanity-nuxt-3-starter/tree/studio-v2)
-
 Opinionated monorepo starter based on Nuxt 3 and Sanity v3. Look at the [`Nuxt 3 documentation`](https://nuxt.com/docs/getting-started/introduction) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
 
 Preview: https://sanity-nuxt-3-starter.netlify.app 👀
