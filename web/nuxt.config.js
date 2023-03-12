@@ -64,8 +64,6 @@ export default defineNuxtConfig({
 
 	modules: ['@nuxtjs/sanity', '@pinia/nuxt', '@vueuse/nuxt'],
 
-	buildModules: [],
-
 	imports: {
 		dirs: ['stores'],
 	},
@@ -89,16 +87,6 @@ export default defineNuxtConfig({
 			'postcss-import': {},
 			'postcss-design-tokens': { tokens },
 			'postcss-nesting': {},
-		},
-	},
-
-	vite: {
-		css: {
-			preprocessorOptions: {
-				scss: {
-					additionalData: `@import ".assets/css/test.css";`,
-				},
-			},
 		},
 	},
 })
