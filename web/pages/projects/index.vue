@@ -34,7 +34,7 @@
 import { projectsQuery } from '@/queries/contentQueries'
 
 // get data
-const data = await useSanityData({ query: projectsQuery })
+const { data } = await useSanityQuery(projectsQuery)
 
 // meta
 usePageHead({

@@ -31,11 +31,12 @@ definePageMeta({
 })
 
 // get data
+const mainStore = useMainStore()
 const route = useRoute()
 const params = {
 	slug: route.params.slug,
 }
-const data = await useSanityData({ query: pageQuery, params })
+const { data } = await useSanityQuery(pageQuery, params, mainStore.sanityClient)
 
 // meta
 usePageHead({ title: data.value?.title, seo: data.value?.seo })

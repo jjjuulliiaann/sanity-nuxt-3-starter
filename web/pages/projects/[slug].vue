@@ -55,11 +55,16 @@ definePageMeta({
 })
 
 // get data
+const mainStore = useMainStore()
 const route = useRoute()
 const params = {
 	slug: route.params.slug,
 }
-const data = await useSanityData({ query: singleProjectQuery, params })
+const { data } = await useSanityQuery(
+	singleProjectQuery,
+	params,
+	mainStore.sanityClient
+)
 
 // meta
 usePageHead({

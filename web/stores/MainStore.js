@@ -7,6 +7,7 @@ export const useMainStore = defineStore('MainStore', {
 			siteOptions: {},
 			siteNav: {},
 			slugs: {},
+			sanityClient: undefined,
 			previewIsActive: false,
 			window: {
 				width: 0,
