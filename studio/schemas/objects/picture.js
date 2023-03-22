@@ -1,4 +1,4 @@
-import {BiImage} from 'react-icons/bi/'
+import { BiImage } from 'react-icons/bi/'
 
 export default {
 	title: 'Image',
@@ -20,16 +20,16 @@ export default {
 	],
 	preview: {
 		select: {
-			asset: 'asset.url',
-			dimensions: 'asset.metadata.dimensions',
 			filename: 'asset.originalFilename',
+			dimensions: 'asset.metadata.dimensions',
+			image: 'asset',
 		},
 		prepare(selection) {
-			const {asset, title, dimensions, filename} = selection
+			const { filename, dimensions, image } = selection
 			return {
-				imageUrl: asset ? asset : '',
 				title: filename,
 				subtitle: dimensions ? `(${dimensions.width}px × ${dimensions.height}px)` : '…',
+				media: image,
 			}
 		},
 	},
