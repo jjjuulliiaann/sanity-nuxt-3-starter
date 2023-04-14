@@ -49,6 +49,10 @@ export default defineNuxtConfig({
 		},
 	},
 
+	devServer: {
+		host: 0, // localhost & local ip address
+	},
+
 	runtimeConfig: {
 		public: {
 			BASE_URL: process.env.BASE_URL,

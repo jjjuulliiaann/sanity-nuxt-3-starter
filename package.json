@@ -2,11 +2,6 @@
 	"private": true,
 	"name": "sanity-nuxt-3-starter",
 	"version": "1.0.0",
-	"config": {
-		"nuxt": {
-			"host": "0.0.0.0"
-		}
-	},
 	"scripts": {
 		"dev": "pnpm --stream -r run dev",
 		"web:dev": "pnpm --filter web run dev",
