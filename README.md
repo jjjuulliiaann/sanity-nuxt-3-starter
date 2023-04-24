@@ -13,8 +13,8 @@ Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 -   Pinia Store
 -   Linting with ESLint
 -   Code Formatting with Prettier
--   Lazyloading with LazySizes
--   Studio using Mux for videos
+-   Progressive image loading with [unlazy](https://github.com/johannschopplich/unlazy) using blurhashes
+-   Studio using [Mux](https://www.mux.com/) for videos
 -   Configured for Netlify Hosting
 
 ## 🚀 Quick start

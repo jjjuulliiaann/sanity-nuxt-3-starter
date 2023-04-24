@@ -27,17 +27,45 @@
 	/* sm */
 	--sm-size-min: 11;
 	--sm-size-max: 12;
-	--sm-size-v: calc(((100 * (var(--sm-size-max) -  var(--sm-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--sm-size-r: calc((((var(--viewport-min) * var(--sm-size-max) - var(--viewport-max) * var(--sm-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
+	--sm-size-v: calc(
+		(
+				(100 * (var(--sm-size-max) - var(--sm-size-min))) /
+					(var(--viewport-max) - var(--viewport-min))
+			) * 1vw
+	);
+	--sm-size-r: calc(
+		(
+				(
+						(
+								var(--viewport-min) * var(--sm-size-max) -
+									var(--viewport-max) * var(--sm-size-min)
+							) / (var(--viewport-min) - var(--viewport-max))
+					) / var(--root)
+			) * 1rem
+	);
 	--sm-size: clamp(
 		((var(--sm-size-min) / var(--root)) * 1rem),
 		(var(--sm-size-v) + var(--sm-size-r)),
 		((var(--sm-size-max) / var(--root)) * 1rem)
 	);
 	--sm-leading-min: 14;
-	--sm-leading-max: 15;	
-	--sm-leading-v: calc(((100 * (var(--sm-leading-max) -  var(--sm-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--sm-leading-r: calc((((var(--viewport-min) * var(--sm-leading-max) - var(--viewport-max) * var(--sm-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
+	--sm-leading-max: 15;
+	--sm-leading-v: calc(
+		(
+				(100 * (var(--sm-leading-max) - var(--sm-leading-min))) /
+					(var(--viewport-max) - var(--viewport-min))
+			) * 1vw
+	);
+	--sm-leading-r: calc(
+		(
+				(
+						(
+								var(--viewport-min) * var(--sm-leading-max) -
+									var(--viewport-max) * var(--sm-leading-min)
+							) / (var(--viewport-min) - var(--viewport-max))
+					) / var(--root)
+			) * 1rem
+	);
 	--sm-leading: clamp(
 		((var(--sm-leading-min) / var(--root)) * 1rem),
 		(var(--sm-leading-v) + var(--sm-leading-r)),
@@ -48,8 +76,22 @@
 	/* base */
 	--base-size-min: 14;
 	--base-size-max: 16;
-	--base-size-v: calc(((100 * (var(--base-size-max) -  var(--base-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--base-size-r: calc((((var(--viewport-min) * var(--base-size-max) - var(--viewport-max) * var(--base-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
+	--base-size-v: calc(
+		(
+				(100 * (var(--base-size-max) - var(--base-size-min))) /
+					(var(--viewport-max) - var(--viewport-min))
+			) * 1vw
+	);
+	--base-size-r: calc(
+		(
+				(
+						(
+								var(--viewport-min) * var(--base-size-max) -
+									var(--viewport-max) * var(--base-size-min)
+							) / (var(--viewport-min) - var(--viewport-max))
+					) / var(--root)
+			) * 1rem
+	);
 	--base-size: clamp(
 		((var(--base-size-min) / var(--root)) * 1rem),
 		(var(--base-size-v) + var(--base-size-r)),
@@ -57,8 +99,23 @@
 	);
 	--base-leading-min: 17;
 	--base-leading-max: 19;
-	--base-leading-v: calc(((100 * (var(--base-leading-max) -  var(--base-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--base-leading-r: calc((((var(--viewport-min) * var(--base-leading-max) - var(--viewport-max) * var(--base-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
+	--base-leading-v: calc(
+		(
+				(100 * (var(--base-leading-max) - var(--base-leading-min))) /
+					(var(--viewport-max) - var(--viewport-min))
+			) * 1vw
+	);
+	--base-leading-r: calc(
+		(
+				(
+						(
+								var(--viewport-min) * var(--base-leading-max) -
+									var(--viewport-max) *
+									var(--base-leading-min)
+							) / (var(--viewport-min) - var(--viewport-max))
+					) / var(--root)
+			) * 1rem
+	);
 	--base-leading: clamp(
 		((var(--base-leading-min) / var(--root)) * 1rem),
 		(var(--base-leading-v) + var(--base-leading-r)),
@@ -69,8 +126,22 @@
 	/* lg */
 	--lg-size-min: 26;
 	--lg-size-max: 38;
-	--lg-size-v: calc(((100 * (var(--lg-size-max) -  var(--lg-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--lg-size-r: calc((((var(--viewport-min) * var(--lg-size-max) - var(--viewport-max) * var(--lg-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
+	--lg-size-v: calc(
+		(
+				(100 * (var(--lg-size-max) - var(--lg-size-min))) /
+					(var(--viewport-max) - var(--viewport-min))
+			) * 1vw
+	);
+	--lg-size-r: calc(
+		(
+				(
+						(
+								var(--viewport-min) * var(--lg-size-max) -
+									var(--viewport-max) * var(--lg-size-min)
+							) / (var(--viewport-min) - var(--viewport-max))
+					) / var(--root)
+			) * 1rem
+	);
 	--lg-size: clamp(
 		((var(--lg-size-min) / var(--root)) * 1rem),
 		(var(--lg-size-v) + var(--lg-size-r)),
@@ -78,8 +149,22 @@
 	);
 	--lg-leading-min: 26;
 	--lg-leading-max: 38;
-	--lg-leading-v: calc(((100 * (var(--lg-leading-max) -  var(--lg-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--lg-leading-r: calc((((var(--viewport-min) * var(--lg-leading-max) - var(--viewport-max) * var(--lg-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
+	--lg-leading-v: calc(
+		(
+				(100 * (var(--lg-leading-max) - var(--lg-leading-min))) /
+					(var(--viewport-max) - var(--viewport-min))
+			) * 1vw
+	);
+	--lg-leading-r: calc(
+		(
+				(
+						(
+								var(--viewport-min) * var(--lg-leading-max) -
+									var(--viewport-max) * var(--lg-leading-min)
+							) / (var(--viewport-min) - var(--viewport-max))
+					) / var(--root)
+			) * 1rem
+	);
 	--lg-leading: clamp(
 		((var(--lg-leading-min) / var(--root)) * 1rem),
 		(var(--lg-leading-v) + var(--lg-leading-r)),
@@ -90,8 +175,22 @@
 	/* xl */
 	--xl-size-min: 40;
 	--xl-size-max: 50;
-	--xl-size-v: calc(((100 * (var(--xl-size-max) -  var(--xl-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--xl-size-r: calc((((var(--viewport-min) * var(--xl-size-max) - var(--viewport-max) * var(--xl-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
+	--xl-size-v: calc(
+		(
+				(100 * (var(--xl-size-max) - var(--xl-size-min))) /
+					(var(--viewport-max) - var(--viewport-min))
+			) * 1vw
+	);
+	--xl-size-r: calc(
+		(
+				(
+						(
+								var(--viewport-min) * var(--xl-size-max) -
+									var(--viewport-max) * var(--xl-size-min)
+							) / (var(--viewport-min) - var(--viewport-max))
+					) / var(--root)
+			) * 1rem
+	);
 	--xl-size: clamp(
 		((var(--xl-size-min) / var(--root)) * 1rem),
 		(var(--xl-size-v) + var(--xl-size-r)),
@@ -99,8 +198,22 @@
 	);
 	--xl-leading-min: 40;
 	--xl-leading-max: 50;
-	--xl-leading-v: calc(((100 * (var(--xl-leading-max) -  var(--xl-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--xl-leading-r: calc((((var(--viewport-min) * var(--xl-leading-max) - var(--viewport-max) * var(--xl-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
+	--xl-leading-v: calc(
+		(
+				(100 * (var(--xl-leading-max) - var(--xl-leading-min))) /
+					(var(--viewport-max) - var(--viewport-min))
+			) * 1vw
+	);
+	--xl-leading-r: calc(
+		(
+				(
+						(
+								var(--viewport-min) * var(--xl-leading-max) -
+									var(--viewport-max) * var(--xl-leading-min)
+							) / (var(--viewport-min) - var(--viewport-max))
+					) / var(--root)
+			) * 1rem
+	);
 	--xl-leading: clamp(
 		((var(--xl-leading-min) / var(--root)) * 1rem),
 		(var(--xl-leading-v) + var(--xl-leading-r)),
@@ -112,93 +225,211 @@
 @media (min-width: token(width.md)) {
 	:root {
 		/* variables */
-	--viewport-min: 768;
-	--viewport-max: 1920;
-	--root: 10;
+		--viewport-min: 768;
+		--viewport-max: 1920;
+		--root: 10;
 
-	/* sm */
-	--sm-size-min: 10;
-	--sm-size-max: 14;
-	--sm-size-v: calc(((100 * (var(--sm-size-max) -  var(--sm-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--sm-size-r: calc((((var(--viewport-min) * var(--sm-size-max) - var(--viewport-max) * var(--sm-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
-	--sm-size: clamp(
-		((var(--sm-size-min) / var(--root)) * 1rem),
-		(var(--sm-size-v) + var(--sm-size-r)),
-		((var(--sm-size-max) / var(--root)) * 1rem)
-	);
-	--sm-leading-min: 13;
-	--sm-leading-max: 17;	
-	--sm-leading-v: calc(((100 * (var(--sm-leading-max) -  var(--sm-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--sm-leading-r: calc((((var(--viewport-min) * var(--sm-leading-max) - var(--viewport-max) * var(--sm-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
-	--sm-leading: clamp(
-		((var(--sm-leading-min) / var(--root)) * 1rem),
-		(var(--sm-leading-v) + var(--sm-leading-r)),
-		((var(--sm-leading-max) / var(--root)) * 1rem)
-	);
-	--sm-tracking: -0.01rem;
+		/* sm */
+		--sm-size-min: 10;
+		--sm-size-max: 14;
+		--sm-size-v: calc(
+			(
+					(100 * (var(--sm-size-max) - var(--sm-size-min))) /
+						(var(--viewport-max) - var(--viewport-min))
+				) * 1vw
+		);
+		--sm-size-r: calc(
+			(
+					(
+							(
+									var(--viewport-min) * var(--sm-size-max) -
+										var(--viewport-max) * var(--sm-size-min)
+								) / (var(--viewport-min) - var(--viewport-max))
+						) / var(--root)
+				) * 1rem
+		);
+		--sm-size: clamp(
+			((var(--sm-size-min) / var(--root)) * 1rem),
+			(var(--sm-size-v) + var(--sm-size-r)),
+			((var(--sm-size-max) / var(--root)) * 1rem)
+		);
+		--sm-leading-min: 13;
+		--sm-leading-max: 17;
+		--sm-leading-v: calc(
+			(
+					(100 * (var(--sm-leading-max) - var(--sm-leading-min))) /
+						(var(--viewport-max) - var(--viewport-min))
+				) * 1vw
+		);
+		--sm-leading-r: calc(
+			(
+					(
+							(
+									var(--viewport-min) * var(--sm-leading-max) -
+										var(--viewport-max) *
+										var(--sm-leading-min)
+								) / (var(--viewport-min) - var(--viewport-max))
+						) / var(--root)
+				) * 1rem
+		);
+		--sm-leading: clamp(
+			((var(--sm-leading-min) / var(--root)) * 1rem),
+			(var(--sm-leading-v) + var(--sm-leading-r)),
+			((var(--sm-leading-max) / var(--root)) * 1rem)
+		);
+		--sm-tracking: -0.01rem;
 
-	/* base */
-	--base-size-min: 15;
-	--base-size-max: 17;
-	--base-size-v: calc(((100 * (var(--base-size-max) -  var(--base-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--base-size-r: calc((((var(--viewport-min) * var(--base-size-max) - var(--viewport-max) * var(--base-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
-	--base-size: clamp(
-		((var(--base-size-min) / var(--root)) * 1rem),
-		(var(--base-size-v) + var(--base-size-r)),
-		((var(--base-size-max) / var(--root)) * 1rem)
-	);
-	--base-leading-min: 18;
-	--base-leading-max: 20;
-	--base-leading-v: calc(((100 * (var(--base-leading-max) -  var(--base-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--base-leading-r: calc((((var(--viewport-min) * var(--base-leading-max) - var(--viewport-max) * var(--base-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
-	--base-leading: clamp(
-		((var(--base-leading-min) / var(--root)) * 1rem),
-		(var(--base-leading-v) + var(--base-leading-r)),
-		((var(--base-leading-max) / var(--root)) * 1rem)
-	);
-	--base-tracking: -0.01rem;
+		/* base */
+		--base-size-min: 15;
+		--base-size-max: 17;
+		--base-size-v: calc(
+			(
+					(100 * (var(--base-size-max) - var(--base-size-min))) /
+						(var(--viewport-max) - var(--viewport-min))
+				) * 1vw
+		);
+		--base-size-r: calc(
+			(
+					(
+							(
+									var(--viewport-min) * var(--base-size-max) -
+										var(--viewport-max) *
+										var(--base-size-min)
+								) / (var(--viewport-min) - var(--viewport-max))
+						) / var(--root)
+				) * 1rem
+		);
+		--base-size: clamp(
+			((var(--base-size-min) / var(--root)) * 1rem),
+			(var(--base-size-v) + var(--base-size-r)),
+			((var(--base-size-max) / var(--root)) * 1rem)
+		);
+		--base-leading-min: 18;
+		--base-leading-max: 20;
+		--base-leading-v: calc(
+			(
+					(100 * (var(--base-leading-max) - var(--base-leading-min))) /
+						(var(--viewport-max) - var(--viewport-min))
+				) * 1vw
+		);
+		--base-leading-r: calc(
+			(
+					(
+							(
+									var(--viewport-min) *
+										var(--base-leading-max) -
+										var(--viewport-max) *
+										var(--base-leading-min)
+								) / (var(--viewport-min) - var(--viewport-max))
+						) / var(--root)
+				) * 1rem
+		);
+		--base-leading: clamp(
+			((var(--base-leading-min) / var(--root)) * 1rem),
+			(var(--base-leading-v) + var(--base-leading-r)),
+			((var(--base-leading-max) / var(--root)) * 1rem)
+		);
+		--base-tracking: -0.01rem;
 
-	/* lg */
-	--lg-size-min: 46;
-	--lg-size-max: 60;
-	--lg-size-v: calc(((100 * (var(--lg-size-max) -  var(--lg-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--lg-size-r: calc((((var(--viewport-min) * var(--lg-size-max) - var(--viewport-max) * var(--lg-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
-	--lg-size: clamp(
-		((var(--lg-size-min) / var(--root)) * 1rem),
-		(var(--lg-size-v) + var(--lg-size-r)),
-		((var(--lg-size-max) / var(--root)) * 1rem)
-	);
-	--lg-leading-min: 40;
-	--lg-leading-max: 50;
-	--lg-leading-v: calc(((100 * (var(--lg-leading-max) -  var(--lg-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--lg-leading-r: calc((((var(--viewport-min) * var(--lg-leading-max) - var(--viewport-max) * var(--lg-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
-	--lg-leading: clamp(
-		((var(--lg-leading-min) / var(--root)) * 1rem),
-		(var(--lg-leading-v) + var(--lg-leading-r)),
-		((var(--lg-leading-max) / var(--root)) * 1rem)
-	);
-	--lg-tracking: -0.03rem;
+		/* lg */
+		--lg-size-min: 46;
+		--lg-size-max: 60;
+		--lg-size-v: calc(
+			(
+					(100 * (var(--lg-size-max) - var(--lg-size-min))) /
+						(var(--viewport-max) - var(--viewport-min))
+				) * 1vw
+		);
+		--lg-size-r: calc(
+			(
+					(
+							(
+									var(--viewport-min) * var(--lg-size-max) -
+										var(--viewport-max) * var(--lg-size-min)
+								) / (var(--viewport-min) - var(--viewport-max))
+						) / var(--root)
+				) * 1rem
+		);
+		--lg-size: clamp(
+			((var(--lg-size-min) / var(--root)) * 1rem),
+			(var(--lg-size-v) + var(--lg-size-r)),
+			((var(--lg-size-max) / var(--root)) * 1rem)
+		);
+		--lg-leading-min: 40;
+		--lg-leading-max: 50;
+		--lg-leading-v: calc(
+			(
+					(100 * (var(--lg-leading-max) - var(--lg-leading-min))) /
+						(var(--viewport-max) - var(--viewport-min))
+				) * 1vw
+		);
+		--lg-leading-r: calc(
+			(
+					(
+							(
+									var(--viewport-min) * var(--lg-leading-max) -
+										var(--viewport-max) *
+										var(--lg-leading-min)
+								) / (var(--viewport-min) - var(--viewport-max))
+						) / var(--root)
+				) * 1rem
+		);
+		--lg-leading: clamp(
+			((var(--lg-leading-min) / var(--root)) * 1rem),
+			(var(--lg-leading-v) + var(--lg-leading-r)),
+			((var(--lg-leading-max) / var(--root)) * 1rem)
+		);
+		--lg-tracking: -0.03rem;
 
-	/* xl */
-	--xl-size-min: 75;
-	--xl-size-max: 90;
-	--xl-size-v: calc(((100 * (var(--xl-size-max) -  var(--xl-size-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--xl-size-r: calc((((var(--viewport-min) * var(--xl-size-max) - var(--viewport-max) * var(--xl-size-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
-	--xl-size: clamp(
-		((var(--xl-size-min) / var(--root)) * 1rem),
-		(var(--xl-size-v) + var(--xl-size-r)),
-		((var(--xl-size-max) / var(--root)) * 1rem)
-	);
-	--xl-leading-min: 75;
-	--xl-leading-max: 90;
-	--xl-leading-v: calc(((100 * (var(--xl-leading-max) -  var(--xl-leading-min))) / ( var(--viewport-max) - var(--viewport-min) )) * 1vw);
-	--xl-leading-r: calc((((var(--viewport-min) * var(--xl-leading-max) - var(--viewport-max) * var(--xl-leading-min)) / (var(--viewport-min) - var(--viewport-max))) / var(--root)) * 1rem);
-	--xl-leading: clamp(
-		((var(--xl-leading-min) / var(--root)) * 1rem),
-		(var(--xl-leading-v) + var(--xl-leading-r)),
-		((var(--xl-leading-max) / var(--root)) * 1rem)
-	);
-	--xl-tracking: -0.01rem;
+		/* xl */
+		--xl-size-min: 75;
+		--xl-size-max: 90;
+		--xl-size-v: calc(
+			(
+					(100 * (var(--xl-size-max) - var(--xl-size-min))) /
+						(var(--viewport-max) - var(--viewport-min))
+				) * 1vw
+		);
+		--xl-size-r: calc(
+			(
+					(
+							(
+									var(--viewport-min) * var(--xl-size-max) -
+										var(--viewport-max) * var(--xl-size-min)
+								) / (var(--viewport-min) - var(--viewport-max))
+						) / var(--root)
+				) * 1rem
+		);
+		--xl-size: clamp(
+			((var(--xl-size-min) / var(--root)) * 1rem),
+			(var(--xl-size-v) + var(--xl-size-r)),
+			((var(--xl-size-max) / var(--root)) * 1rem)
+		);
+		--xl-leading-min: 75;
+		--xl-leading-max: 90;
+		--xl-leading-v: calc(
+			(
+					(100 * (var(--xl-leading-max) - var(--xl-leading-min))) /
+						(var(--viewport-max) - var(--viewport-min))
+				) * 1vw
+		);
+		--xl-leading-r: calc(
+			(
+					(
+							(
+									var(--viewport-min) * var(--xl-leading-max) -
+										var(--viewport-max) *
+										var(--xl-leading-min)
+								) / (var(--viewport-min) - var(--viewport-max))
+						) / var(--root)
+				) * 1rem
+		);
+		--xl-leading: clamp(
+			((var(--xl-leading-min) / var(--root)) * 1rem),
+			(var(--xl-leading-v) + var(--xl-leading-r)),
+			((var(--xl-leading-max) / var(--root)) * 1rem)
+		);
+		--xl-tracking: -0.01rem;
 	}
 }
 
@@ -266,18 +497,19 @@ a {
 }
 
 .imagelink {
-	display: flex;
+	/* display: flex; */
 }
 
 @media (hover: hover) and (pointer: fine) {
-	a:hover, .textlink:hover {
+	a:hover,
+	.textlink:hover {
 		color: var(--rgb-accent);
 	}
 
 	a .imagelink::after {
 		content: '';
 		position: absolute;
-	left: 0;
+		left: 0;
 		top: 0;
 		right: 0;
 		bottom: 0;
@@ -292,11 +524,10 @@ a {
 	}
 }
 
-
-
 /* a11y */
 
-a:focus-visible, button:focus-visible {
+a:focus-visible,
+button:focus-visible {
 	border-radius: 0.2rem;
 	outline: none;
 	box-shadow: 0 0 0 3px rgb(var(--clr-accent) / 1);

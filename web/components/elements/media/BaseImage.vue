@@ -1,18 +1,23 @@
 <template>
-	<img
-		:src="placeholderSrc"
-		:data-src="imageSrc"
-		:data-srcset="imageSrcSet"
-		:data-sizes="props.dataSizes"
-		:data-parent-fit="props.dataParentFit"
-		:alt="altText"
-		:width="cropWidth"
-		:height="cropHeight"
-		:style="objectPositionStyle"
-		:class="[orientation, { lazypreload: props.preload }]"
-		class="lazyload"
-		@lazyloaded="$emit('lazyloaded')"
-	/>
+	<picture>
+		<source
+			type="image/webp"
+			:data-srcset="imageSrcSetWebP"
+			data-sizes="auto"
+		/>
+		<UnLazyImage
+			:blurhash="blurhash"
+			:placeholder-ratio="cropWidth / cropHeight"
+			:data-srcset="imageSrcSetPNG"
+			:srcset="blurhash ? '' : imageSrcSetPNG"
+			:width="cropWidth"
+			:height="cropHeight"
+			:alt="props.image.alt"
+			:style="[hotspotStyle, aspectRatioStyle]"
+			:class="orientation"
+			auto-sizes
+		/>
+	</picture>
 </template>
 
 <script setup>
@@ -23,26 +28,6 @@ const props = defineProps({
 		type: Object,
 		default: () => undefined,
 	},
-	svgPlaceholder: {
-		type: Boolean,
-		default: () => true,
-	},
-	lqipPlaceholder: {
-		type: Boolean,
-		default: () => false,
-	},
-	dataSizes: {
-		type: String,
-		default: () => 'auto',
-	},
-	dataParentFit: {
-		type: String,
-		default: () => '',
-	},
-	alt: {
-		type: String,
-		default: 'Missing alternative text',
-	},
 	auto: {
 		default: 'format',
 		type: String,
@@ -51,48 +36,41 @@ const props = defineProps({
 		default: 'max',
 		type: String,
 	},
-	preload: {
-		type: Boolean,
-		default: () => false,
-	},
-	useObjectPosition: {
+	useHotspot: {
 		type: Boolean,
 		default: () => false,
 	},
 })
 
-const placeholderSrc = computed(() => {
-	const svgColor = 'rgb(230,230,230)'
-	return props.svgPlaceholder
-		? `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${cropWidth.value} ${cropHeight.value}'%3E%3Crect width='${cropWidth.value}' height='${cropHeight.value}' fill='${svgColor}' /%3E%3C/svg%3E`
-		: props.lqipPlaceholder
-		? props.image?.asset?.metadata?.lqip
-		: ''
-})
+const blurhash = computed(() => props.image?.asset?.metadata?.blurHash ?? '')
 
-const imageSrc = computed(() =>
-	props.image?.asset
-		? $urlFor(props.image).width(1000).auto(props.auto).fit(props.fit)
-		: ''
-)
+const imageSrcSetPNG = computed(() => createSrcSet(props.image))
 
-const imageSrcSet = computed(() => {
-	let srcSet = ''
+const imageSrcSetWebP = computed(() => createSrcSet(props.image, 'webp'))
+
+const createSrcSet = (image, fileFormat = 'png') => {
+	if (!image || !image.asset) {
+		return ''
+	}
 	const widths = [250, 375, 500, 750, 1000, 1400, 2000, 3000]
+	let srcSet = ''
 	widths.forEach((width, index) => {
-		if (!props.image?.asset) {
+		if (!image?.asset) {
 			return false
 		}
 		srcSet +=
-			$urlFor(props.image).width(width).auto(props.auto).fit(props.fit) +
-			` ${width}w`
+			$urlFor(image)
+				.format(fileFormat)
+				.width(width)
+				.auto(props.auto)
+				.fit(props.fit) + ` ${width}w`
 		if (index + 1 !== widths.length) {
 			srcSet += ','
 		}
 		srcSet += ' '
 	})
 	return srcSet
-})
+}
 
 const cropWidth = computed(() => {
 	const originalWidth = props.image?.asset?.metadata?.dimensions?.width
@@ -121,10 +99,10 @@ const orientation = computed(() => {
 		: 'square'
 })
 
-const altText = computed(() => props.image?.alt ?? props.alt)
-
-const objectPositionStyle = computed(() => {
-	return props.useObjectPosition && props.image?.hotspot
+/* use the hotspot values defined in Sanity to align the image inside the element box. 
+Most useful if the image should fill its container (with "object-fit: cover")  */
+const hotspotStyle = computed(() => {
+	return props.useHotspot && props.image?.hotspot
 		? {
 				'object-position': `${[
 					props.image?.hotspot.x,
@@ -135,16 +113,20 @@ const objectPositionStyle = computed(() => {
 		  }
 		: undefined
 })
+
+/* is helpful to avoid wrong aspect ratio when the blurry placeholder is visible */
+const aspectRatioStyle = computed(() => {
+	return !props.useHotspot
+		? {
+				aspectRatio: `${cropWidth.value} / ${cropHeight.value}`,
+		  }
+		: {}
+})
 </script>
 
 <style scoped>
-.lazyload,
-.lazyloading {
-	opacity: 0;
-}
-
-.lazyloaded {
-	opacity: 1;
-	transition: opacity 0.75s;
+picture,
+img {
+	display: block;
 }
 </style>

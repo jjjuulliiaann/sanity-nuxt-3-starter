@@ -2,16 +2,9 @@
 	<figure>
 		<ElementsMediaBaseImage
 			:image="props.image"
-			:svg-placeholder="props.svgPlaceholder"
-			:lqip-placeholder="props.lqipPlaceholder"
-			:alt="props.alt"
 			:auto="props.auto"
 			:fit="props.fit"
-			:preload="props.preload"
-			:use-object-position="props.useObjectPosition"
-			:data-sizes="props.dataSizes"
-			:data-parent-fit="props.dataParentFit"
-			@lazyloaded="$emit('lazyloaded')"
+			:use-hotspot="props.useHotspot"
 		/>
 		<figcaption v-if="props.image?.caption" class="text-sm">
 			{{ props.image.caption }}
@@ -25,26 +18,6 @@ const props = defineProps({
 		type: Object,
 		default: () => undefined,
 	},
-	alt: {
-		type: String,
-		default: () => 'Missing alternative text',
-	},
-	svgPlaceholder: {
-		type: Boolean,
-		default: () => true,
-	},
-	lqipPlaceholder: {
-		type: Boolean,
-		default: () => false,
-	},
-	dataSizes: {
-		type: String,
-		default: () => 'auto',
-	},
-	dataParentFit: {
-		type: String,
-		default: () => '',
-	},
 	auto: {
 		default: 'format',
 		type: String,
@@ -53,11 +26,7 @@ const props = defineProps({
 		default: 'max',
 		type: String,
 	},
-	preload: {
-		type: Boolean,
-		default: () => false,
-	},
-	useObjectPosition: {
+	useHotspot: {
 		type: Boolean,
 		default: () => false,
 	},

@@ -66,7 +66,7 @@ export default defineNuxtConfig({
 		'~/assets/css/app.css',
 	],
 
-	modules: ['@nuxtjs/sanity', '@pinia/nuxt', '@vueuse/nuxt'],
+	modules: ['@nuxtjs/sanity', '@pinia/nuxt', '@vueuse/nuxt', '@unlazy/nuxt'],
 
 	imports: {
 		dirs: ['stores'],

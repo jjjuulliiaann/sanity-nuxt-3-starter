@@ -7,9 +7,6 @@
 </template>
 
 <script setup>
-import lazySizes from 'lazysizes'
-import 'lazysizes/plugins/parent-fit/ls.parent-fit'
-
 // meta
 const mainStore = useMainStore()
 const route = useRoute()

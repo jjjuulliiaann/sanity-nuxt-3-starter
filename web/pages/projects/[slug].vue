@@ -5,7 +5,7 @@
 				v-if="data?.titleImage"
 				:image="data.titleImage"
 				class="Project_Titleimage"
-				use-object-position
+				use-hotspot
 			/>
 			<h1 v-if="data?.title" class="text-lg text_bold text_white">{{
 				data.title
@@ -91,6 +91,7 @@ usePageHead({
 	aspect-ratio: 2 / 1;
 }
 
+.Project_Titleimage:deep(picture),
 .Project_Titleimage:deep(img) {
 	position: relative;
 	display: block;

@@ -16,6 +16,7 @@
 						<ElementsMediaBaseFigure
 							:image="project.titleImage"
 							class="Home_Image imagelink"
+							use-hotspot
 						/>
 						<span class="Home_Head text-lg">
 							{{ project.title }}
@@ -78,6 +79,7 @@ usePageHead({
 	aspect-ratio: 16 / 9;
 }
 
+.Home_Image:deep(picture),
 .Home_Image:deep(img) {
 	position: relative;
 	width: 100%;

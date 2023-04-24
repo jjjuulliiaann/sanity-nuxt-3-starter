@@ -7,7 +7,6 @@ export default {
 	icon: BiImage,
 	options: {
 		hotspot: true,
-		metadata: ['lqip'],
 	},
 	fields: [
 		{

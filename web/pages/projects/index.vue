@@ -78,9 +78,12 @@ usePageHead({
 }
 
 .Projects_ItemImage {
-	position: relative;
+	width: 100%;
+	height: 80rem;
 }
 
+.Projects_ItemImage,
+.Projects_ItemImage:deep(picture),
 .Projects_ItemImage:deep(img) {
 	position: relative;
 	width: 100%;
