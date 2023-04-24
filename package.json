@@ -10,5 +10,8 @@
 		"web:build": "pnpm --filter web run build",
 		"studio:build": "pnpm --filter studio run build",
 		"web:preview": "pnpm --filter web run preview"
+	},
+	"resolutions": {
+		"consola": "^3.0.0"
 	}
 }
