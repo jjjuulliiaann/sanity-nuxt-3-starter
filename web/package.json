@@ -16,7 +16,7 @@
 	},
 	"devDependencies": {
 		"@nuxtjs/eslint-config": "^12.0.0",
-		"@unlazy/nuxt": "^0.7.0",
+		"@unlazy/nuxt": "^0.8.1",
 		"@vueuse/components": "^10.1.0",
 		"@vueuse/core": "^10.1.0",
 		"@vueuse/nuxt": "^10.1.0",

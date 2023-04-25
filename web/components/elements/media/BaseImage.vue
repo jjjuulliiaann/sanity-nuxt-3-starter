@@ -1,23 +1,14 @@
 <template>
-	<picture>
-		<source
-			type="image/webp"
-			:data-srcset="imageSrcSetWebP"
-			data-sizes="auto"
-		/>
-		<UnLazyImage
-			:blurhash="blurhash"
-			:placeholder-ratio="cropWidth / cropHeight"
-			:data-srcset="imageSrcSetPNG"
-			:srcset="blurhash ? '' : imageSrcSetPNG"
-			:width="cropWidth"
-			:height="cropHeight"
-			:alt="props.image.alt"
-			:style="[hotspotStyle, aspectRatioStyle]"
-			:class="orientation"
-			auto-sizes
-		/>
-	</picture>
+	<UnLazyImage
+		:blurhash="blurhash"
+		:placeholder-ratio="cropWidth / cropHeight"
+		:data-srcset="imageSrcSetPNG"
+		:width="cropWidth"
+		:height="cropHeight"
+		:alt="props.image.alt"
+		:style="[hotspotStyle, aspectRatioStyle]"
+		:class="orientation"
+	/>
 </template>
 
 <script setup>
@@ -125,7 +116,6 @@ const aspectRatioStyle = computed(() => {
 </script>
 
 <style scoped>
-picture,
 img {
 	display: block;
 }
