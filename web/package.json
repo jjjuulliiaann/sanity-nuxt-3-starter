@@ -8,7 +8,7 @@
 		"preview": "nuxt preview"
 	},
 	"dependencies": {
-		"@nuxtjs/sanity": "^1.6.0",
+		"@nuxtjs/sanity": "^1.7.0",
 		"@pinia/nuxt": "^0.4.9",
 		"@sanity/image-url": "^1.0.2",
 		"hls.js": "^1.4.0",
@@ -16,7 +16,7 @@
 	},
 	"devDependencies": {
 		"@nuxtjs/eslint-config": "^12.0.0",
-		"@unlazy/nuxt": "^0.8.1",
+		"@unlazy/nuxt": "^0.8.8",
 		"@vueuse/components": "^10.1.0",
 		"@vueuse/core": "^10.1.0",
 		"@vueuse/nuxt": "^10.1.0",

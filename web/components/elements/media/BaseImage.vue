@@ -2,7 +2,8 @@
 	<UnLazyImage
 		:blurhash="blurhash"
 		:placeholder-ratio="cropWidth / cropHeight"
-		:data-srcset="imageSrcSetPNG"
+		:src="singleImageSource"
+		:sources="imageSources"
 		:width="cropWidth"
 		:height="cropHeight"
 		:alt="props.image.alt"
@@ -35,11 +36,24 @@ const props = defineProps({
 
 const blurhash = computed(() => props.image?.asset?.metadata?.blurHash ?? '')
 
-const imageSrcSetPNG = computed(() => createSrcSet(props.image))
+const singleImageSource = computed(() =>
+	props.image
+		? `${$urlFor(props.image).width(1000).auto(props.auto).fit(props.fit)}`
+		: ''
+)
 
-const imageSrcSetWebP = computed(() => createSrcSet(props.image, 'webp'))
+const imageSources = computed(() => [
+	{
+		type: 'image/webp',
+		srcSet: createSrcSet(props.image, 'webp'),
+	},
+	{
+		type: 'image/jpeg',
+		srcSet: createSrcSet(props.image),
+	},
+])
 
-const createSrcSet = (image, fileFormat = 'png') => {
+const createSrcSet = (image, fileFormat = 'jpeg') => {
 	if (!image || !image.asset) {
 		return ''
 	}
@@ -103,6 +117,10 @@ const hotspotStyle = computed(() => {
 					.join(' ')}`,
 		  }
 		: undefined
+		? `${[props.image?.hotspot.x, props.image?.hotspot.y]
+				.map((value) => `${(value * 100).toFixed(2)}%`)
+				.join(' ')}`
+		: ''
 })
 
 /* is helpful to avoid wrong aspect ratio when the blurry placeholder is visible */
@@ -116,7 +134,8 @@ const aspectRatioStyle = computed(() => {
 </script>
 
 <style scoped>
-img {
+picture,
+picture:deep(img) {
 	display: block;
 }
 </style>
