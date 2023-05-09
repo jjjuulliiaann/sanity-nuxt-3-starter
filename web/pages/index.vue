@@ -36,7 +36,9 @@ import { homeQuery } from '@/queries/contentQueries'
 
 // get data
 const mainStore = useMainStore()
-const { data } = await useSanityQuery(homeQuery, {}, mainStore.sanityClient)
+const data = await useSanityData({
+	query: homeQuery,
+})
 
 // meta
 usePageHead({

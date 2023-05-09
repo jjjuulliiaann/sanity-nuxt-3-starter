@@ -9,6 +9,7 @@ Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 -   Monorepo using PNPM Workspaces
 -   Sanity Studio v3 React Backend (in /studio)
 -   Nuxt 3 Frontend (in /web)
+-   Live Previews
 -   Progressive image loading with [Unlazy](https://github.com/johannschopplich/unlazy) using BlurHashes
 -   Studio using [Mux](https://www.mux.com/) for videos
 -   Vite Module Bundler
@@ -89,7 +90,7 @@ Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 
 -   To update manually: Bump `nuxt` dependency to the new version and then use `npx nuxi@latest cleanup` to cleanup any local caches.
 
-### Preview Mode
+### (Live) Previews
 
 #### Studio:
 
@@ -101,7 +102,8 @@ Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 #### Frontend:
 
 -   A separate Sanity client named `preview` is defined in `nuxt.config.js` with `useCDN` set to false and `withCredentials` set to true.
--   The plugin `preview.js` is checking if the current route contains a `?preview=true` query and sets `previewIsActive` and a `sanityClient` object in MainStore accordingly.
--   All pages supporting previews use the `sanityClient` object inside `useSanityQuery()` and will retrieve preview data if the route contains `?preview=true`
+-   The plugin `sanity.js` is checking if the current route contains a `?preview=true` query and sets `previewIsActive` in MainStore accordingly.
+-   All pages use the `useSanityData` composable to handle previews and load data from Sanity. If the url contains the preview query, preview data is loaded.
+-   When `livePreview` is set to true (default), the composable is listening to changes and updates the data every time. (This can substantially increase the amount of Sanity API requests!)
 -   Don't forget to allow credentials for the frontend URL in your Sanity API settings to access unpublished data from Sanity.
 -   Groq queries should be ordererd by updates (`order(_updatedAt desc) [0]`) so that unpublished drafts are queried in preview mode.

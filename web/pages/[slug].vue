@@ -1,8 +1,8 @@
 <template>
-	<main v-if="data" class="TextPage">
-		<h1 class="text-lg text_bold">{{ data.title }}</h1>
+	<main class="TextPage">
+		<h1 v-if="data" class="text-lg text_bold">{{ data.title }}</h1>
 
-		<section class="TextPage_Text">
+		<section v-if="data" class="TextPage_Text">
 			<div class="blockcontent">
 				<ElementsTextContent :blocks="data.content" />
 			</div>
@@ -36,7 +36,10 @@ const route = useRoute()
 const params = {
 	slug: route.params.slug,
 }
-const { data } = await useSanityQuery(pageQuery, params, mainStore.sanityClient)
+const data = await useSanityData({
+	query: pageQuery,
+	params: params,
+})
 
 // meta
 usePageHead({ title: data.value?.title, seo: data.value?.seo })

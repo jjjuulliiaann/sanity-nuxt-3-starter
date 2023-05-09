@@ -1,15 +1,13 @@
 <template>
-	<main v-if="data" class="Project">
-		<section class="Project_Title">
+	<main class="Project">
+		<section v-if="data" class="Project_Title">
 			<ElementsMediaBaseFigure
 				v-if="data?.titleImage"
 				:image="data.titleImage"
 				class="Project_Titleimage"
 				use-hotspot
 			/>
-			<h1 v-if="data?.title" class="text-lg text_bold text_white">{{
-				data.title
-			}}</h1>
+			<h1 class="text-lg text_bold text_white">{{ data.title }}</h1>
 			<span class="Project_Credits text_bold">
 				Image by:
 				<ElementsTextLink
@@ -26,7 +24,7 @@
 			</span>
 		</section>
 
-		<section class="Project_Text">
+		<section v-if="data" class="Project_Text">
 			<div class="blockcontent">
 				<ElementsTextContent :blocks="data.content" />
 			</div>
@@ -60,17 +58,16 @@ const route = useRoute()
 const params = {
 	slug: route.params.slug,
 }
-const { data } = await useSanityQuery(
-	singleProjectQuery,
-	params,
-	mainStore.sanityClient
-)
+const data = await useSanityData({
+	query: singleProjectQuery,
+	params: params,
+})
 
 // meta
 usePageHead({
-	title: data.value?.title,
-	seo: data.value?.seo,
-	titleImage: data.value?.titleImage,
+	title: data?.value?.title,
+	seo: data?.value?.seo,
+	titleImage: data?.value?.titleImage,
 })
 </script>
 
