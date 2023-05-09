@@ -61,28 +61,25 @@ Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 
 ## 📖 Documentation
 
-### Deploying to Netlify
+### 🤖 Deploying to Netlify
 
 -   In Netlify add two separate sites with "studio" / "web" as the base directories. The rest of the build settings is handled automatically (and by the `studio/netlify.toml` file).
 
 -   You will need to add environment variables used in your .env files to Netlify as well.
 
-### Sanity
+### 🎟️ Sanity
 
 -   Documentation: https://www.sanity.io/docs/overview-introduction
 
 -   API Access: You have to add all origins that should have access to your Sanity dataset (like http://localhost:3333 or your netlify url) the to the API settings in your [`Sanity Account`](https://manage.sanity.io)
 
--   To install updates for the Sanity studio:
+-   To install updates for the Sanity studio run from root:
 
     ```
-    cd studio
-    sanity upgrade
-    cd ..
-    pnpm i --shamefully-hoist
+    pnpm i sanity@latest --filter studio
     ```
 
-### Nuxt
+### 🏔️ Nuxt
 
 -   Documentation: https://nuxt.com/docs/getting-started/introduction
 
@@ -90,7 +87,7 @@ Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 
 -   To update manually: Bump `nuxt` dependency to the new version and then use `npx nuxi@latest cleanup` to cleanup any local caches.
 
-### (Live) Previews
+### 👀 (Live) Previews
 
 #### Studio:
 
