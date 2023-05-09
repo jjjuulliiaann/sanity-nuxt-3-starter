@@ -30,6 +30,7 @@ const serializers = {
 	},
 	styles: {
 		normal: 'p',
+		h1: Element,
 		h2: Element,
 		h3: Element,
 		small: Element,
