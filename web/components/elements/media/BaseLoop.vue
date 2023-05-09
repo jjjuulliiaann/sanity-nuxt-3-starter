@@ -1,9 +1,14 @@
 <template>
-	<figure class="VideoLoop">
+	<figure
+		class="VideoLoop"
+		:class="[
+			isPlaying && 'VideoLoop_playing',
+			isPortrait && 'VideoLoop_portrait',
+		]"
+	>
 		<video
 			ref="videoEl"
 			class="VideoLoop_Video"
-			:class="{ VideoLoop_playing: isPlaying }"
 			muted
 			playsinline
 			disablePictureInPicture
@@ -16,25 +21,63 @@
 			@playing="updatePaused"
 			@pause="updatePaused"
 		></video>
-		<img :data-src="posterSrc" class="VideoLoop_Image lazyload" />
+		<ElementsMediaBaseImage
+			v-if="props.posterImage"
+			:image="props.posterImage"
+			:alt="props.video?.alt"
+		/>
+		<img
+			v-else
+			:src="posterSrc"
+			:width="videoWidth"
+			:height="videoHeight"
+			:alt="props.video?.alt"
+			loading="lazy"
+		/>
 	</figure>
 </template>
 
 <script setup>
 const props = defineProps({
+	/* 
+	Object containing a muxVideo. 
+	*/
 	video: {
 		type: Object,
 		default: () => undefined,
 	},
 
+	/* 
+	Without a posterimage the first frame from the mux video is used.
+	*/
 	posterImage: {
 		type: Object,
 		default: () => undefined,
 	},
 
-	isActive: {
+	/* 
+	Use mp4 instead of hls.
+	*/
+	preferMp4: {
 		type: Boolean,
 		default: () => true,
+	},
+
+	/* 
+	Should the video load a smaller mp4 version from mux (only applicable if preferMp4 is true).
+	*/
+	useSmallResolution: {
+		type: Boolean,
+		default: () => false,
+	},
+
+	/* 
+	Defines if the video should preload. If false the video loads when becoming visible.
+	Loading starts as soon as preload is set to true.
+	*/
+	preload: {
+		type: Boolean,
+		default: () => false,
 	},
 })
 
@@ -44,6 +87,7 @@ variables
 const videoEl = ref(null)
 const isPlaying = ref(false)
 const isLoaded = ref(false)
+const isInit = ref(false)
 
 /*
 dimensions
@@ -60,41 +104,51 @@ const videoHeight = computed(() => {
 	)
 	return videoTrack ? videoTrack.max_height : undefined
 })
+const isPortrait = computed(() => videoWidth.value < videoHeight.value)
+const aspectRatioStyle = computed(
+	() => `${videoWidth.value} / ${videoHeight.value}`
+)
 
 /*
 poster image
 */
-const { $urlFor } = useNuxtApp()
 const posterSrc = computed(() => {
-	if (!props.posterImage) {
-		return props.video?.muxVideo?.asset?.playbackId
-			? `https://image.mux.com/${props.video?.muxVideo?.asset?.playbackId}/thumbnail.jpg?time=0`
-			: ''
-	}
-	return $urlFor(props.posterImage)
-		.width(videoWidth.value ?? 1000)
-		.url()
+	return props.video?.muxVideo?.asset?.playbackId
+		? `https://image.mux.com/${props.video?.muxVideo?.asset?.playbackId}/thumbnail.jpg?time=0`
+		: ''
 })
 
 /*
 setup
 */
 const emit = defineEmits(['loaded'])
-useMuxStream({
+const { appendVideo } = useMuxStream({
 	muxVideo: props.video?.muxVideo,
 	videoEl: videoEl,
-	preferMp4: true,
+	preferMp4: props.preferMp4,
+	useSmallResolution: props.useSmallResolution,
 })
+
+/*
+load video
+*/
+const loadVideo = () => {
+	if (!isInit.value) {
+		appendVideo()
+		videoEl?.value?.load()
+		isInit.value = true
+	}
+}
 
 /*
 handle play state
 */
 const updatePaused = (event) => {
 	isPlaying.value =
-		event.target.currentTime > 0 &&
 		!event.target.paused &&
 		!event.target.ended &&
 		event.target.readyState > event.target.HAVE_CURRENT_DATA
+	// set loading state
 	if (!isLoaded.value) {
 		isLoaded.value = true
 		emit('loaded')
@@ -124,9 +178,8 @@ const { stop } = useIntersectionObserver(
 	videoEl,
 	([{ isIntersecting }], observerElement) => {
 		if (isIntersecting) {
-			if (!isPlaying.value && props.isActive) {
-				playVideo()
-			}
+			loadVideo()
+			playVideo()
 		} else {
 			setTimeout(() => {
 				videoEl?.value?.pause()
@@ -138,17 +191,24 @@ const { stop } = useIntersectionObserver(
 	}
 )
 
-/* 
-play when active
+/*
+preload
 */
-watch(
-	() => props.isActive,
-	(newVal) => {
-		if (newVal) {
-			playVideo()
+const { trigger: triggerPreload } = watchTriggerable(
+	() => props.preload,
+	(preload) => {
+		if (preload) {
+			loadVideo()
 		}
 	}
 )
+
+/*
+load directly if preload is true
+*/
+onMounted(() => {
+	triggerPreload()
+})
 </script>
 
 <style scoped>
@@ -156,19 +216,20 @@ watch(
 	position: relative;
 }
 
-.VideoLoop_Image {
+.VideoLoop > video {
+	position: relative;
+	aspect-ratio: v-bind('aspectRatioStyle');
+	z-index: 2;
+}
+
+.VideoLoop:deep(img) {
 	position: absolute;
-	z-index: -1;
 	left: 0;
+	top: 0;
+	z-index: 1;
 }
 
-.lazyload,
-.lazyloading {
-	opacity: 0;
-}
-
-.lazyloaded {
-	opacity: 1;
-	transition: opacity 0.75s;
+.VideoLoop_playing:deep(img) {
+	display: none;
 }
 </style>

@@ -9,6 +9,7 @@
 		:alt="props.image.alt"
 		:style="[hotspotStyle, aspectRatioStyle]"
 		:class="orientation"
+		auto-sizes
 	/>
 </template>
 

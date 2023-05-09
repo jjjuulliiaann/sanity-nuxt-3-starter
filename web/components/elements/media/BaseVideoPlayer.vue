@@ -86,17 +86,42 @@
 
 <script setup>
 const props = defineProps({
+	/* 
+	Object containing a muxVideo. 
+	*/
 	video: {
 		type: Object,
 		required: true,
 	},
 
+	/* 
+	Without a posterimage the first frame from the mux video is used.
+	*/
 	posterImage: {
 		type: Object,
 		default: () => undefined,
 	},
 
+	/* 
+	Show the current and total time in the player bar.
+	*/
 	showTime: {
+		type: Boolean,
+		default: () => false,
+	},
+
+	/* 
+	Use mp4 instead of hls.
+	*/
+	preferMp4: {
+		type: Boolean,
+		default: () => true,
+	},
+
+	/* 
+	Should the video load a smaller mp4 version from mux (only applicable if preferMp4 is true).
+	*/
+	useSmallResolution: {
 		type: Boolean,
 		default: () => false,
 	},
@@ -105,9 +130,9 @@ const props = defineProps({
 /* 
 elements 
 */
-const videoPlayerEl = ref(null)
-const videoEl = ref(null)
-const progressEl = ref(null)
+const videoPlayerEl = ref()
+const videoEl = ref()
+const progressEl = ref()
 
 /* 
 variables 
@@ -145,20 +170,33 @@ poster image
 */
 const { $urlFor } = useNuxtApp()
 const posterSrc = computed(() => {
-	if (!props.posterImage) {
+	if (props.posterImage) {
+		return $urlFor(props.posterImage)
+			.width(videoWidth.value ?? 1920)
+			.url()
+	} else {
 		return props.video?.muxVideo?.asset?.playbackId
-			? `https://image.mux.com/${props.video?.muxVideo?.asset?.playbackId}/thumbnail.jpg`
+			? `https://image.mux.com/${
+					props.video?.muxVideo?.asset?.playbackId
+			  }/thumbnail.jpg?time=${
+					props.video?.muxVideo?.asset?.thumbTime ?? 0
+			  }`
 			: ''
 	}
-	return $urlFor(props.posterImage)
-		.width(videoWidth.value ?? 1000)
-		.url()
 })
 
 /*
 load video
 */
-useMuxStream({ muxVideo: props.video?.muxVideo, videoEl: videoEl })
+const { appendVideo } = useMuxStream({
+	muxVideo: props.video?.muxVideo,
+	videoEl: videoEl,
+	preferMp4: props.preferMp4,
+	useSmallResolution: props.useSmallResolution,
+})
+onMounted(() => {
+	appendVideo()
+})
 
 /*
 control video

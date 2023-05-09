@@ -1,6 +1,11 @@
 import Hls from 'hls.js'
 
-export default function ({ muxVideo, videoEl, preferMp4 = false }) {
+export default function ({
+	muxVideo,
+	videoEl,
+	preferMp4 = false,
+	useSmallResolution = false,
+}) {
 	const video = unref(muxVideo)
 	if (!video?.asset) {
 		return false
@@ -8,7 +13,7 @@ export default function ({ muxVideo, videoEl, preferMp4 = false }) {
 
 	let stream = ''
 
-	const addStreamToVideo = () => {
+	const appendVideo = () => {
 		if (
 			preferMp4 &&
 			video.asset.data?.static_renditions?.status === 'ready'
@@ -17,8 +22,10 @@ export default function ({ muxVideo, videoEl, preferMp4 = false }) {
 			const filesSortedByBitrate = [
 				...video.asset.data?.static_renditions?.files,
 			].sort((a, b) => b.bitrate - a.bitrate)
-			const highVersionString = filesSortedByBitrate[0]?.name
-			stream = `https://stream.mux.com/${video.asset?.playbackId}/${highVersionString}`
+			const versionString = useSmallResolution
+				? filesSortedByBitrate[1]?.name
+				: filesSortedByBitrate[0]?.name
+			stream = `https://stream.mux.com/${video.asset?.playbackId}/${versionString}`
 			videoEl.value.src = stream
 		} else {
 			// create hls version
@@ -35,7 +42,5 @@ export default function ({ muxVideo, videoEl, preferMp4 = false }) {
 		}
 	}
 
-	onMounted(() => {
-		addStreamToVideo()
-	})
+	return { appendVideo }
 }
