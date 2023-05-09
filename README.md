@@ -1,6 +1,6 @@
 # 🌵 Sanity Nuxt 3 Starter
 
-Opinionated monorepo starter based on Nuxt 3 and Sanity v3. Look at the [`Nuxt 3 documentation`](https://nuxt.com/docs/getting-started/introduction) and the [`Sanity documentation`](https://www.sanity.io/docs/overview-introduction) to learn more.
+Opinionated monorepo starter based on Nuxt 3 and Sanity v3.
 
 Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 
@@ -9,12 +9,12 @@ Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 -   Monorepo using PNPM Workspaces
 -   Sanity Studio v3 React Backend (in /studio)
 -   Nuxt 3 Frontend (in /web)
+-   Progressive image loading with [Unlazy](https://github.com/johannschopplich/unlazy) using BlurHashes
+-   Studio using [Mux](https://www.mux.com/) for videos
 -   Vite Module Bundler
 -   Pinia Store
 -   Linting with ESLint
 -   Code Formatting with Prettier
--   Progressive image loading with [unlazy](https://github.com/johannschopplich/unlazy) using blurhashes
--   Studio using [Mux](https://www.mux.com/) for videos
 -   Configured for Netlify Hosting
 
 ## 🚀 Quick start
@@ -68,6 +68,8 @@ Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 
 ### Sanity
 
+-   Documentation: https://www.sanity.io/docs/overview-introduction
+
 -   API Access: You have to add all origins that should have access to your Sanity dataset (like http://localhost:3333 or your netlify url) the to the API settings in your [`Sanity Account`](https://manage.sanity.io)
 
 -   To install updates for the Sanity studio:
@@ -81,9 +83,11 @@ Preview: https://sanity-nuxt-3-starter.netlify.app 👀
 
 ### Nuxt
 
-To upgrade Nuxt 3 to the latest release, use the `npx nuxi upgrade` command.
+-   Documentation: https://nuxt.com/docs/getting-started/introduction
 
-To update manually: Bump `nuxt` dependency to the new version and then use `npx nuxi@latest cleanup` to cleanup any local caches.
+-   To upgrade Nuxt 3 to the latest release, use the `npx nuxi upgrade` command.
+
+-   To update manually: Bump `nuxt` dependency to the new version and then use `npx nuxi@latest cleanup` to cleanup any local caches.
 
 ### Preview Mode
 

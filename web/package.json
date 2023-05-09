@@ -8,22 +8,22 @@
 		"preview": "nuxt preview"
 	},
 	"dependencies": {
-		"@nuxtjs/sanity": "^1.7.0",
-		"@pinia/nuxt": "^0.4.9",
+		"@nuxtjs/sanity": "^1.7.1",
+		"@pinia/nuxt": "^0.4.10",
 		"@sanity/image-url": "^1.0.2",
-		"hls.js": "^1.4.0",
-		"pinia": "^2.0.35"
+		"hls.js": "^1.4.1",
+		"pinia": "^2.0.36"
 	},
 	"devDependencies": {
 		"@nuxtjs/eslint-config": "^12.0.0",
-		"@unlazy/nuxt": "^0.8.8",
-		"@vueuse/components": "^10.1.0",
-		"@vueuse/core": "^10.1.0",
-		"@vueuse/nuxt": "^10.1.0",
-		"eslint": "^8.39.0",
+		"@unlazy/nuxt": "^0.8.9",
+		"@vueuse/components": "^10.1.2",
+		"@vueuse/core": "^10.1.2",
+		"@vueuse/nuxt": "^10.1.2",
+		"eslint": "^8.40.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-prettier": "^4.2.1",
-		"nuxt": "3.4.2",
+		"nuxt": "3.4.3",
 		"postcss": "^8.4.23",
 		"postcss-cli": "10.1.0",
 		"postcss-design-tokens": "^1.3.0",
