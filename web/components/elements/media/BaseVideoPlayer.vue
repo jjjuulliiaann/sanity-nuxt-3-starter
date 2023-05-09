@@ -69,11 +69,8 @@
 					{{ totalTimeString }}</span
 				>
 			</li>
-			<li v-if="isSupported" class="VideoPlayer_Fullscreen">
-				<button
-					class="VideoPlayer_ControlsButton"
-					@click="toggleFullscreen"
-				>
+			<li class="VideoPlayer_Fullscreen">
+				<button class="VideoPlayer_ControlsButton" @click="toggle">
 					<span
 						><ElementsIconsFullscreenIcon
 							:is-fullscreen="isFullscreen"
@@ -213,6 +210,8 @@ const pauseVideo = () => {
 	videoEl.value.pause()
 }
 
+const { isFullscreen, toggle } = useFullscreen(videoEl)
+
 /*
 control video states
 */
@@ -278,18 +277,6 @@ const updateProgressHover = (event) => {
 	const rect = progressEl.value.getBoundingClientRect()
 	const pos = (event.pageX - rect.left) / progressEl.value.offsetWidth
 	progressHoverPosition.value = pos > 0 ? pos * 100 : 0
-}
-
-/*
-fullscreen
-*/
-const { isSupported, isFullscreen, toggle } = useFullscreen(
-	videoPlayerEl,
-	videoEl
-)
-
-const toggleFullscreen = () => {
-	toggle()
 }
 </script>
 
